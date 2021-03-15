@@ -3,8 +3,12 @@ h1, h2, h3, h4, h5 {
     text-align: center;
 }
 
-p, span {
+p, span, button, select {
     font-family: 'Raleway', sans-serif;
+}
+
+section {
+    color: snow;
 }
 
 .presentation {

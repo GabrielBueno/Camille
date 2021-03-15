@@ -1,3 +1,5 @@
+/* Defaults */
+
 * {
     padding: 0;
     margin:  0;
@@ -5,13 +7,26 @@
     scroll-behavior: smooth;
 }
 
+button, select {
+    padding:          0;
+    margin:           0;
+    border:           none;
+    background-color: initial;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Layout */
+
 main {
     display:   flex;
     flex-flow: row wrap;
 }
 
 section {
-    height:  100vh;
+    height: 100vh;
 
     background-color: rgba(0, 0, 0, .88);
 }
@@ -19,7 +34,58 @@ section {
 aside {
     height:     calc(100vh - 30px);
     max-height: calc(100vh - 30px);
-    padding: 30px 0 0 0;
+    padding:    30px 0 0 0;
 
     background-color: snow;
+}
+
+div.btn-row {
+    margin: 0 auto;
+    width:  max-content
+}
+
+/* Button decorations */
+
+section button, section button:focus {
+    padding:   8px;
+    min-width: 130px;
+
+    color:            snow;
+    background-color: rgba(255, 255, 255, .06);
+    border:           1px solid rgba(255, 255, 255, .2);
+
+    transition: all .3s;
+}
+
+section button:hover {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+/* Viewer */
+
+div.viewer {
+    margin:    0 auto;
+    height:    600px;
+    width:     800px;
+    max-width: 100%;
+
+    background-color: rgba(0, 0, 0, .3);
+}
+
+/* Spacer */
+
+.sp10px {
+    margin-top: 10px;
+    display:    block;
+}
+
+.sp20px {
+    margin-top: 20px;
+    display:    block;
+}
+
+/* File selector */
+
+#img-file-selector {
+    display: none;
 }

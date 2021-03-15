@@ -5,3 +5,8 @@ section {
 aside {
     min-width: 100%;
 }
+
+div.viewer {
+    width:  100vw;
+    height: calc(100vh - 80px);
+}

@@ -1,8 +1,10 @@
 section {
-    flex: 3 0 0;
+    flex: 4 0 0;
+    padding: 50px 0 0 0;
+    height:  calc(100vh - 50px)
 }
 
 aside {
     flex: 2 0 0;
-    box-shadow: -5px 0px 5px rgba(0, 0, 0, .9);
+    box-shadow: -10px 0px 20px rgba(0, 0, 0, 1);
 }
