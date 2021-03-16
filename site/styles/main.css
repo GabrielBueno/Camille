@@ -23,12 +23,14 @@ button {
 main {
     display:   flex;
     flex-flow: row wrap;
+
+    background-size: cover;
 }
 
 section {
     height: 100vh;
 
-    background-color: rgba(0, 0, 0, .88);
+    background-color: rgba(0, 0, 0, .93);
 }
 
 aside {
@@ -70,6 +72,7 @@ div.viewer {
     max-width: 100%;
 
     background-color: rgba(0, 0, 0, .3);
+    background-size:    cover;
 }
 
 /* Spacer */

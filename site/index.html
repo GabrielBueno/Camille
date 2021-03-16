@@ -19,14 +19,14 @@
   </head>
 
   <body>
-    <main>
+    <main id="main" :style="{ backgroundImage: url(previewUrl) }">
       <section id="up">
-        <div class="viewer"></div>
+        <div class="viewer" :style="{ backgroundImage: url(previewUrl) }"></div>
         <span class="sp20px"></span>
 
         <div class="btn-row">
-          <button>Escolher imagem</button>
-          <button>Categorizar</button>
+          <button v-on:click="selectImg">Escolher imagem</button>
+          <button v-on:click="categorize">Categorizar</button>
         </div>
       </section>
 
@@ -39,7 +39,7 @@
       </aside>
     </main>
 
-    <input id="img-file-selector" type="file">
+    <input id="img-file-selector" type="file" accept="image/*">
 
     <!-- Debug libs -->
     <script src="./lib/vue.js"></script>
