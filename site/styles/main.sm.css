@@ -8,5 +8,5 @@ aside {
 
 div.viewer {
     width:  100vw;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 160px);
 }
