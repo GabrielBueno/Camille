@@ -6,5 +6,9 @@ section {
 
 aside {
     flex: 2 0 0;
-    box-shadow: -10px 0px 20px rgba(0, 0, 0, 1);
+    box-shadow: -15px 0px 20px black;
+}
+
+button.goto-top {
+    display: none;
 }

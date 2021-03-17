@@ -6,7 +6,6 @@
     <title>Camille</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"> 
 
@@ -21,23 +20,27 @@
   </head>
 
   <body>
-    <main id="main" :style="{ backgroundImage: url(previewUrl) }">
-      <section id="up">
-        <div class="viewer" :style="{ backgroundImage: url(previewUrl) }"></div>
+    <main id="main" :style="{ backgroundImage: url(preview.url) }">
+      <section id="top-view">
+        <div class="viewer" :style="{ backgroundImage: url(preview.url) }"></div>
         <span class="sp20px"></span>
 
         <div class="btn-row">
-          <button v-on:click="selectImg">Escolher imagem</button>
-          <button v-on:click="categorize">Categorizar</button>
+          <button v-on:click="selectImg"  :disabled="state.categorizing">Escolher imagem</button>
+          <button v-on:click="categorize" :disabled="state.categorizing">Categorizar</button>
         </div>
       </section>
 
-      <aside id="read">
+      <aside id="bottom-view">
         <h1>Camille</h1>
 
         <p class="presentation">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti dolor accusantium aut repudiandae laboriosam magnam nisi doloribus, optio corrupti minus nemo. Obcaecati, itaque dolore! Dolore deleniti vel libero minus! Consectetur.
         </p>
+
+        <div class="btn-row mt50">
+          <button class="goto-top" v-on:click="goToTop">/\ Voltar para o topo</button>
+        </div>
       </aside>
     </main>
 
