@@ -12,8 +12,8 @@ import torchvision.transforms as T
 
 from torch.cuda.amp import GradScaler, autocast
 
-# DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-DEVICE = "cpu"
+DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+# DEVICE = "cpu"
 
 def train_mobilenetV3_small():
     torch.cuda.empty_cache()
@@ -67,7 +67,7 @@ def train_resnet18():
 
     input_size    = 224
     num_of_epochs = 15
-    batch_size    = 32
+    batch_size    = 1
 
     means = [.485, .456, .406]
     stds  = [.229, .224, .225]
@@ -105,7 +105,7 @@ def _train_and_eval(model, datacol, criterion, optimizer, epochs=15, batch_size=
     start = time.time()
 
     accuracy_history = []
-    best_model       = _cp_model(model)
+    # best_model       = _cp_model(model)
     best_accuracy    = 0.0
 
     t_dataloader = torch.utils.data.DataLoader(datacol.training_set,   batch_size=batch_size, shuffle=True, num_workers=0)
@@ -131,7 +131,7 @@ def _train_and_eval(model, datacol, criterion, optimizer, epochs=15, batch_size=
 
         if (epoch_v_acc > best_accuracy):
             best_accuracy = epoch_v_acc
-            best_model    = _cp_model(model)
+            # best_model    = _cp_model(model)
 
         accuracy_history.append(epoch_v_acc)
 
@@ -147,27 +147,39 @@ def _train(model, dataloader, criterion, optimizer):
     running_loss     = 0.0
     running_corrects = 0.0
 
-    grad_acc   = 16
-    curr_batch = 1
+    accumulation_steps = 16
+    curr_batch         = 1
+
+    model.zero_grad()
+    optimizer.zero_grad()
 
     for (inputs, labels) in dataloader:
-        print(curr_batch)
-        optimizer.zero_grad()
-
-        inputs = inputs.to(DEVICE)
-        labels = labels.to(DEVICE)
+        dev_inputs = inputs.to(DEVICE)
+        # dev_labels = labels.to(DEVICE)
         
-        outputs = model(inputs)
-        loss    = criterion(outputs, labels)
+        outputs = model(dev_inputs)
 
-        (_, preds) = torch.max(outputs, 1)
+        dev_labels = labels.to(DEVICE)
+        loss    = criterion(outputs, dev_labels)
 
-        loss.backward()
-        optimizer.step()
+        # (_, preds) = torch.max(outputs, 1)
 
-        running_loss     += loss.detach().item() * inputs.size(0)
-        running_corrects += torch.sum(preds == labels.data)
+        (loss / accumulation_steps).backward()
+        # optimizer.step()
 
+        if (curr_batch % accumulation_steps == 0):
+            optimizer.step()
+
+            model.zero_grad()
+            optimizer.zero_grad()
+
+        del dev_inputs
+        del dev_labels
+
+        # running_loss     += loss.detach().item() * inputs.size(0)
+        # running_corrects += torch.sum(preds == labels.data)
+
+        print(curr_batch)
         curr_batch += 1
 
     return (running_loss, running_corrects)
