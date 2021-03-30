@@ -1,4 +1,5 @@
 from dataset import WikiArtDataCollection
+from labels  import LabelingKind
 
 import torch
 import torchvision.models
@@ -28,6 +29,7 @@ def train_resnet18():
     ])
 
     datacol = WikiArtDataCollection(
+        labeling_kind         = LabelingKind.SIMPLIFIED,
         training_transforms   = t_transform,
         validation_transforms = v_transform,
         validation_percent    = 20
