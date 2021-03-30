@@ -1,9 +1,9 @@
-from labels import labeling_strategy
+from labels import labeling_strategy, num_of_labels_of_kind
 
 import os
 import random
 
-from PIL import Image
+from PIL import Image, ImageFile
 from torch.utils.data import Dataset
 
 class WikiArtDataCollection():
@@ -11,6 +11,7 @@ class WikiArtDataCollection():
 
     def __init__(self, labeling_kind, training_transforms, validation_transforms, validation_percent):
         self.validation_percent = validation_percent
+        self.num_of_labels      = num_of_labels_of_kind(labeling_kind)
         
         # Init datasets
         label = labeling_strategy(labeling_kind)
@@ -34,6 +35,7 @@ class CamilleDataset(Dataset):
 
     def __getitem__(self, index):
         (path, label) = self.imgs[index]
-        img           = Image.open(path)
 
-        return (self.transform(img), label)
+        ImageFile.LOAD_TRUNCATED_IMAGES = True
+
+        return (self.transform(Image.open(path)), label)

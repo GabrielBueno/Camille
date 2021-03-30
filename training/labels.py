@@ -7,55 +7,55 @@ class LabelingKind(Enum):
     ATOMIC     = 2
 
 class SimpleLabel:
-    EXPRESSIONISM         = 1
-    ABSTRACT_ART          = 2
-    CUBISM                = 3
-    REALISM               = 4
-    RENAISSANCE           = 5
-    ART_NOUVEAU           = 6
-    BAROQUE               = 7
-    FAUVISM               = 8
-    IMPRESSIONISM         = 9
-    POST_IMPRESSIONISM    = 10
-    NAIVE_ART_PRIMITIVISM = 11
-    PONTILLISM            = 12
-    POP_ART               = 13
-    ROCOCO                = 14
-    ROMANTICISM           = 15
-    SYMBOLISM             = 16
-    UKIYO_E               = 17
+    EXPRESSIONISM         = 0
+    ABSTRACT_ART          = 1
+    CUBISM                = 2
+    REALISM               = 3
+    RENAISSANCE           = 4
+    ART_NOUVEAU           = 5
+    BAROQUE               = 6
+    FAUVISM               = 7
+    IMPRESSIONISM         = 8
+    POST_IMPRESSIONISM    = 9
+    NAIVE_ART_PRIMITIVISM = 10
+    PONTILLISM            = 11
+    POP_ART               = 12
+    ROCOCO                = 13
+    ROMANTICISM           = 14
+    SYMBOLISM             = 15
+    UKIYO_E               = 16
 
 class AtomicLabel:
-    ABSTRACT_EXPRESSIONISM     = 1
-    ACTION_PAINTING            = 2
-    MINIMALISM                 = 3
-    COLOR_FIELD_PAINTING       = 4
-    EXPRESSIONISM              = 5
-    ANALYTICAL_CUBISM          = 6
-    CUBISM                     = 7
-    SYNTHETIC_CUBISM           = 8
-    REALISM                    = 9
-    CONTEMPORARY_REALISM       = 10
-    NEW_REALISM                = 11
-    EARLY_RENAISSANCE          = 12
-    HIGH_RENAISSANCE           = 13
-    MANNERISM_LATE_RENAISSANCE = 14
-    NORTHERN_RENAISSANCE       = 15
-    ART_NOUVEAU_MODERN         = 16
-    BAROQUE                    = 17
-    FAUVISM                    = 18
-    IMPRESSIONISM              = 19
-    POST_IMPRESSIONISM         = 20
-    NAIVE_ART_PRIMITIVISM      = 21
-    POINTILLISM                = 22
-    POP_ART                    = 23
-    ROCOCO                     = 24
-    ROMANTICISM                = 25
-    SYMBOLISM                  = 26
-    UKIYO_E                    = 27
+    ABSTRACT_EXPRESSIONISM     = 0
+    ACTION_PAINTING            = 1
+    MINIMALISM                 = 2
+    COLOR_FIELD_PAINTING       = 3
+    EXPRESSIONISM              = 4
+    ANALYTICAL_CUBISM          = 5
+    CUBISM                     = 6
+    SYNTHETIC_CUBISM           = 7
+    REALISM                    = 8
+    CONTEMPORARY_REALISM       = 9
+    NEW_REALISM                = 10
+    EARLY_RENAISSANCE          = 11
+    HIGH_RENAISSANCE           = 12
+    MANNERISM_LATE_RENAISSANCE = 13
+    NORTHERN_RENAISSANCE       = 14
+    ART_NOUVEAU_MODERN         = 15
+    BAROQUE                    = 16
+    FAUVISM                    = 17
+    IMPRESSIONISM              = 18
+    POST_IMPRESSIONISM         = 19
+    NAIVE_ART_PRIMITIVISM      = 20
+    POINTILLISM                = 21
+    POP_ART                    = 22
+    ROCOCO                     = 23
+    ROMANTICISM                = 24
+    SYMBOLISM                  = 25
+    UKIYO_E                    = 26
 
-NUM_OF_SIMPLE_LABELS = SimpleLabel.UKIYO_E
-NUM_OF_ATOMIC_LABELS = AtomicLabel.UKIYO_E
+NUM_OF_SIMPLE_LABELS = SimpleLabel.UKIYO_E + 1
+NUM_OF_ATOMIC_LABELS = AtomicLabel.UKIYO_E + 1
 
 SIMPLIFIED_LABEL_DICT = {
     "Abstract_Expressionism":     SimpleLabel.ABSTRACT_ART,
@@ -117,7 +117,7 @@ COMPLETE_LABEL_DICT = {
     "Ukiyo_e":                    AtomicLabel.UKIYO_E,
 }
 
-def __val_or_undef(dict, key):
+def _val_or_undef(dict, key):
     if (key in dict):
         return dict[key]
 
@@ -125,10 +125,19 @@ def __val_or_undef(dict, key):
 
 def labeling_strategy(labeling_kind):
     if (labeling_kind == LabelingKind.SIMPLIFIED):
-        return lambda str: __val_or_undef(SIMPLIFIED_LABEL_DICT, str)
+        return lambda str: _val_or_undef(SIMPLIFIED_LABEL_DICT, str)
 
     if (labeling_kind == LabelingKind.ATOMIC):
-        return lambda str: __val_or_undef(COMPLETE_LABEL_DICT, str)
+        return lambda str: _val_or_undef(COMPLETE_LABEL_DICT, str)
+
+    raise Exception(f"Invalid labeling kind: {labeling_kind}")
+
+def num_of_labels_of_kind(labeling_kind):
+    if (labeling_kind == LabelingKind.SIMPLIFIED):
+        return NUM_OF_SIMPLE_LABELS
+
+    if (labeling_kind == LabelingKind.ATOMIC):
+        return NUM_OF_ATOMIC_LABELS
 
     raise Exception(f"Invalid labeling kind: {labeling_kind}")
 
