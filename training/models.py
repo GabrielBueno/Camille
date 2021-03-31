@@ -15,12 +15,13 @@ from torch.cuda.amp import GradScaler, autocast
 DEVICE = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 # DEVICE = "cpu"
 
-def train_mobilenetV3_small():
+def train_mobilenetV3_small(outdir):
+    torch.backends.cudnn.enabled = False
     torch.cuda.empty_cache()
 
     input_size    = 224
     num_of_epochs = 15
-    batch_size    = 32
+    batch_size    = 1
 
     means = [.485, .456, .406]
     stds  = [.229, .224, .225]
@@ -43,6 +44,7 @@ def train_mobilenetV3_small():
         labeling_kind         = LabelingKind.SIMPLIFIED,
         training_transforms   = t_transform,
         validation_transforms = v_transform,
+        subset_size           = 30,
         validation_percent    = 20
     )
 
@@ -57,9 +59,21 @@ def train_mobilenetV3_small():
     optimizer = torch.optim.SGD(mobilenetV3.parameters(), lr=.001, momentum=.9)
     criterion = torch.nn.CrossEntropyLoss()
 
-    best_model = _train_and_eval(mobilenetV3, datacol, criterion, optimizer, epochs=num_of_epochs, batch_size=batch_size)
+    (model, accuracy) = _train_and_eval(
+        mobilenetV3, 
+        datacol, 
+        criterion, 
+        optimizer, 
+        epochs=num_of_epochs, 
+        batch_size=batch_size
+    )
 
-def train_resnet18():
+    with open(f"{outdir}/mobilenet_v3_small.log", "w") as metrics_file:
+        metrics_file.write("acc {:.4f}".format(accuracy))
+
+    torch.save(model, f"{outdir}/mobilenet_v3_small.pt")
+
+def train_resnet18(outdir="./models/resnet18"):
     torch.backends.cudnn.enabled = False
     torch.cuda.empty_cache()
 
@@ -90,6 +104,7 @@ def train_resnet18():
         labeling_kind         = LabelingKind.SIMPLIFIED,
         training_transforms   = t_transform,
         validation_transforms = v_transform,
+        subset_size           = 60,
         validation_percent    = 20
     )
 
@@ -99,13 +114,25 @@ def train_resnet18():
     optimizer = torch.optim.SGD(resnet18.parameters(), lr=.001, momentum=.9)
     criterion = torch.nn.CrossEntropyLoss()
 
-    best_model = _train_and_eval(resnet18, datacol, criterion, optimizer, epochs=num_of_epochs, batch_size=batch_size)
+    (model, accuracy) = _train_and_eval(
+        resnet18, 
+        datacol, 
+        criterion, 
+        optimizer, 
+        epochs=num_of_epochs, 
+        batch_size=batch_size
+    )
+
+    with open(f"{outdir}/resnet18.log", "w") as metrics_file:
+        metrics_file.write("best acc {:.4f}".format(accuracy))
+
+    torch.save(model, f"{outdir}/resnet18.pt")
 
 def _train_and_eval(model, datacol, criterion, optimizer, epochs=15, batch_size=8):
     start = time.time()
 
     accuracy_history = []
-    # best_model       = _cp_model(model)
+    best_model       = _cp_model(model)
     best_accuracy    = 0.0
 
     t_dataloader = torch.utils.data.DataLoader(datacol.training_set,   batch_size=batch_size, shuffle=True, num_workers=0)
@@ -131,14 +158,14 @@ def _train_and_eval(model, datacol, criterion, optimizer, epochs=15, batch_size=
 
         if (epoch_v_acc > best_accuracy):
             best_accuracy = epoch_v_acc
-            # best_model    = _cp_model(model)
+            best_model    = _cp_model(model)
 
         accuracy_history.append(epoch_v_acc)
 
     print(f"\nfinished in {time.time() - start}s")
     print("best acc {:.4f}".format(best_accuracy))
 
-    return best_model
+    return (best_model, best_accuracy)
 
 def _train(model, dataloader, criterion, optimizer):
     model.train()
@@ -147,39 +174,31 @@ def _train(model, dataloader, criterion, optimizer):
     running_loss     = 0.0
     running_corrects = 0.0
 
-    accumulation_steps = 16
+    accumulation_steps = 8
     curr_batch         = 1
 
-    model.zero_grad()
+    # model.zero_grad()
     optimizer.zero_grad()
 
     for (inputs, labels) in dataloader:
-        dev_inputs = inputs.to(DEVICE)
-        # dev_labels = labels.to(DEVICE)
+        inputs = inputs.to(DEVICE)
+        labels = labels.to(DEVICE)
         
-        outputs = model(dev_inputs)
+        outputs = model(inputs)
+        loss    = criterion(outputs, labels)
 
-        dev_labels = labels.to(DEVICE)
-        loss    = criterion(outputs, dev_labels)
-
-        # (_, preds) = torch.max(outputs, 1)
+        (_, preds) = torch.max(outputs, 1)
 
         (loss / accumulation_steps).backward()
-        # optimizer.step()
 
         if (curr_batch % accumulation_steps == 0):
             optimizer.step()
-
-            model.zero_grad()
             optimizer.zero_grad()
 
-        del dev_inputs
-        del dev_labels
+        running_loss     += loss.item() * inputs.size(0)
+        running_corrects += torch.sum(preds == labels.data)
 
-        # running_loss     += loss.detach().item() * inputs.size(0)
-        # running_corrects += torch.sum(preds == labels.data)
-
-        print(curr_batch)
+        # print(curr_batch)
         curr_batch += 1
 
     return (running_loss, running_corrects)
@@ -191,8 +210,8 @@ def _eval(model, dataloader, criterion):
     running_corrects = 0.0
 
     for (inputs, labels) in dataloader:
-        dev_inputs = inputs.to(DEVICE)
-        dev_labels = labels.to(DEVICE)
+        inputs = inputs.to(DEVICE)
+        labels = labels.to(DEVICE)
 
         with torch.set_grad_enabled(False):
             outputs = model(inputs)
@@ -200,19 +219,19 @@ def _eval(model, dataloader, criterion):
 
             (_, preds) = torch.max(outputs, 1)
 
-            running_loss     += loss.item() * dev_inputs.size(0)
-            running_corrects += torch.sum(preds == dev_labels.data)
+            running_loss     += loss.item() * inputs.size(0)
+            running_corrects += torch.sum(preds == labels.data)
 
     return (running_loss, running_corrects)
 
 def _cp_model(model):
-    # if (torch.cuda.is_available()):
-    #     model.to("cpu")
-    #     copied = copy.deepcopy(model.state_dict())
+    if (torch.cuda.is_available()):
+        model.to("cpu")
+        copied = copy.deepcopy(model.state_dict())
 
-    #     torch.cuda.empty_cache()
-    #     model.to(DEVICE)
+        torch.cuda.empty_cache()
+        model.to(DEVICE)
 
-    #     return copied
+        return copied
 
     return copy.deepcopy(model.state_dict())
