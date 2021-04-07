@@ -1,60 +1,158 @@
-from labels import label_func
-
 import pathlib
 import sys
 import os
 
-# from flask          import Flask, request, jsonify
-# from werkzeug.utils import secure_filename
-from bottle        import get, post, run, request, response
-from uuid          import uuid4
-from fastai.basics import load_learner, parent_label
+from uuid   import uuid4
+from enum   import Enum, auto
+from bottle import get, post, run, request, response
 
-if (sys.platform == "win32"):
-    pathlib.PosixPath = pathlib.WindowsPath
+from labels import label_func
+from models import resnet34, resnet50
 
-model = load_learner("..\\training\\models\\resnet34.pkl")
+class HttpStatus(Enum):
+    Ok          = 200
+    BadRequest  = 400
+    Forbidden   = 403
+    ServerError = 500
 
-def authorized_filetype(ext):
-    return ext in ["jpg", "jpeg", "png", "gif"]
+class Result(Enum):
+    Success          = auto()
+    FileNotSent      = auto()
+    FileUnauthorized = auto()
+    IOErr            = auto()
+    PredictionErr    = auto()
+
+## ----- Utils
 
 def get_ext(filename):
     parts = filename.rsplit(".", 1)
 
     return parts[1] if parts > 1 else ""
 
+## ----- IO
 
-@get("/")
-def hello_world():
-    return "Hello, world!"
+def save_tmp_file(file, ext):
+    try:
+        temp_filename = uuid4().hex + "." + ext
+        temp_path     = os.path.join("./temp", temp_filename)
 
-@post("/p")
-def predict():
-    if ("file" not in request.files):
-        response.status = 400
-        return { "error": "No file in request" }
+        file.save(temp_path)
 
-    file = request.files.get("file")
+        return (True, (file, temp_path))
+    except Exception as err:
+        return (False, str(err))
 
-    if (file.filename == ""):
-        response.status = 400
-        return { "error": "No file in request" }
+def rm_file(path):
+    try:
+        os.remove(path)
+
+        return (True, None)
+    except Exception as err:
+        return (False, str(err))
+
+## ----- Prediction
+
+def try_to_predict(model, path):
+    try:
+        prediction = model.predict(path)
+
+        return (True, prediction)
+    except Exception as err:
+        return (False, str(err))
+
+def run_prediction(model, request):
+    (has_file, file) = get_file_from_request(request)
+
+    if (not has_file):
+        return (Result.FileNotSent, None)
 
     ext = get_ext(file.filename)
 
-    if (ext == "" or not authorized_filetype(ext)):
-        response.status = 400
-        return { "error": "Invalid file type" }
+    if (not authorized_filetype(ext)):
+        return (Result.FileUnauthorized, None)
 
-    temp_filename = uuid4().hex + "." + ext
-    temp_path     = os.path.join("./temp", temp_filename)
+    (file_saved, tmp_file_result) = save_tmp_file()
 
-    file.save(temp_path)
+    if (not file_saved):
+        return (Result.IOErr, tmp_file_result)
 
-    prediction = model.predict(file)
+    (_, tmp_path)                  = tmp_file_result
+    (successful_pred, pred_result) = try_to_predict(tmp_path)
 
-    os.remove(temp_path)
+    if (not successful_pred):
+        return (Result.PredictionErr, pred_result)
 
-    return { "pred": prediction[0] }
+    (file_removed, rm_result) = rm_file(tmp_path)
+
+    if (not file_removed):
+        return (IOErr, rm_result)
+
+    return (Success, pred_result)
+
+## ----- Request
+
+def authorized_filetype(ext):
+    return ext in ["jpg", "jpeg", "png", "gif"]
+
+
+def get_file_from_request(request):
+    if ("file" not in request.files):
+        return (False, None)
+
+    file = request.files["file"]
+
+    if (file.filename == ""):
+        return (False, None)
+
+    return (True, file)
+
+## ----- Responses
+
+def err(msg, details = ""):
+    return { "error": msg, "details": details }
+
+def ok(prediction):
+    return { "prediction": prediction[0] }
+
+## ----- Endpoints
+
+def prediction_request(model, req, res):
+    (result_type, result) = run_prediction(model, req)
+
+    if (result_type == Result.FileNotSent):
+        res.status = HttpStatus.BadRequest
+        return err("File not sent in request")
+
+    if (result_type == Result.FileUnauthorized):
+        res.status = HttpStatus.Forbidden
+        return err("File type unauthorized")
+
+    if (result.type == Result.IOErr):
+        res.status = HttpStatus.ServerError
+        return err("Error on IO operation", result)
+
+    if (result.type == Result.PredictionErr):
+        res.status = HttpStatus.ServerError
+        return err("Error while predicting", result)
+
+    print(result)
+    response.status = HttpStatus.Ok
+    return ok(result)
+
+@get("/")
+def hello_world():
+    return "OUT!"
+
+@post("/p")
+def default_prediction():
+    return prediction_request(resnet50, request, response)
+
+@post("/r34/p")
+def predict_r34():
+    return prediction_request(resnet34, request, response)
+    
+@post("/r50/p")
+def predict_r50():
+    return prediction_request(resnet50, request, response)
 
 run(host="localhost", port="8087")

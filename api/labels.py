@@ -1,3 +1,5 @@
+from fastai.basics import parent_label
+
 UNDEFINED_LABEL = "undef_lbl"
 
 class SimpleLabel:
