@@ -8,11 +8,15 @@ const data = {
         categorizing: false
     },
     response: {
-
+        error:   "",
+        details: "",
+        pred:    "",
+        probs:   []
     }
 };
 
-const url = src => src ? "url(" + src + ")" : "none";
+const apiUrl = "http://localhost:5000";
+const url    = src => src ? "url(" + src + ")" : "none";
 
 const selectImg = () => {
     const fileSelector = document.getElementById("img-file-selector");
@@ -33,10 +37,36 @@ const selectImg = () => {
 }
 
 const categorize = () => {
-    data.state.categorizing = true;
-    console.log(data.state.categorizing);
+    if (!data.preview.file)
+        return;
 
-    window.setTimeout(() => data.state.categorizing = false, 2000);
+    data.state.categorizing = true;
+    
+    const xhr      = new XMLHttpRequest();
+    const formData = new FormData();
+    const url      = `${apiUrl}/r50/p`;
+
+    formData.append("file", data.preview.file);
+
+    xhr.onreadystatechange = _ => {
+        if (xhr.readyState === 4) {
+            const res = xhr.response;
+
+            data.error   = res.error;
+            data.details = res.details;
+            data.pred    = res.pred;
+            data.probs   = res.probs;
+
+            if (data.error)
+                console.error(data.error, data.details);
+
+            data.state.categorizing = false;
+            goToBottom();
+        }
+    };
+
+    xhr.open("post", url, true);
+    xhr.send(formData);
 };
 
 const smoothScroll = (id) => {

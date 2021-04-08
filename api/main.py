@@ -1,15 +1,17 @@
 import pathlib
 import sys
 import os
+import inspect
 
 from uuid   import uuid4
 from enum   import Enum, auto
-from bottle import get, post, run, request, response
+from bottle import app, get, post, request, response
+from PIL    import Image
 
 from labels import label_func
 from models import resnet34, resnet50
 
-class HttpStatus(Enum):
+class HttpStatus():
     Ok          = 200
     BadRequest  = 400
     Forbidden   = 403
@@ -22,12 +24,32 @@ class Result(Enum):
     IOErr            = auto()
     PredictionErr    = auto()
 
+def cors():
+    response.headers["Access-Control-Allow-Origin"]  = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token"
+
+class CORSPlugin():
+    name = "cors_plugin"
+    api  = 2
+
+    def apply(self, callback, ctx):
+        def enable_cors(*args, **kwargs):
+            response.headers["Access-Control-Allow-Origin"]  = "*"
+            response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+            response.headers["Access-Control-Allow-Headers"] = "Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token"
+
+            if (request.method != "OPTIONS"):
+                callback(*args, *kwargs)
+
+        return enable_cors
+
 ## ----- Utils
 
 def get_ext(filename):
     parts = filename.rsplit(".", 1)
 
-    return parts[1] if parts > 1 else ""
+    return parts[1] if len(parts) > 1 else ""
 
 ## ----- IO
 
@@ -52,16 +74,23 @@ def rm_file(path):
 
 ## ----- Prediction
 
-def try_to_predict(model, path):
+def get_prediction(model, path):
     try:
-        prediction = model.predict(path)
+        (label, _, probabilities) = model.predict(path)
+        vocab                     = model.vocab()
+        labeled_probabilities     = []
 
-        return (True, prediction)
+        for i in range(len(probabilities)):
+            labeled_probabilities.append({ "label": vocab[i], "prob": probabilities[i].item() })
+
+        sorted_probabilities = sorted(labeled_probabilities, key=lambda p: p["prob"], reverse=True)
+
+        return (True, { "pred": label, "probs": sorted_probabilities })
     except Exception as err:
         return (False, str(err))
 
-def run_prediction(model, request):
-    (has_file, file) = get_file_from_request(request)
+def predict_request(model, req):
+    (has_file, file) = get_file_from_request(req)
 
     if (not has_file):
         return (Result.FileNotSent, None)
@@ -71,23 +100,20 @@ def run_prediction(model, request):
     if (not authorized_filetype(ext)):
         return (Result.FileUnauthorized, None)
 
-    (file_saved, tmp_file_result) = save_tmp_file()
+    (file_saved, tmp_file_result) = save_tmp_file(file, ext)
 
     if (not file_saved):
         return (Result.IOErr, tmp_file_result)
 
     (_, tmp_path)                  = tmp_file_result
-    (successful_pred, pred_result) = try_to_predict(tmp_path)
+    (successful_pred, pred_result) = get_prediction(model, tmp_path)
+
+    rm_file(tmp_path)
 
     if (not successful_pred):
         return (Result.PredictionErr, pred_result)
 
-    (file_removed, rm_result) = rm_file(tmp_path)
-
-    if (not file_removed):
-        return (IOErr, rm_result)
-
-    return (Success, pred_result)
+    return (Result.Success, pred_result)
 
 ## ----- Request
 
@@ -95,64 +121,70 @@ def authorized_filetype(ext):
     return ext in ["jpg", "jpeg", "png", "gif"]
 
 
-def get_file_from_request(request):
-    if ("file" not in request.files):
+def get_file_from_request(req):
+    if ("file" not in req.files):
         return (False, None)
 
-    file = request.files["file"]
+    file = req.files["file"]
 
     if (file.filename == ""):
         return (False, None)
 
     return (True, file)
 
-## ----- Responses
-
-def err(msg, details = ""):
-    return { "error": msg, "details": details }
-
-def ok(prediction):
-    return { "prediction": prediction[0] }
-
 ## ----- Endpoints
 
-def prediction_request(model, req, res):
-    (result_type, result) = run_prediction(model, req)
+def build_prediction_endpoint(model):
+    _err = lambda m, d: { "error": m, "details": d }
 
-    if (result_type == Result.FileNotSent):
-        res.status = HttpStatus.BadRequest
-        return err("File not sent in request")
+    def endpoint():
+        response.content_type = "application/json"
 
-    if (result_type == Result.FileUnauthorized):
-        res.status = HttpStatus.Forbidden
-        return err("File type unauthorized")
+        (result_type, result) = predict_request(model, request)
 
-    if (result.type == Result.IOErr):
-        res.status = HttpStatus.ServerError
-        return err("Error on IO operation", result)
+        if (result_type == Result.FileNotSent):
+            response.status = HttpStatus.BadRequest
+            return _err("File not sent in request")
 
-    if (result.type == Result.PredictionErr):
-        res.status = HttpStatus.ServerError
-        return err("Error while predicting", result)
+        if (result_type == Result.FileUnauthorized):
+            response.status = HttpStatus.Forbidden
+            return _err("File type unauthorized")
 
-    print(result)
-    response.status = HttpStatus.Ok
-    return ok(result)
+        if (result_type == Result.IOErr):
+            response.status = HttpStatus.ServerError
 
-@get("/")
+            print(result)
+            return _err("Error on IO operation", result)
+
+        if (result_type == Result.PredictionErr):
+            response.status = HttpStatus.ServerError
+
+            print(result)
+            return _err("Error while predicting", result)
+
+        response.status = HttpStatus.Ok
+        return result
+
+    return endpoint
+
 def hello_world():
     return "OUT!"
 
-@post("/p")
-def default_prediction():
-    return prediction_request(resnet50, request, response)
+def t():
+    return { "a": "b" }
 
-@post("/r34/p")
-def predict_r34():
-    return prediction_request(resnet34, request, response)
-    
-@post("/r50/p")
-def predict_r50():
-    return prediction_request(resnet50, request, response)
+api = app()
 
-run(host="localhost", port="8087")
+# api.install(CORSPlugin())
+
+api.add_hook("after_request", cors)
+
+api.route("/",      "GET",  hello_world)
+api.route("/t",     ["OPTIONS", "POST"],  t)
+api.route("/p",     "POST", build_prediction_endpoint(resnet50))
+api.route("/r50/p", "POST", build_prediction_endpoint(resnet50))
+api.route("/r34/p", "POST", build_prediction_endpoint(resnet34))
+
+api.run(port=5000)
+
+
