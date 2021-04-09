@@ -29,21 +29,6 @@ def cors():
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
     response.headers["Access-Control-Allow-Headers"] = "Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token"
 
-class CORSPlugin():
-    name = "cors_plugin"
-    api  = 2
-
-    def apply(self, callback, ctx):
-        def enable_cors(*args, **kwargs):
-            response.headers["Access-Control-Allow-Origin"]  = "*"
-            response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
-            response.headers["Access-Control-Allow-Headers"] = "Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token"
-
-            if (request.method != "OPTIONS"):
-                callback(*args, *kwargs)
-
-        return enable_cors
-
 ## ----- Utils
 
 def get_ext(filename):
@@ -179,11 +164,12 @@ api = app()
 
 api.add_hook("after_request", cors)
 
-api.route("/",      "GET",  hello_world)
-api.route("/t",     ["OPTIONS", "POST"],  t)
-api.route("/p",     "POST", build_prediction_endpoint(resnet50))
-api.route("/r50/p", "POST", build_prediction_endpoint(resnet50))
-api.route("/r34/p", "POST", build_prediction_endpoint(resnet34))
+api.route("/",          "GET",  hello_world)
+api.route("/p",         "POST", build_prediction_endpoint(resnet50))
+api.route("/r50/p",     "POST", build_prediction_endpoint(resnet50))
+api.route("/r34/p",     "POST", build_prediction_endpoint(resnet34))
+api.route("/r34/vocab", "GET",  lambda: { "vocab": [l for l in resnet34.vocab()] })
+api.route("/r50/vocab", "GET",  lambda: { "vocab": [l for l in resnet50.vocab()] })
 
 api.run(port=5000)
 

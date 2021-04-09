@@ -11,9 +11,25 @@ section {
     color: snow;
 }
 
-.presentation {
+b {
+	color: #000;
+}
+
+p.display, b.display {
+	font-family: 'Syne Mono', monospace;
+}
+
+aside div {
     margin: 20px 10px 0 10px;
 
     text-align: center;
-    line-height: 1.5em;
+}
+
+aside div p {
+	line-height:   1.5em;
+	margin-bottom: 15px;
+}
+
+aside div i {
+	line-height: 1.8em;
 }

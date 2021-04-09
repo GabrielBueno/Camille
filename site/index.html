@@ -34,9 +34,29 @@
       <aside id="bottom-view">
         <h1>Camille</h1>
 
-        <p class="presentation">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti dolor accusantium aut repudiandae laboriosam magnam nisi doloribus, optio corrupti minus nemo. Obcaecati, itaque dolore! Dolore deleniti vel libero minus! Consectetur.
-        </p>
+        <div v-if="response.probs.length === 0">
+          <p>
+            <b class="display">Camille</b> é uma inteligência artificial criada para tentar reconhecer 
+            o movimento artístico de uma pintura. 
+            A IA foi treinada em uma 
+            <a target="blank" href="https://github.com/cs-chan/ArtGAN/tree/master/WikiArt%20Dataset">base de dados</a> 
+            retirada do 
+            <a target="blank" href="https://www.wikiart.org">WikiArt.org</a> 
+            com obras dos movimentos:
+          </p>
+
+          <p class="vocab">
+            <i>{{ ui.vocab }}</i>.
+          </p>
+
+          <p>
+            Envie algum arquivo <b>.jpg</b> ou <b>.png</b> para Camille, e veja o que ela responderá!
+          </p>
+        </div>
+
+        <div v-if="response.probs.length">
+          <p>Esta é uma pintura do <b>{{ response.probs[0].label }}</b>.</p>
+        </div>
 
         <div class="btn-row mt50">
           <button class="goto-top" v-on:click="goToTop">/\ Voltar para o topo</button>
