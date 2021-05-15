@@ -16,5 +16,261 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{aristotle_poetics}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8d4a39cc0631ad0afeb3c94c8090287d}{%
+           family={Aristóteles},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lisboa}%
+      }
+      \list{publisher}{1}{%
+        {Fundação Calouste Gulbekian}%
+      }
+      \strng{namehash}{8d4a39cc0631ad0afeb3c94c8090287d}
+      \strng{fullhash}{8d4a39cc0631ad0afeb3c94c8090287d}
+      \strng{bibnamehash}{8d4a39cc0631ad0afeb3c94c8090287d}
+      \strng{authorbibnamehash}{8d4a39cc0631ad0afeb3c94c8090287d}
+      \strng{authornamehash}{8d4a39cc0631ad0afeb3c94c8090287d}
+      \strng{authorfullhash}{8d4a39cc0631ad0afeb3c94c8090287d}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Poética}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://edisciplinas.usp.br/pluginfile.php/4179798/mod_resource/content/1/PO%C3%89TICA%20DE%20ARIST%C3%93TELES.pdf
+      \endverb
+      \verb{url}
+      \verb https://edisciplinas.usp.br/pluginfile.php/4179798/mod_resource/content/1/PO%C3%89TICA%20DE%20ARIST%C3%93TELES.pdf
+      \endverb
+    \endentry
+    \entry{braga_mcluhan}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=011cd29b18c0d6da2f03b9c6a04e55f5}{%
+           family={Braga},
+           familyi={B\bibinitperiod},
+           given={Adriana},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{011cd29b18c0d6da2f03b9c6a04e55f5}
+      \strng{fullhash}{011cd29b18c0d6da2f03b9c6a04e55f5}
+      \strng{bibnamehash}{011cd29b18c0d6da2f03b9c6a04e55f5}
+      \strng{authorbibnamehash}{011cd29b18c0d6da2f03b9c6a04e55f5}
+      \strng{authornamehash}{011cd29b18c0d6da2f03b9c6a04e55f5}
+      \strng{authorfullhash}{011cd29b18c0d6da2f03b9c6a04e55f5}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ALCEU}
+      \field{number}{24}
+      \field{title}{McLuhan entre conceitos e aforismos}
+      \field{volume}{12}
+      \field{year}{2012}
+      \field{pages}{48\bibrangedash 55}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb http://revistaalceu-acervo.com.puc-rio.br/cgi/cgilua.exe/sys/start.htm?sid=36
+      \endverb
+      \verb{url}
+      \verb http://revistaalceu-acervo.com.puc-rio.br/cgi/cgilua.exe/sys/start.htm?sid=36
+      \endverb
+    \endentry
+    \entry{gouzouasis}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3701fb75d74e4d8f1d30b78e3b469df7}{%
+           family={Gouzouasis},
+           familyi={G\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Routledge}%
+      }
+      \strng{namehash}{3701fb75d74e4d8f1d30b78e3b469df7}
+      \strng{fullhash}{3701fb75d74e4d8f1d30b78e3b469df7}
+      \strng{bibnamehash}{3701fb75d74e4d8f1d30b78e3b469df7}
+      \strng{authorbibnamehash}{3701fb75d74e4d8f1d30b78e3b469df7}
+      \strng{authornamehash}{3701fb75d74e4d8f1d30b78e3b469df7}
+      \strng{authorfullhash}{3701fb75d74e4d8f1d30b78e3b469df7}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Arts Education Policy Review}
+      \field{number}{5}
+      \field{title}{Technology as Arts-Based Education: Does the Desktop Reflect the Arts?}
+      \field{volume}{107}
+      \field{year}{2006}
+      \field{pages}{3\bibrangedash 9}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.3200/AEPR.107.5.3-9
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.3200/AEPR.107.5.3-9
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3200/AEPR.107.5.3-9
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3200/AEPR.107.5.3-9
+      \endverb
+    \endentry
+    \entry{hardy_apology}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2deeecde529db36a341e1636ab5c3c7b}{%
+           family={Hardy},
+           familyi={H\bibinitperiod},
+           given={Godfrey\bibnamedelima Harold},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {University of Alberta Mathematical Sciences Society}%
+      }
+      \strng{namehash}{2deeecde529db36a341e1636ab5c3c7b}
+      \strng{fullhash}{2deeecde529db36a341e1636ab5c3c7b}
+      \strng{bibnamehash}{2deeecde529db36a341e1636ab5c3c7b}
+      \strng{authorbibnamehash}{2deeecde529db36a341e1636ab5c3c7b}
+      \strng{authornamehash}{2deeecde529db36a341e1636ab5c3c7b}
+      \strng{authorfullhash}{2deeecde529db36a341e1636ab5c3c7b}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{A Mathematician's Apology}
+      \field{year}{1940}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.math.ualberta.ca/mss/misc/A%20Mathematician%27s%20Apology.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.math.ualberta.ca/mss/misc/A%20Mathematician%27s%20Apology.pdf
+      \endverb
+    \endentry
+    \entry{hegel}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=657f840dc3818e7a56523e4e2d17a0ca}{%
+           family={Hegel},
+           familyi={H\bibinitperiod},
+           given={Georg\bibnamedelimb Wilhelm\bibnamedelima Friedrich},
+           giveni={G\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Project Gutemberg}%
+      }
+      \strng{namehash}{657f840dc3818e7a56523e4e2d17a0ca}
+      \strng{fullhash}{657f840dc3818e7a56523e4e2d17a0ca}
+      \strng{bibnamehash}{657f840dc3818e7a56523e4e2d17a0ca}
+      \strng{authorbibnamehash}{657f840dc3818e7a56523e4e2d17a0ca}
+      \strng{authornamehash}{657f840dc3818e7a56523e4e2d17a0ca}
+      \strng{authorfullhash}{657f840dc3818e7a56523e4e2d17a0ca}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{11}
+      \field{month}{8}
+      \field{title}{The Philosophy of Fine Art}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gutenberg.org/ebooks/55334
+      \endverb
+      \verb{url}
+      \verb https://www.gutenberg.org/ebooks/55334
+      \endverb
+    \endentry
+    \entry{lockhart_lament}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cc26ab989a48bcad5f6771211ccbdc5c}{%
+           family={Lockhart},
+           familyi={L\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Mathematical Association of America}%
+      }
+      \strng{namehash}{cc26ab989a48bcad5f6771211ccbdc5c}
+      \strng{fullhash}{cc26ab989a48bcad5f6771211ccbdc5c}
+      \strng{bibnamehash}{cc26ab989a48bcad5f6771211ccbdc5c}
+      \strng{authorbibnamehash}{cc26ab989a48bcad5f6771211ccbdc5c}
+      \strng{authornamehash}{cc26ab989a48bcad5f6771211ccbdc5c}
+      \strng{authorfullhash}{cc26ab989a48bcad5f6771211ccbdc5c}
+      \field{sortinit}{L}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Mathematician's Lament}
+      \verb{urlraw}
+      \verb https://www.maa.org/external_archive/devlin/LockhartsLament.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.maa.org/external_archive/devlin/LockhartsLament.pdf
+      \endverb
+    \endentry
+    \entry{davinci_thoughtsonart}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3691698bc16befcfec3614b02a4b9d91}{%
+           family={Vinci},
+           familyi={V\bibinitperiod},
+           given={Leonardo\bibnamedelima Da},
+           giveni={L\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Project Gutemberg}%
+      }
+      \strng{namehash}{3691698bc16befcfec3614b02a4b9d91}
+      \strng{fullhash}{3691698bc16befcfec3614b02a4b9d91}
+      \strng{bibnamehash}{3691698bc16befcfec3614b02a4b9d91}
+      \strng{authorbibnamehash}{3691698bc16befcfec3614b02a4b9d91}
+      \strng{authornamehash}{3691698bc16befcfec3614b02a4b9d91}
+      \strng{authorfullhash}{3691698bc16befcfec3614b02a4b9d91}
+      \field{sortinit}{V}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{4}
+      \field{month}{9}
+      \field{title}{Thoughts on Art and Life}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gutenberg.org/ebooks/29904
+      \endverb
+      \verb{url}
+      \verb https://www.gutenberg.org/ebooks/29904
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 
