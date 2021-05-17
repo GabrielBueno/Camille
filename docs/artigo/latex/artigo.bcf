@@ -2431,8 +2431,12 @@
     <bcf:citekey order="3">hegel</bcf:citekey>
     <bcf:citekey order="4">gouzouasis</bcf:citekey>
     <bcf:citekey order="5">braga_mcluhan</bcf:citekey>
-    <bcf:citekey order="6">hardy_apology</bcf:citekey>
-    <bcf:citekey order="7">lockhart_lament</bcf:citekey>
+    <bcf:citekey order="6">homage_to_paul_klee</bcf:citekey>
+    <bcf:citekey order="7">homage_to_paul_klee</bcf:citekey>
+    <bcf:citekey order="8">gravel_stones</bcf:citekey>
+    <bcf:citekey order="9">gravel_stones</bcf:citekey>
+    <bcf:citekey order="10">hardy_apology</bcf:citekey>
+    <bcf:citekey order="11">lockhart_lament</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

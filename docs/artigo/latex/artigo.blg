@@ -1,15 +1,15 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is 'artigo.blg'
-[475] biber-MSWIN32:340> INFO - === 
-[653] Biber.pm:415> INFO - Reading 'artigo.bcf'
-[1000] Biber.pm:952> INFO - Found 7 citekeys in bib section 0
-[1077] Biber.pm:4340> INFO - Processing section 0
-[1129] Biber.pm:4531> INFO - Looking for bibtex format file 'artigo.bib' for section 0
-[1303] bibtex.pm:1689> INFO - LaTeX decoding ...
-[1358] bibtex.pm:1494> INFO - Found BibTeX data source 'artigo.bib'
-[1553] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1554] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1554] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'pt-BR'
-[1555] Biber.pm:4174> INFO - No sort tailoring available for locale 'pt-BR'
-[1626] bbl.pm:654> INFO - Writing 'artigo.bbl' with encoding 'UTF-8'
-[1634] bbl.pm:757> INFO - Output to artigo.bbl
+[1] Config.pm:314> INFO - Logfile is 'artigo.blg'
+[305] biber-MSWIN32:340> INFO - === 
+[423] Biber.pm:415> INFO - Reading 'artigo.bcf'
+[782] Biber.pm:952> INFO - Found 9 citekeys in bib section 0
+[827] Biber.pm:4340> INFO - Processing section 0
+[858] Biber.pm:4531> INFO - Looking for bibtex format file 'artigo.bib' for section 0
+[1039] bibtex.pm:1689> INFO - LaTeX decoding ...
+[1104] bibtex.pm:1494> INFO - Found BibTeX data source 'artigo.bib'
+[1276] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1276] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1277] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'pt-BR'
+[1277] Biber.pm:4174> INFO - No sort tailoring available for locale 'pt-BR'
+[1308] bbl.pm:654> INFO - Writing 'artigo.bbl' with encoding 'UTF-8'
+[1318] bbl.pm:757> INFO - Output to artigo.bbl

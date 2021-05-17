@@ -234,6 +234,66 @@
       \verb https://www.maa.org/external_archive/devlin/LockhartsLament.pdf
       \endverb
     \endentry
+    \entry{homage_to_paul_klee}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=204c091a5922341cac0c6c645ef8b1b7}{%
+           family={Nake},
+           familyi={N\bibinitperiod},
+           given={Frieder},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{204c091a5922341cac0c6c645ef8b1b7}
+      \strng{fullhash}{204c091a5922341cac0c6c645ef8b1b7}
+      \strng{bibnamehash}{204c091a5922341cac0c6c645ef8b1b7}
+      \strng{authorbibnamehash}{204c091a5922341cac0c6c645ef8b1b7}
+      \strng{authornamehash}{204c091a5922341cac0c6c645ef8b1b7}
+      \strng{authorfullhash}{204c091a5922341cac0c6c645ef8b1b7}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Hommage à Paul Klee}
+      \field{year}{1965}
+      \verb{urlraw}
+      \verb https://digitalartarchive.siggraph.org/artwork/frieder-nake-hommage-to-paul-klee/
+      \endverb
+      \verb{url}
+      \verb https://digitalartarchive.siggraph.org/artwork/frieder-nake-hommage-to-paul-klee/
+      \endverb
+    \endentry
+    \entry{gravel_stones}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f9981e5ab80d0a79b390e67ec7e43b61}{%
+           family={Nees},
+           familyi={N\bibinitperiod},
+           given={Georg},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f9981e5ab80d0a79b390e67ec7e43b61}
+      \strng{fullhash}{f9981e5ab80d0a79b390e67ec7e43b61}
+      \strng{bibnamehash}{f9981e5ab80d0a79b390e67ec7e43b61}
+      \strng{authorbibnamehash}{f9981e5ab80d0a79b390e67ec7e43b61}
+      \strng{authornamehash}{f9981e5ab80d0a79b390e67ec7e43b61}
+      \strng{authorfullhash}{f9981e5ab80d0a79b390e67ec7e43b61}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Gravel Stones}
+      \field{year}{1966}
+      \verb{urlraw}
+      \verb https://digitalartarchive.siggraph.org/artwork/georg-nees-gravel-stones/
+      \endverb
+      \verb{url}
+      \verb https://digitalartarchive.siggraph.org/artwork/georg-nees-gravel-stones/
+      \endverb
+    \endentry
     \entry{davinci_thoughtsonart}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=3691698bc16befcfec3614b02a4b9d91}{%

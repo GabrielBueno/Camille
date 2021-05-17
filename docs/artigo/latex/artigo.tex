@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper, titlepage]{article}
+\documentclass[12pt, a4paper]{article}
 
 \usepackage[brazilian]{babel}
 \usepackage[utf8]{inputenc}
@@ -12,6 +12,7 @@
 \usepackage{multirow}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{subcaption}
 
 \onehalfspacing
 
@@ -59,19 +60,34 @@ A evolução da tecnologia interfere diretamente nas manifestações artísticas
 a fotografia; da música tocada em alaúdes com tripas torcidas que passou para os violões com cordas de nylon, até as guitarras elétricas; 
 da gravação e reprodução sonora que partiu do fonógrafo até os computadores e CDs, até o mais recente \emph{streaming}. 
 É notório como a tecnologia de uma época pode influenciar nas manifestações artísticas do período. 
+
 Um dos sentidos que o famoso aforismo de McLuhan, "o meio é a mensagem", carrega em si é o de que o 
 \emph{meio transforma o seu conteúdo} \cite[p.50]{braga_mcluhan}. 
 Um novo meio, fruto de uma inovação tecnológica, impacta na própria mensagem passada na obra artística.
 Estamos na era da informação, com capacidade computacional de sobra e uma digitalização crescente do mundo tangível. 
 Como a tecnologia contemporânea pode influenciar no estado atual da realização e compreensão artística?
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\textwidth, height=7cm, keepaspectratio=true]{fig/hommage_to_paul_klee}
+	\caption{
+		Obra \emph{Hommage à Paul Klee}, de Frieder Nake, realizada em 1965 \cite{homage_to_paul_klee}.
+	}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\textwidth, height=7cm, keepaspectratio=true]{fig/gravel_stones}
+	\caption{
+		\emph{Gravel Stones}, de Georg Nees
+		\cite{gravel_stones}.
+	}
+\end{figure}
+
 Como exemplos do fazer artístico utilizando como meio a tecnologia contemporânea, podemos ressaltar o trabalho
-de artistas como Frieder Nake, Georg Ness e Vera Molnar que, em meados dos anos 60, influenciados pela filosofia de Max Bense, vanguardearam 
+de artistas como Frieder Nake, Georg Nees e Vera Molnar que, em meados dos anos 60, influenciados pela filosofia de Max Bense, vanguardearam 
 o movimento da arte algorítmica, conhecido também pelas alcunhas de arte generativa, arte computacional, gráficos generativos, entre outros.
 O algoritmo é a principal ferramenta do artista computacional, através do qual a ideia da obra artística é modelada em um programa de computador através de símbolos, eventos e estados, que ao ser executado produzirá a obra em si. Neste movimento, o modo convencional do fazer artístico, já conhecido a muito, dá lugar para a ciência e a matemática. 
-
-\begin{figure}
-	\includegraphics[width=\textwidth, height=6cm, keepaspectration=true]{fig/hommage_to_paul_klee}
-\end{figure}
 
 Vemos que a tecnologia contemporânea já é tão significativa que nos deu novos meios para o fazer artístico, trazendo consigo, além disso, reflexões acerca do próprio ato de fazer arte, já que a ideia de arte feita "pelo computador" não é aceita de bom grado pelo crítico
 mais conservador.
@@ -82,25 +98,40 @@ Na sua apologia, Hardy \cite{hardy_apology} escreve:
 Um matemático, como um pintor ou poeta, é um criador de padrões. Se os padrões daquele são mais permanentes do que os destes, é porque eles são feitos com ideias.
 \end{displayquote}
 
-Ao lamentar a situação do ensino da matemática (sua lamentação poderia muito bem ser transposta para o próprio ensino de arte), Lockhart 
-\cite{lockhart_lament} expressa que:
+Ao lamentar a forma como a matemática é ensinada para as crianças em nível escolar (sua lamentação poderia muito bem ser transposta para o próprio ensino de arte), Lockhart \cite{lockhart_lament} expressa que:
 
 \begin{displayquote}
-Nenhuma sociedade jamais reduziria uma forma tão bela e significativa de arte para algo tão insignificante e trivial. Nenhuma cultura poderia ser tão cruel com suas crianças a ponto de privá-las de um meio tão satisfatório e natural de expressão humana. Que absurdo!
+Nenhuma sociedade jamais reduziria uma forma tão bela e significativa de arte para algo tão insignificante e trivial. Nenhuma cultura poderia ser tão cruel com suas crianças a ponto de privá-las de um meio tão satisfatório e natural de expressão humana.
 \end{displayquote}
 
 A sociedade cada vez mais vê-se de todo tomada pela digitalização. Se o homem se torna digital, sua expressão em forma de 
 manifestação artística se tornará, também, digital. Como isso impactará no ensino vigente da arte?
 Há a necessidade de se apresentar ao aluno a tecnologia contemporânea como forma de realização e estudo da arte.
 Os três pilares da abordagem triangular de Ana Mae Barbosa -- o conhecimento da história, a apreciação da arte, e o próprio fazer artístico --
-deveriam ser extendidos para abranger também a arte produzida pelos meios contemporâneos ao aluno, a fim de contextualizá-lo na sociedade em que vive.
-Como exemplo de integração entre a tecnologia contemporânea e a arte, este trabalho apresenta a criação de um sistema que utiliza uma rede neural para categorizar automaticamente pinturas. 
-O sistema mostra uma possível forma de integração de uma tecnologia recente com o meio artístico, abrindo ainda mais possibilidades para
-a criação e evolução de sistemas de informação na arte, seja como ferramenta para auxílio a educação ou para a própria realização artística. 
-Uma pesquisa também foi conduzida, a fim de traçar o interesse geral da abordagem da tecnologia no ensino artístico.
+deveriam ser extendidos para abranger também a arte produzida pelos meios contemporâneos ao aluno.
+É evidente que a tecnologia não é uma panaceia para resolver todos os problemas da educação artística. Porém, a tecnologia atual, já que é parte
+inseparável do homem, deve, de alguma forma e em algum momento, nem que breve, ser abordado, a fim de contextualizá-lo na sociedade em que vive.
+
+Tendo em vista esta natureza inerentemente tecnológica da arte, em contraponto com a aparente falta de diálogo entre o meio artístico e o campo
+mais recente do desenvolvimento tecnológico -- algo que pode ser observado empiricamente em certos meios -- este trabalho apresenta-se com o objetivo
+de relacionar uma das tecnologias que mais vem recebendo atenção dos pesquisadores e engenheiros -- a das inteligências artificiais, mais especificamente,
+o das \emph{redes neurais} -- com o meio da arte. 
+Uma breve revisão das inteligências artificiais e das redes neurais será feita a fim de, para contextualizar o assunto, criar uma base 
+histórica e teórica do assunto, além de citar outros trabalhos realizados na área que possuem alguma relação com a arte.
+Como estudo de caso e exemplo de aplicação prática, um sistema de rede neural capaz de tentar categorizar o estilo artístico
+de uma pintura foi criado. Este sistema mostra uma possível forma de integração de uma rede neural com o meio artístico, 
+abrindo ainda mais possibilidades para a criação e evolução de sistemas de informação na arte, seja como ferramenta para auxílio a educação ou para a própria realização artística. 
+Para tentar detectar o interesse popular da abordagem de tecnologia no ensino artístico, como uma forma de testar a hipótese de
+que é necessário pelo menos uma abordagem eventual da tecnologia recente na arte, uma pesquisa foi conduzida com aproximadamente 70 pessoas. Seus resultados
+também serão exibidos neste trabalho.
 
 \section{Referencial teórico}
-% IA (NNs e GANs)
+\subsection{Uma breve história da IA e das Redes Neurais}
+\subsection{Redes Perceptron}
+\subsection{Redes Neurais Convolucionais (CNNs)}
+\subsection{Redes Neurais Adversariais (GANs)}
+\subsection{Transferência de Aprendizado}
+\subsection{Frameworks atuais para o treinamento de Redes Neurais}
 
 % \nocite{*}
 \printbibliography

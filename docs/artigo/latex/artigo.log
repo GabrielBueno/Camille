@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  17 MAY 2021 14:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  17 MAY 2021 16:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -441,28 +441,53 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 \Gin@req@height=\dimen153
 \Gin@req@width=\dimen154
 )
+(e:/texlive/2021/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+
+(e:/texlive/2021/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+
+(e:/texlive/2021/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen155
+\captionmargin@=\dimen156
+\captionwidth=\dimen157
+\caption@tempdima=\dimen158
+\caption@indent=\dimen159
+\caption@parindent=\dimen160
+\caption@hangindent=\dimen161
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count403
+\c@continuedfloat=\count404
+Package caption Info: listings package is loaded.
+)
+\c@subfigure=\count405
+\c@subtable=\count406
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
  (./artigo.aux)
 \openout1 = `artigo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 Package biblatex Info: Trying to load language 'brazilian' -> 'brazilian-abnt'.
 ..
 Package biblatex Info: ... file 'brazilian-abnt.lbx' found.
+
 (e:/texlive/2021/texmf-dist/tex/latex/biblatex-abnt/brazilian-abnt.lbx
 File: brazilian-abnt.lbx 2018-11-17 v3.4 ABNT BibLaTeX citation style
 Package biblatex Info: Trying to load language 'brazilian'...
@@ -527,8 +552,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'artigo.bbl' found.
 
 (./artigo.bbl)
-Package biblatex Info: Reference section=0 on input line 24.
-Package biblatex Info: Reference segment=0 on input line 24.
+Package biblatex Info: Reference section=0 on input line 25.
+Package biblatex Info: Reference segment=0 on input line 25.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -564,19 +589,19 @@ Package biblatex Info: Reference segment=0 on input line 24.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count403
+\c@lstlisting=\count407
 (e:/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count404
-\scratchdimen=\dimen155
+\scratchcounter=\count408
+\scratchdimen=\dimen162
 \scratchbox=\box50
-\nofMPsegments=\count405
-\nofMParguments=\count406
+\nofMPsegments=\count409
+\nofMParguments=\count410
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count407
-\MPscratchDim=\dimen156
-\MPnumerator=\count408
-\makeMPintoPDFobject=\count409
+\MPscratchCnt=\count411
+\MPscratchDim=\dimen163
+\MPnumerator=\count412
+\makeMPintoPDFobject=\count413
 \everyMPtoPDFconversion=\toks22
 ) (e:/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -586,70 +611,64 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (e:/texlive/2021/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
-)) [1
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ [1
 
-{e:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1]
-
-! Package keyval Error: keepaspectration undefined.
-
-See the keyval package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.73 ...pectration=true]{fig/hommage_to_paul_klee}
-                                                  
-? 
-<fig/hommage_to_paul_klee.jpg, id=14, 1066.98625pt x 1084.05pt>
+{e:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<fig/hommage_to_paul_klee.jpg, id=10, 1066.98625pt x 1084.05pt>
 File: fig/hommage_to_paul_klee.jpg Graphic file (type jpg)
 <use fig/hommage_to_paul_klee.jpg>
-Package pdftex.def Info: fig/hommage_to_paul_klee.jpg  used on input line 73.
-(pdftex.def)             Requested size: 455.24593pt x 170.70569pt.
-[2 <./fig/hommage_to_paul_klee.jpg>]
+Package pdftex.def Info: fig/hommage_to_paul_klee.jpg  used on input line 72.
+(pdftex.def)             Requested size: 196.02177pt x 199.15665pt.
+<fig/gravel_stones.jpg, id=11, 607.26875pt x 1084.05pt>
+File: fig/gravel_stones.jpg Graphic file (type jpg)
+<use fig/gravel_stones.jpg>
+Package pdftex.def Info: fig/gravel_stones.jpg  used on input line 80.
+(pdftex.def)             Requested size: 111.56459pt x 199.15665pt.
+ [2 <./fig/hommage_to_paul_klee.jpg>] [3 <./fig/gravel_stones.jpg>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-06.
+37.
 
 (e:/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 106.
+(Font)              <12> on input line 137.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 106.
+(Font)              <8> on input line 137.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 106.
- [3] [4] (./artigo.aux)
+(Font)              <6> on input line 137.
+ [4] [5] [6] (./artigo.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                artigo
-(biblatex)                and rerun LaTeX afterwards.
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
 
 Package logreq Info: Writing requests to 'artigo.run.xml'.
 \openout1 = `artigo.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 13124 strings out of 480745
- 233210 string characters out of 5903657
- 1013718 words of memory out of 5000000
- 30363 multiletter control sequences out of 15000+600000
- 411788 words of font info for 44 fonts, out of 8000000 for 9000
+ 14426 strings out of 480745
+ 258501 string characters out of 5903657
+ 1039635 words of memory out of 5000000
+ 31655 multiletter control sequences out of 15000+600000
+ 412563 words of font info for 45 fonts, out of 8000000 for 9000
  38 hyphenation exceptions out of 8191
  73i,5n,79p,735b,3750s stack positions out of 5000i,500n,10000p,200000b,80000s
 {e:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<e:/texl
 ive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><e:/texlive/2021/t
-exmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><e:/texlive/2021/texmf-dist/
-fonts/type1/public/cm-super/sfrm1200.pfb><e:/texlive/2021/texmf-dist/fonts/type
-1/public/cm-super/sfrm1440.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/c
-m-super/sfrm2074.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sf
-ti1200.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb
->
-Output written on artigo.pdf (5 pages, 731484 bytes).
+exmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><e:/texlive/2021/texmf-dist/
+fonts/type1/public/cm-super/sfbx1728.pfb><e:/texlive/2021/texmf-dist/fonts/type
+1/public/cm-super/sfrm1200.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/c
+m-super/sfrm1440.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sf
+rm2074.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb
+><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on artigo.pdf (6 pages, 1125530 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
