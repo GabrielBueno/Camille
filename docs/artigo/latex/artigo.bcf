@@ -2437,6 +2437,9 @@
     <bcf:citekey order="9">gravel_stones</bcf:citekey>
     <bcf:citekey order="10">hardy_apology</bcf:citekey>
     <bcf:citekey order="11">lockhart_lament</bcf:citekey>
+    <bcf:citekey order="12">aristotle_politics</bcf:citekey>
+    <bcf:citekey order="13">turing</bcf:citekey>
+    <bcf:citekey order="14">descartes</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

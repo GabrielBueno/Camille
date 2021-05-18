@@ -19,11 +19,56 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{aristotle_poetics}{book}{}
-      \name{author}{1}{}{%
+    \entry{aristotle_politics}{book}{}
+      \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8d4a39cc0631ad0afeb3c94c8090287d}{%
            family={Aristóteles},
            familyi={A\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=6408d1d5bc843a9ee71837d9d7df4075}{%
+           family={Ellis},
+           familyi={E\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Project Gutemberg}%
+      }
+      \strng{namehash}{e836c90981507d37b43f0d7fe39efdbb}
+      \strng{fullhash}{e836c90981507d37b43f0d7fe39efdbb}
+      \strng{bibnamehash}{e836c90981507d37b43f0d7fe39efdbb}
+      \strng{authorbibnamehash}{e836c90981507d37b43f0d7fe39efdbb}
+      \strng{authornamehash}{e836c90981507d37b43f0d7fe39efdbb}
+      \strng{authorfullhash}{e836c90981507d37b43f0d7fe39efdbb}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{month}{10}
+      \field{title}{Politics: A Treatise on Government}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gutenberg.org/ebooks/6762
+      \endverb
+      \verb{url}
+      \verb https://www.gutenberg.org/ebooks/6762
+      \endverb
+    \endentry
+    \entry{aristotle_poetics}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8d4a39cc0631ad0afeb3c94c8090287d}{%
+           family={Aristóteles},
+           familyi={A\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=3d773c8b442b9f9539c0a803809c50db}{%
+           family={Valente},
+           familyi={V\bibinitperiod},
+           given={Ana\bibnamedelima Maria},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
       }
       \list{location}{1}{%
         {Lisboa}%
@@ -31,12 +76,12 @@
       \list{publisher}{1}{%
         {Fundação Calouste Gulbekian}%
       }
-      \strng{namehash}{8d4a39cc0631ad0afeb3c94c8090287d}
-      \strng{fullhash}{8d4a39cc0631ad0afeb3c94c8090287d}
-      \strng{bibnamehash}{8d4a39cc0631ad0afeb3c94c8090287d}
-      \strng{authorbibnamehash}{8d4a39cc0631ad0afeb3c94c8090287d}
-      \strng{authornamehash}{8d4a39cc0631ad0afeb3c94c8090287d}
-      \strng{authorfullhash}{8d4a39cc0631ad0afeb3c94c8090287d}
+      \strng{namehash}{08926b4b8af427055c7ff5db38c2733d}
+      \strng{fullhash}{08926b4b8af427055c7ff5db38c2733d}
+      \strng{bibnamehash}{08926b4b8af427055c7ff5db38c2733d}
+      \strng{authorbibnamehash}{08926b4b8af427055c7ff5db38c2733d}
+      \strng{authornamehash}{08926b4b8af427055c7ff5db38c2733d}
+      \strng{authorfullhash}{08926b4b8af427055c7ff5db38c2733d}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
@@ -87,6 +132,45 @@
       \verb{url}
       \verb http://revistaalceu-acervo.com.puc-rio.br/cgi/cgilua.exe/sys/start.htm?sid=36
       \endverb
+    \endentry
+    \entry{descartes}{book}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=9f046e68c5b38bcc80be3d2cc6f58dd6}{%
+           family={Descartes},
+           familyi={D\bibinitperiod},
+           given={René},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=57585504adcc918cea274f1866c7a0d6}{%
+           family={Guinsburg},
+           familyi={G\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c1b97701b0884d6cf7fe6d84150734b2}{%
+           family={Jr.},
+           familyi={J\bibinitperiod},
+           given={Bento\bibnamedelima Prado},
+           giveni={B\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Difusão Européia do Livro}%
+      }
+      \strng{namehash}{51f349add0a3df6a1158d9639d7a582c}
+      \strng{fullhash}{51f349add0a3df6a1158d9639d7a582c}
+      \strng{bibnamehash}{51f349add0a3df6a1158d9639d7a582c}
+      \strng{authorbibnamehash}{51f349add0a3df6a1158d9639d7a582c}
+      \strng{authornamehash}{51f349add0a3df6a1158d9639d7a582c}
+      \strng{authorfullhash}{51f349add0a3df6a1158d9639d7a582c}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Discurso do Método}
+      \field{year}{1962}
     \endentry
     \entry{gouzouasis}{article}{}
       \name{author}{1}{}{%
@@ -168,23 +252,29 @@
       \endverb
     \endentry
     \entry{hegel}{book}{}
-      \name{author}{1}{}{%
+      \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=657f840dc3818e7a56523e4e2d17a0ca}{%
            family={Hegel},
            familyi={H\bibinitperiod},
            given={Georg\bibnamedelimb Wilhelm\bibnamedelima Friedrich},
            giveni={G\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim F\bibinitperiod},
            givenun=0}}%
+        {{un=0,uniquepart=base,hash=60e48fadd9f3cb3abeb604ee3012f601}{%
+           family={Osmaston},
+           familyi={O\bibinitperiod},
+           given={Francis\bibnamedelimb Plumbtre\bibnamedelima Beresford},
+           giveni={F\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
       }
       \list{publisher}{1}{%
         {Project Gutemberg}%
       }
-      \strng{namehash}{657f840dc3818e7a56523e4e2d17a0ca}
-      \strng{fullhash}{657f840dc3818e7a56523e4e2d17a0ca}
-      \strng{bibnamehash}{657f840dc3818e7a56523e4e2d17a0ca}
-      \strng{authorbibnamehash}{657f840dc3818e7a56523e4e2d17a0ca}
-      \strng{authornamehash}{657f840dc3818e7a56523e4e2d17a0ca}
-      \strng{authorfullhash}{657f840dc3818e7a56523e4e2d17a0ca}
+      \strng{namehash}{3ccce559eabcd09503b42754ee3e3130}
+      \strng{fullhash}{3ccce559eabcd09503b42754ee3e3130}
+      \strng{bibnamehash}{3ccce559eabcd09503b42754ee3e3130}
+      \strng{authorbibnamehash}{3ccce559eabcd09503b42754ee3e3130}
+      \strng{authornamehash}{3ccce559eabcd09503b42754ee3e3130}
+      \strng{authorfullhash}{3ccce559eabcd09503b42754ee3e3130}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{extradatescope}{labelyear}
@@ -223,10 +313,12 @@
       \strng{authorfullhash}{cc26ab989a48bcad5f6771211ccbdc5c}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{labeldatesource}{nodate}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{A Mathematician's Lament}
+      \field{year}{2009}
       \verb{urlraw}
       \verb https://www.maa.org/external_archive/devlin/LockhartsLament.pdf
       \endverb
@@ -294,24 +386,73 @@
       \verb https://digitalartarchive.siggraph.org/artwork/georg-nees-gravel-stones/
       \endverb
     \endentry
-    \entry{davinci_thoughtsonart}{book}{}
+    \entry{turing}{article}{}
       \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2f869ca6fc5e6b075861b97bc0c5cf67}{%
+           family={TURING},
+           familyi={T\bibinitperiod},
+           given={A.\bibnamedelimi M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2f869ca6fc5e6b075861b97bc0c5cf67}
+      \strng{fullhash}{2f869ca6fc5e6b075861b97bc0c5cf67}
+      \strng{bibnamehash}{2f869ca6fc5e6b075861b97bc0c5cf67}
+      \strng{authorbibnamehash}{2f869ca6fc5e6b075861b97bc0c5cf67}
+      \strng{authornamehash}{2f869ca6fc5e6b075861b97bc0c5cf67}
+      \strng{authorfullhash}{2f869ca6fc5e6b075861b97bc0c5cf67}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0026-4423}
+      \field{journaltitle}{Mind}
+      \field{month}{10}
+      \field{number}{236}
+      \field{title}{{I.—COMPUTING MACHINERY AND INTELLIGENCE}}
+      \field{volume}{LIX}
+      \field{year}{1950}
+      \field{pages}{433\bibrangedash 460}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.1093/mind/LIX.236.433
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/mind/article-pdf/LIX/236/433/30123314/lix-236-433.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/mind/LIX.236.433
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/mind/LIX.236.433
+      \endverb
+    \endentry
+    \entry{davinci_thoughtsonart}{book}{}
+      \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=3691698bc16befcfec3614b02a4b9d91}{%
            family={Vinci},
            familyi={V\bibinitperiod},
            given={Leonardo\bibnamedelima Da},
            giveni={L\bibinitperiod\bibinitdelim D\bibinitperiod},
            givenun=0}}%
+        {{un=0,uniquepart=base,hash=b64bedf7758a676d5a5f39753bf64e75}{%
+           family={Baring},
+           familyi={B\bibinitperiod},
+           given={Maurice},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
       }
       \list{publisher}{1}{%
         {Project Gutemberg}%
       }
-      \strng{namehash}{3691698bc16befcfec3614b02a4b9d91}
-      \strng{fullhash}{3691698bc16befcfec3614b02a4b9d91}
-      \strng{bibnamehash}{3691698bc16befcfec3614b02a4b9d91}
-      \strng{authorbibnamehash}{3691698bc16befcfec3614b02a4b9d91}
-      \strng{authornamehash}{3691698bc16befcfec3614b02a4b9d91}
-      \strng{authorfullhash}{3691698bc16befcfec3614b02a4b9d91}
+      \strng{namehash}{03609e87b4a1c7d0dbf2599273bd4ead}
+      \strng{fullhash}{03609e87b4a1c7d0dbf2599273bd4ead}
+      \strng{bibnamehash}{03609e87b4a1c7d0dbf2599273bd4ead}
+      \strng{authorbibnamehash}{03609e87b4a1c7d0dbf2599273bd4ead}
+      \strng{authornamehash}{03609e87b4a1c7d0dbf2599273bd4ead}
+      \strng{authorfullhash}{03609e87b4a1c7d0dbf2599273bd4ead}
       \field{sortinit}{V}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{extradatescope}{labelyear}
