@@ -19,6 +19,44 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{wiezembaum}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=63f1c834370ef9403cdd41b2d66f132c}{%
+           family={Agassi},
+           familyi={A\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ab9b74207db3fff82043eb1b3f9ae7eb}{%
+           family={Wiezenbaum},
+           familyi={W\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{33fdf9fa11362eff29cd0122d0c64880}
+      \strng{fullhash}{33fdf9fa11362eff29cd0122d0c64880}
+      \strng{bibnamehash}{33fdf9fa11362eff29cd0122d0c64880}
+      \strng{authorbibnamehash}{33fdf9fa11362eff29cd0122d0c64880}
+      \strng{authornamehash}{33fdf9fa11362eff29cd0122d0c64880}
+      \strng{authorfullhash}{33fdf9fa11362eff29cd0122d0c64880}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Technology and Culture}
+      \field{month}{10}
+      \field{title}{Computer Power and Human Reason: From Judgment to Calculation}
+      \field{volume}{17}
+      \field{year}{1976}
+      \field{pages}{813}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.2307/3103715
+      \endverb
+    \endentry
     \entry{aristotle_politics}{book}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8d4a39cc0631ad0afeb3c94c8090287d}{%
@@ -98,6 +136,31 @@
       \verb https://edisciplinas.usp.br/pluginfile.php/4179798/mod_resource/content/1/PO%C3%89TICA%20DE%20ARIST%C3%93TELES.pdf
       \endverb
     \endentry
+    \entry{student}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4a8ac1e4d963c5d85c3eb00d27f4fc9e}{%
+           family={Bobrow},
+           familyi={B\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4a8ac1e4d963c5d85c3eb00d27f4fc9e}
+      \strng{fullhash}{4a8ac1e4d963c5d85c3eb00d27f4fc9e}
+      \strng{bibnamehash}{4a8ac1e4d963c5d85c3eb00d27f4fc9e}
+      \strng{authorbibnamehash}{4a8ac1e4d963c5d85c3eb00d27f4fc9e}
+      \strng{authornamehash}{4a8ac1e4d963c5d85c3eb00d27f4fc9e}
+      \strng{authorfullhash}{4a8ac1e4d963c5d85c3eb00d27f4fc9e}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Natural Language Input for a Computer Problem Solving System}
+      \field{year}{1964}
+    \endentry
     \entry{braga_mcluhan}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=011cd29b18c0d6da2f03b9c6a04e55f5}{%
@@ -131,6 +194,37 @@
       \endverb
       \verb{url}
       \verb http://revistaalceu-acervo.com.puc-rio.br/cgi/cgilua.exe/sys/start.htm?sid=36
+      \endverb
+    \endentry
+    \entry{cyc}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5a6cef81119bca750086c6acc11dbfed}{%
+           family={Copeland},
+           familyi={C\bibinitperiod},
+           given={B.\bibnamedelimi J.},
+           giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Enciclopedia Britannica}%
+      }
+      \strng{namehash}{5a6cef81119bca750086c6acc11dbfed}
+      \strng{fullhash}{5a6cef81119bca750086c6acc11dbfed}
+      \strng{bibnamehash}{5a6cef81119bca750086c6acc11dbfed}
+      \strng{authorbibnamehash}{5a6cef81119bca750086c6acc11dbfed}
+      \strng{authornamehash}{5a6cef81119bca750086c6acc11dbfed}
+      \strng{authorfullhash}{5a6cef81119bca750086c6acc11dbfed}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CYC}
+      \verb{urlraw}
+      \verb https://www.britannica.com/topic/CYC
+      \endverb
+      \verb{url}
+      \verb https://www.britannica.com/topic/CYC
       \endverb
     \endentry
     \entry{descartes}{book}{}
@@ -171,6 +265,46 @@
       \field{labeltitlesource}{title}
       \field{title}{Discurso do Método}
       \field{year}{1962}
+    \endentry
+    \entry{Goodfellow-et-al-2016}{book}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{bibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorbibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authornamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://www.deeplearningbook.org}}
+      \field{title}{Deep Learning}
+      \field{year}{2016}
     \endentry
     \entry{gouzouasis}{article}{}
       \name{author}{1}{}{%
@@ -326,6 +460,51 @@
       \verb https://www.maa.org/external_archive/devlin/LockhartsLament.pdf
       \endverb
     \endentry
+    \entry{dartmouth}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=46e54e04ec0343d677e2b791d1532f7e}{%
+           family={McCarthy},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ff41659107c0d758b36b67bd4e23ccd7}{%
+           family={Minsky},
+           familyi={M\bibinitperiod},
+           given={M.\bibnamedelimi L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c805eef8aa9a498b75716cf494176b0c}{%
+           family={Rochester},
+           familyi={R\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=22e2130b8d96f93daba648ff62af869b}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={C.E.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9e29147df59594732cd2e484027c5286}
+      \strng{fullhash}{bab7a4dcc3e54d493146586c16518a6d}
+      \strng{bibnamehash}{9e29147df59594732cd2e484027c5286}
+      \strng{authorbibnamehash}{9e29147df59594732cd2e484027c5286}
+      \strng{authornamehash}{9e29147df59594732cd2e484027c5286}
+      \strng{authorfullhash}{bab7a4dcc3e54d493146586c16518a6d}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{31}
+      \field{month}{8}
+      \field{title}{A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence}
+      \field{year}{1955}
+      \field{dateera}{ce}
+    \endentry
     \entry{homage_to_paul_klee}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=204c091a5922341cac0c6c645ef8b1b7}{%
@@ -469,6 +648,33 @@
       \endverb
       \verb{url}
       \verb https://www.gutenberg.org/ebooks/29904
+      \endverb
+    \endentry
+    \entry{wikipedia_eliza}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Eliza}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/ELIZA
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/ELIZA
       \endverb
     \endentry
   \enddatalist
