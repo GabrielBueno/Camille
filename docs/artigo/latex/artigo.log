@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  18 MAY 2021 18:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  18 MAY 2021 23:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -465,25 +465,33 @@ Package caption Info: listings package is loaded.
 \c@subfigure=\count405
 \c@subtable=\count406
 )
+(e:/texlive/2021/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen162
+\WF@size=\dimen163
+\c@WF@wrappedlines=\count407
+\WF@box=\box50
+\WF@everypar=\toks21
+Package: wrapfig 2003/01/31  v 3.6
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
  (./artigo.aux)
 \openout1 = `artigo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 Package biblatex Info: Trying to load language 'brazilian' -> 'brazilian-abnt'.
 ..
 Package biblatex Info: ... file 'brazilian-abnt.lbx' found.
@@ -552,8 +560,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'artigo.bbl' found.
 
 (./artigo.bbl)
-Package biblatex Info: Reference section=0 on input line 25.
-Package biblatex Info: Reference segment=0 on input line 25.
+Package biblatex Info: Reference section=0 on input line 43.
+Package biblatex Info: Reference segment=0 on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -589,20 +597,20 @@ Package biblatex Info: Reference segment=0 on input line 25.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count407
+\c@lstlisting=\count408
 (e:/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count408
-\scratchdimen=\dimen162
-\scratchbox=\box50
-\nofMPsegments=\count409
-\nofMParguments=\count410
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count411
-\MPscratchDim=\dimen163
-\MPnumerator=\count412
-\makeMPintoPDFobject=\count413
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count409
+\scratchdimen=\dimen164
+\scratchbox=\box51
+\nofMPsegments=\count410
+\nofMParguments=\count411
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count412
+\MPscratchDim=\dimen165
+\MPnumerator=\count413
+\makeMPintoPDFobject=\count414
+\everyMPtoPDFconversion=\toks23
 ) (e:/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -613,6 +621,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
  [1
 
@@ -620,46 +629,53 @@ Package caption Info: End \AtBeginDocument code.
 <fig/hommage_to_paul_klee.jpg, id=10, 1066.98625pt x 1084.05pt>
 File: fig/hommage_to_paul_klee.jpg Graphic file (type jpg)
 <use fig/hommage_to_paul_klee.jpg>
-Package pdftex.def Info: fig/hommage_to_paul_klee.jpg  used on input line 72.
+Package pdftex.def Info: fig/hommage_to_paul_klee.jpg  used on input line 90.
 (pdftex.def)             Requested size: 196.02177pt x 199.15665pt.
 <fig/gravel_stones.jpg, id=11, 607.26875pt x 1084.05pt>
 File: fig/gravel_stones.jpg Graphic file (type jpg)
 <use fig/gravel_stones.jpg>
-Package pdftex.def Info: fig/gravel_stones.jpg  used on input line 80.
+Package pdftex.def Info: fig/gravel_stones.jpg  used on input line 98.
 (pdftex.def)             Requested size: 111.56459pt x 199.15665pt.
  [2 <./fig/hommage_to_paul_klee.jpg>] [3 <./fig/gravel_stones.jpg>] [4] [5]
-<fig/eliza.png, id=26, 753.81625pt x 488.82625pt>
+<fig/eliza.png, id=28, 753.81625pt x 488.82625pt>
 File: fig/eliza.png Graphic file (type png)
 <use fig/eliza.png>
-Package pdftex.def Info: fig/eliza.png  used on input line 176.
+Package pdftex.def Info: fig/eliza.png  used on input line 194.
 (pdftex.def)             Requested size: 307.13428pt x 199.16696pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 191.
+(Font)              <12> on input line 209.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 191.
+(Font)              <8> on input line 209.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 191.
+(Font)              <6> on input line 209.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 191.
+(Font)              <7> on input line 209.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 191.
+(Font)              <5> on input line 209.
  [6 <./fig/eliza.png>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-25.
+<fig/ml_venn.jpg, id=37, 616.55344pt x 453.94594pt>
+File: fig/ml_venn.jpg Graphic file (type jpg)
+<use fig/ml_venn.jpg>
+Package pdftex.def Info: fig/ml_venn.jpg  used on input line 218.
+(pdftex.def)             Requested size: 127.46779pt x 93.84915pt.
 
-(e:/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
+[7 <./fig/ml_venn.jpg>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
+74.
+ (e:/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [7] [8] [9] (./artigo.aux)
+)
+[8] [9] [10] (./artigo.aux)
 Package logreq Info: Writing requests to 'artigo.run.xml'.
 \openout1 = `artigo.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14743 strings out of 480745
- 261756 string characters out of 5903657
- 1040160 words of memory out of 5000000
- 31967 multiletter control sequences out of 15000+600000
- 415195 words of font info for 49 fonts, out of 8000000 for 9000
+ 14831 strings out of 480745
+ 263128 string characters out of 5903657
+ 1047605 words of memory out of 5000000
+ 32048 multiletter control sequences out of 15000+600000
+ 416653 words of font info for 51 fonts, out of 8000000 for 9000
  38 hyphenation exceptions out of 8191
  73i,8n,79p,735b,3750s stack positions out of 5000i,500n,10000p,200000b,80000s
 {e:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{e:/texl
@@ -669,15 +685,17 @@ texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><e:/texlive/2021/texmf-dist
 e1/public/cm-super/sfbx1728.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/
 cm-super/sfrm0700.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/s
 frm0800.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pf
-b><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><e:/texl
-ive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><e:/texlive/2021/t
-exmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><e:/texlive/2021/texmf-dist/
-fonts/type1/public/cm-super/sfti1200.pfb><e:/texlive/2021/texmf-dist/fonts/type
-1/public/cm-super/sftt1200.pfb>
-Output written on artigo.pdf (9 pages, 1178068 bytes).
+b><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><e:/texl
+ive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><e:/texlive/2021/t
+exmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><e:/texlive/2021/texmf-dist/
+fonts/type1/public/cm-super/sfrm2074.pfb><e:/texlive/2021/texmf-dist/fonts/type
+1/public/cm-super/sfti1095.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/c
+m-super/sfti1200.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sf
+tt1200.pfb>
+Output written on artigo.pdf (10 pages, 1310016 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

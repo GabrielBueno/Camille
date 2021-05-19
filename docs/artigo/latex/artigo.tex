@@ -13,9 +13,27 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{caption}
+\usepackage{wrapfig}
 
+%%% Setup
+
+%lst
+\lstdefinestyle{lststyle}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	frame=single
+}
+
+\renewcommand{\lstlistingname}{Ex}
+\lstset{style=lststyle}
+
+%caption
+\captionsetup[figure]{font=small}
+\captionsetup[lstlisting]{font=small}
+
+%%% Documento
 \onehalfspacing
-
 \addbibresource{artigo.bib}
 
 \author{Gabriel Almeida Bueno}
@@ -136,7 +154,7 @@ tocaria a si mesma; nem o arquiteto desejaria servos, nem o mestre escravos. \ci
 \end{displayquote}
 
 A construção de máquinas autônomas, capazes de agir à semelhança de seus criadores, não é uma ideia recente, mas sim remonta à tempos antigos. 
-O exigente escultor Pigmalião e sua Galatéia; as estátuas de Dédalo; Pandora, criação de Hefesto e punição divina de Zeus, 
+O exigente escultor Pigmalião e sua Galatéia; as estátuas de Dédalo; Pandora, criação de Hefesto e punição Jupiteriana, 
 são exemplos de mitos que tem em si a ideia da criação de uma vida artificial. 
 O surgimento das ciências da computação e das máquinas programáveis fizeram ressurgir a chama destes mitos, 
 fazendo-nos nos questionar se um dia estas máquinas se tornariam inteligentes. \emph{Inteligência}, porém, por si só, é um conceito ambíguo.
@@ -194,26 +212,57 @@ foi o primeiro chatbot desenvolvido na história, com o objetivo de demonstrar c
 Outro trabalho pioneiro é o de Daniel G. Bobrow, que na sua tese de PhD em 1964 desenvolve o STUDENT, uma IA escrita em LISP para solucionar problemas
 de álgebra \cite{student}.
 
-\subsection{IA Simbólica e Aprendizado de Máquina}
+\subsubsection{IA Simbólica e Aprendizado de Máquina}
+\begin{wrapfigure}{r}{0.30\textwidth}
+	\begin{center}
+		\includegraphics[width=0.28\textwidth]{fig/ml_venn}
+	\end{center}
+	\caption{
+		Deep Learning é um subcampo do Machine Learning, que por sua vez é um subcampo da Inteligência Artificial.
+		Imagem do Wikipedia
+		\cite{wikipedia_ml}.
+	}
+\end{wrapfigure}
 O cerne principal da escrita de algoritmos -- em qualquer problema de computação, não somente na IA --, 
 é a \emph{representação de dados} utilizada para resolver o determinado problema. A \emph{IA simbólica},
 tipo de IA que mais ocupou o tempo e os esforços dos pesquisadores da década de 80, tenta representar o conhecimento
 sobre o mundo por \emph{fatos} e \emph{símbolos} atômicos através dos quais se pode realizar deduções e inferências. 
 O Cyc, um projeto cuja ambição era o de criar uma
-base de conhecimento com uma quantidade considerável do conhecimento comum da humanidade através do qual
+base de dados com uma quantidade considerável do conhecimento comum da humanidade, através do qual
 novo conhecimento poderia ser deduzido através do seu motor de inferência \cite{cyc}, serviria de exemplo para outros sistemas
 que utilizariam a mesma abordagem de IA. A linguagem Prolog \footnote{https://www.swi-prolog.org/}, 
 desenvolvida por Alain Colmerauer conjuntamente com Philippe Roussel em Marselha, 1972, 
 foi uma das primeiras linguagens de programação com paradigma lógico, tendo suas raízes na teoria de lógica de primeira ordem.
-A linguagem, através de \emph{átomos} e \emph{regras}, foi utilizada em trabalhos de IA na criação de sistemas especialistas,
-processamento de linguagem natural, entre outros. 
+Nesta linguagem, os problemas são modelados por \emph{átomos} e \emph{regras} que estabelecem relações entre os átomos.
+O Prolog viu sua aplicação em trabalhos de IA na criação de sistemas especialistas, processamento de linguagem natural, entre outros. 
 Apesar dos esforços, a IA simbólica não demonstrou muito sucesso. Suas dificuldades e empecilhos sugerem que os sistemas de inteligência
-artifical deveriam por si só adquirir o próprio conhecimento \cite{Goodfellow-et-al-2016}.
+artifical, para se mostrarem eficazes, deveriam ser capazes de por si só adquirir o próprio conhecimento necessário
+para a resolução de um problema \cite{Goodfellow-et-al-2016}.
 
-\begin{lstlisting}[caption={Exemplo do uso da linguagem Prolog para modelar a famosa proposição da mortalidade de Sócrates}, captionpos=b]
+\bigskip
+\begin{lstlisting}[caption={Exemplo do uso da linguagem Prolog para modelar a famosa proposição da mortalidade de Sócrates.}, captionpos=b]
 homem(socrates).
 mortal(X) :- homem(X).
 \end{lstlisting}
+
+Como resposta a este problema surgem as técnicas de \emph{aprendizado de máquina}. Estas técnicas e algoritmos
+baseiam-se na capacidade de, a partir de massas não estruturadas de dados, extrair padrões que
+possibilitem a solução ou previsão de um problema  \cite{Goodfellow-et-al-2016}.
+Regressão linear, regressão logística, classificadores Bayes ingênuos, 
+kNN e k-means são exemplos de técnicas de aprendizado de máquina.
+Nota-se que boa parte do ferramentário deste campo da inteligência artificial utiliza-se de modelos estatíscos para extrair informações
+dos dados não estruturados. Algumas destas técnicas de aprendizado de máquina, porém, não lidam com o problema da \emph{representação}
+dos dados, sendo esta estaticamente definida de acordo com o problema que está sendo atacado e a sua natureza.
+Como já elaborado anteriormente, algumas das tarefas simples para a realização por um humano são complexos de serem modelados computacionalmente;
+portanto, para a criação de sistemas inteligentes que realizam estas tarefas não há somente o problema da coleta de informações e conhecimento,
+mas também o da própria \emph{representação}. Criar uma representação de dados que torna fácil a extração de padrões de fala em uma amostra
+de áudio digital, ou a deteção de uma face em termos dos pixels em uma imagem é,
+por exemplo, uma tarefa nada trivial. Tendo em vista estas situações, algoritmos capazes de abstrair a devida representação que se
+deve utilizar em cada caso foram e estão sendo desenvolvidos e estudados. O \emph{Deep Learning} é um dos exemplos deste tipo de algoritmo
+de aprendizado de representações.
+
+\subsubsection{Deep Learning}
+
 
 \subsection{Redes Perceptron}
 \subsection{Redes Neurais Convolucionais (CNNs)}
