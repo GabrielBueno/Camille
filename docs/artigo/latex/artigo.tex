@@ -252,17 +252,14 @@ Regressão linear, regressão logística, classificadores Bayes ingênuos,
 kNN e k-means são exemplos de técnicas de aprendizado de máquina.
 Nota-se que boa parte do ferramentário deste campo da inteligência artificial utiliza-se de modelos estatíscos para extrair informações
 dos dados não estruturados. Algumas destas técnicas de aprendizado de máquina, porém, não lidam com o problema da \emph{representação}
-dos dados, sendo esta estaticamente definida de acordo com o problema que está sendo atacado e a sua natureza.
+dos dados, sendo esta estaticamente definida de acordo com o problema que está sendo atacado e a sua natureza. O algoritmo simplesmente mapeia uma representação de dados para uma saída que representa, por exemplo, uma probabilidade.
 Como já elaborado anteriormente, algumas das tarefas simples para a realização por um humano são complexos de serem modelados computacionalmente;
 portanto, para a criação de sistemas inteligentes que realizam estas tarefas não há somente o problema da coleta de informações e conhecimento,
-mas também o da própria \emph{representação}. Criar uma representação de dados que torna fácil a extração de padrões de fala em uma amostra
-de áudio digital, ou a deteção de uma face em termos dos pixels em uma imagem é,
-por exemplo, uma tarefa nada trivial. Tendo em vista estas situações, algoritmos capazes de abstrair a devida representação que se
-deve utilizar em cada caso foram e estão sendo desenvolvidos e estudados. O \emph{Deep Learning} é um dos exemplos deste tipo de algoritmo
-de aprendizado de representações.
+mas também o da própria \emph{representação}. 
+As técnicas de aprendizado de máquina podem ser utilizadas não só para, a partir de uma representação pré-definida, produzir uma resposta ao problema, mas também para automaticamente descobrir, por si só, a representação ideal.
 
-\subsubsection{Deep Learning}
-
+Ao criar uma representação que modela um problema do mundo real para um algoritmo de aprendizado de máquina -- ou mesmo para modelar o próprio algoritmo de aprendizado da representação -- há de se detectar e separar os \emph{fatores de influência} deste problema. Estes fatores não necessariamente são discretos, mas são quaisquer características que determinam a saída correta para um conjunto de dados em uma determinada representação. Em um nível mais alto, os fatores de influência são, por exemplo, as características que determinam a essência de algo, o que este algo é -- uma pintura, por exemplo, apresenta cores e formas que fazem com que o observador saiba de imediato que objeto foi ali representado. Estes fatores de influência muitas vezes são constituídos de ideias cujo significado total depende de interpretações extritamente ligadas à linguagem humana, não sendo possível a sua tradução fiel em uma linguagem simbólica formal. O \emph{Deep Learning} surge como técnica de aprendizagem de representação que baseia-se em níveis de representações encadeadas sucessivamente que transformam uma entrada na sua respectiva saída \cite{Goodfellow-et-al-2016}. 
+No artigo que propõe a conferência de Dartmouth já se apresenta a ideia central das redes neurais, "como um conjunto de nêurons hipotéticos podem ser arranjados para que possam formar conceitos?" foi a questão apresentada \cite{dartmouth}.
 
 \subsection{Redes Perceptron}
 \subsection{Redes Neurais Convolucionais (CNNs)}
