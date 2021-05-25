@@ -504,6 +504,44 @@
       \field{title}{A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence}
       \field{year}{1955}
       \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf
+      \endverb
+      \verb{url}
+      \verb http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf
+      \endverb
+    \endentry
+    \entry{mcculloch_pitts}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1ccb147b2b2165266e6ce5900193e687}{%
+           family={McCulloch},
+           familyi={M\bibinitperiod},
+           given={Warren\bibnamedelima S.},
+           giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c5a56e799cdf785e814246c091d36e73}{%
+           family={Pitts},
+           familyi={P\bibinitperiod},
+           given={Walter},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{816477c5724040789c6fe02e3968dc62}
+      \strng{fullhash}{816477c5724040789c6fe02e3968dc62}
+      \strng{bibnamehash}{816477c5724040789c6fe02e3968dc62}
+      \strng{authorbibnamehash}{816477c5724040789c6fe02e3968dc62}
+      \strng{authornamehash}{816477c5724040789c6fe02e3968dc62}
+      \strng{authorfullhash}{816477c5724040789c6fe02e3968dc62}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bulletins of Mathematical Biophysics}
+      \field{title}{A Logical Calculus of the Ideas Immanent in Nervous Activity}
+      \field{volume}{5}
+      \field{year}{1943}
     \endentry
     \entry{homage_to_paul_klee}{misc}{}
       \name{author}{1}{}{%

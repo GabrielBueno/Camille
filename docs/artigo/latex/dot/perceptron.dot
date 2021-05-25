@@ -1,0 +1,44 @@
+digraph perceptron {
+	rankdir = LR;
+	splines = false;
+
+	node [shape=circle];
+
+	x0 [label=<x<sub>0</sub>>];
+	x1 [label=<x<sub>1</sub>>];
+	x2 [label=<x<sub>2</sub>>];
+
+	a0 [label=<a<sub>0</sub><sup>(0)</sup>>];
+	a1 [label=<a<sub>1</sub><sup>(0)</sup>>];
+	a2 [label=<a<sub>2</sub><sup>(0)</sup>>];
+	a3 [label=<a<sub>3</sub><sup>(0)</sup>>];
+	a4 [label=<a<sub>4</sub><sup>(0)</sup>>];
+
+	y [label=<y>];
+
+	x0 -> a0;
+	x1 -> a0;
+	x2 -> a0;
+
+	x0 -> a1;
+	x1 -> a1;
+	x2 -> a1;
+
+	x0 -> a2;
+	x1 -> a2;
+	x2 -> a2;
+
+	x0 -> a3;
+	x1 -> a3;
+	x2 -> a3;
+
+	x0 -> a4;
+	x1 -> a4;
+	x2 -> a4;
+
+	a0 -> y;
+	a1 -> y;
+	a2 -> y;
+	a3 -> y;
+	a4 -> y;
+}
