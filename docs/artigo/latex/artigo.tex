@@ -295,7 +295,7 @@ Desta forma, um nêuron pode tomar uma decisão com base na importância de cada
 	\caption{Exemplo de rede de nêurons perceptron \emph{feed-forward}.}
 \end{figure}
 
-O trabalho original de Rosenblatt define como função de ativação para o \emph{perceptron} uma função binária $p(x)$ que produz $0$ ou $1$ caso $x$ seja ou não positivo.
+O trabalho original de Rosenblatt define como função de ativação para o \emph{perceptron} uma função binária $p(x)$ que produz $0$ ou $1$ (ligado ou desligado) caso $x$ seja ou não positivo.
 
 \begin{equation}
 p(x) =
@@ -357,10 +357,17 @@ O objetivo do treinamento das redes neurais é o de encontrar automaticamente os
 Um exemplo de função custo é um \emph{erro quadrático médio}:
 
 \begin{equation}
-\frac{1}{n} \displaystyle\sum_{i=0}^{n} (y_i - \hat{y}_i)^2,
+C = \frac{1}{n} \displaystyle\sum_{i=0}^{n} (y_i - \hat{y}_i)^2,
 \end{equation}
 
-Onde $n$ é a quantidade de entradas utilizadas, $y_i$ é o valor previsto pela rede neural, e $\hat{y}_i$ é o valor correto que a rede deveria ter previsto.
+Onde $n$ é a quantidade de entradas utilizadas, $y_i$ é o valor previsto pela rede neural, e $\hat{y}_i$ é o valor correto que a rede deveria ter previsto. Há também outras funções de erro, cada qual com suas características. O algoritmo de \emph{retroprogação} é a chave para o aprendizado da rede, encarregando-se de propagar pequenas variações nos pesos e vieses de cada nêuron na rede computando cada derivada parcial 
+% $\frac{\partial C}{\partial w_{j}^{k} l}$ e $\frac{\partial C}{\partial b_{j}^{l}}$
+$\partial C/\partial w_{j}^{i} k$ e $\partial C/\partial b_{j}^{i}$, onde $w_{j}^{i} k$ é o peso da $k$-ésima entrada do $j$-ésimo nêuron da $i$-ésima camada; e $b_{j}^{i}$ é viés do $j$-ésimo nêuron da $i$-ésima camada. Essas derivadas parciais indicam a variação $\Delta w_{j}^{i} k$ e $\Delta b_{j}^{i}$ tal que 
+$w_{j}^{i} k + \Delta w_{j}^{i} k$ e $b_{j}^{i} + \Delta b_{j}^{i}$ aproximem $C$ de 0.
+
+\section{Métodos}
+\section{Resultados e discussão}
+\section{Conclusão}
 
 % \nocite{*}
 \printbibliography

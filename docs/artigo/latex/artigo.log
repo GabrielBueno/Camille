@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  25 MAY 2021 17:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  25 MAY 2021 22:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1147,15 +1147,11 @@ Package pdftex.def Info: fig/perceptron_net.png  used on input line 294.
 (pdftex.def)             Requested size: 298.667pt x 227.62257pt.
  [10 <./fig/perceptron_net.png>] [11]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-66.
+73.
  (e:/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 [12] [13] [14] (./artigo.aux)
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
 Package logreq Info: Writing requests to 'artigo.run.xml'.
 \openout1 = `artigo.run.xml'.
 
@@ -1163,7 +1159,7 @@ Package logreq Info: Writing requests to 'artigo.run.xml'.
 Here is how much of TeX's memory you used:
  36876 strings out of 480745
  853708 string characters out of 5903657
- 1701801 words of memory out of 5000000
+ 1700801 words of memory out of 5000000
  53709 multiletter control sequences out of 15000+600000
  418547 words of font info for 57 fonts, out of 8000000 for 9000
  38 hyphenation exceptions out of 8191
@@ -1188,7 +1184,7 @@ texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><e:/texlive/2021/texmf-dist
 /fonts/type1/public/cm-super/sfti1095.pfb><e:/texlive/2021/texmf-dist/fonts/typ
 e1/public/cm-super/sfti1200.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/
 cm-super/sftt1200.pfb>
-Output written on artigo.pdf (14 pages, 1455107 bytes).
+Output written on artigo.pdf (14 pages, 1459087 bytes).
 PDF statistics:
  148 PDF objects out of 1000 (max. 8388607)
  101 compressed objects within 2 object streams
