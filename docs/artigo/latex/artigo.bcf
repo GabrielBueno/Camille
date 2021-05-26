@@ -2445,10 +2445,10 @@
     <bcf:citekey order="17">dartmouth</bcf:citekey>
     <bcf:citekey order="18">wiezembaum</bcf:citekey>
     <bcf:citekey order="19">student</bcf:citekey>
-    <bcf:citekey order="20">wikipedia_ml</bcf:citekey>
-    <bcf:citekey order="21">wikipedia_ml</bcf:citekey>
-    <bcf:citekey order="22">cyc</bcf:citekey>
-    <bcf:citekey order="23">Goodfellow-et-al-2016</bcf:citekey>
+    <bcf:citekey order="20">cyc</bcf:citekey>
+    <bcf:citekey order="21">Goodfellow-et-al-2016</bcf:citekey>
+    <bcf:citekey order="22">wikipedia_ml</bcf:citekey>
+    <bcf:citekey order="23">wikipedia_ml</bcf:citekey>
     <bcf:citekey order="24">Goodfellow-et-al-2016</bcf:citekey>
     <bcf:citekey order="25">dartmouth</bcf:citekey>
     <bcf:citekey order="26">mcculloch_pitts</bcf:citekey>

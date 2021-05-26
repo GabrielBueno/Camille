@@ -15,6 +15,9 @@
 \usepackage{subcaption}
 \usepackage{caption}
 \usepackage{wrapfig}
+\usepackage{mathtools}
+\usepackage{pgfplots}
+\usepackage{float}
 
 %%% Setup
 
@@ -31,6 +34,9 @@
 %caption
 \captionsetup[figure]{font=small}
 \captionsetup[lstlisting]{font=small}
+
+%pgfplots
+\pgfplotsset{compat = newest}
 
 %%% Documento
 \onehalfspacing
@@ -144,7 +150,7 @@ que é necessário pelo menos uma abordagem eventual da tecnologia recente na ar
 também serão exibidos neste trabalho.
 
 \section{Referencial teórico}
-\subsection{Uma breve história da IA e das Redes Neurais}
+\subsection{Definição e histórico da IA e das Redes Neurais}
 \begin{displayquote}
 Portanto o bem é instrumento para a existência, uma propriedade é uma multitude de instrumentos; então o escravo é um instrumento animado,
 mas qualquer um capaz de agir por si só é mais valioso do que qualquer outro instrumento; pois se cada instrumento, em um comando,
@@ -178,7 +184,7 @@ mas não que ela as arranje diversamente, para responder ao sentido de tudo quan
 pelas quais se descobriria que não agem pelo conhecimento, mas somente pela disposição de seus órgãos. \cite{descartes}
 \end{displayquote}
 
-Este parágrafo que Descartes escreve em 1637 serve muito bem para definir o estado atual da computação e a motivação da inteligência artificial.
+A elaboração de Descartes sobre a impossibilidade da mimetização do comportamento humano por uma máquina nos serve muito bem para definir o estado atual da computação e a motivação da inteligência artificial.
 Com os modelos computacionais que temos atualmente, 
 é simples a resolução de problemas que se mostram complexos para um humano, 
 desde que o dito problema seja quantificável e reduzível, possível de ser descrito formalmente.
@@ -199,8 +205,8 @@ computacionalmente complexas, da forma mais semelhante à humana possível.
 \end{figure}
 
 Apesar da IA, como ferramenta computacional, parecer ser um assunto recente, 
-pertencente à vanguarda da corrida tecnológica, sua pesquisa
-remonta pelo menos aos anos 50.
+pertencente à vanguarda da inovação tecnológica, sua pesquisa
+remonta pelo menos à década de 1950.
 A conferência de Dartmouth, em 1956, foi um dos primeiros movimentos que impulsionaram o início das 
 pesquisas em inteligência artificial. \cite{dartmouth}.
 As redes neurais e o uso de linguagem natural pelo computador -- assuntos que permanecem ainda atuais --, entre outros tópicos de discussão,
@@ -213,16 +219,7 @@ Outro trabalho pioneiro é o de Daniel G. Bobrow, que na sua tese de PhD em 1964
 de álgebra \cite{student}.
 
 \subsubsection{IA Simbólica e Aprendizado de Máquina}
-\begin{wrapfigure}{r}{0.30\textwidth}
-	\begin{center}
-		\includegraphics[width=0.28\textwidth]{fig/ml_venn}
-	\end{center}
-	\caption{
-		Deep Learning é um subcampo do Machine Learning, que por sua vez é um subcampo da Inteligência Artificial.
-		Imagem do Wikipedia
-		\cite{wikipedia_ml}.
-	}
-\end{wrapfigure}
+
 O cerne principal da escrita de algoritmos -- em qualquer problema de computação, não somente na IA --, 
 é a \emph{representação de dados} utilizada para resolver o determinado problema. A \emph{IA simbólica},
 tipo de IA que mais ocupou o tempo e os esforços dos pesquisadores da década de 80, tentou representar o conhecimento
@@ -258,15 +255,112 @@ portanto, para a criação de sistemas inteligentes que realizam estas tarefas n
 mas também o da própria \emph{representação}. 
 As técnicas de aprendizado de máquina podem ser utilizadas não só para, a partir de uma representação pré-definida, produzir uma resposta ao problema, mas também para automaticamente descobrir, por si só, a representação ideal.
 
-Ao criar uma representação que modela um problema do mundo real para um algoritmo de aprendizado de máquina -- ou mesmo para modelar o próprio algoritmo de aprendizado da representação -- há de se detectar e separar os \emph{fatores de influência} deste problema. Estes fatores não necessariamente são discretos, mas são quaisquer características que determinam a saída correta para um conjunto de dados em uma determinada representação. Em um nível mais alto, podemos dizer que os fatores de influência são, por exemplo, as características que determinam a essência de algo, o que este algo é -- uma pintura, por exemplo, apresenta cores e formas que fazem com que o observador saiba de imediato que tipo de objeto foi ali representado. Estes fatores de influência muitas vezes são constituídos de ideias cujo significado total depende de abstrações estritamente ligadas à linguagem humana, não sendo possível a sua tradução fiel em uma linguagem formal. O \emph{Deep Learning} surge como técnica de aprendizagem de representação que baseia-se em níveis de representações encadeadas sucessivamente que transformam uma entrada na sua respectiva saída \cite{Goodfellow-et-al-2016}. 
+\subsubsection{Redes neurais artificiais}
+
+\begin{wrapfigure}{r}{0.30\textwidth}
+	\begin{center}
+		\includegraphics[width=0.28\textwidth]{fig/ml_venn}
+	\end{center}
+	\caption{
+		Deep Learning é um subcampo do Machine Learning, que por sua vez é um subcampo da Inteligência Artificial.
+		Imagem do Wikipedia
+		\cite{wikipedia_ml}.
+	}
+\end{wrapfigure}
+
+Ao criar uma representação que modela um problema do mundo real para um algoritmo de aprendizado de máquina -- ou mesmo para modelar o próprio algoritmo de aprendizado da representação -- há de se detectar e separar os \emph{fatores de influência} deste problema. Estes fatores não necessariamente são discretos, mas são quaisquer características que determinam a saída correta para um conjunto de dados em uma determinada representação. Em um nível mais alto, podemos dizer que os fatores de influência são, por exemplo, as características que determinam a essência de algo, o que este algo é -- uma pintura, por exemplo, apresenta cores e formas que fazem com que o observador saiba de imediato que tipo de objeto foi ali representado. Estes fatores de influência muitas vezes são constituídos de ideias cujo significado total depende de abstrações estritamente ligadas à linguagem humana, não sendo possível a sua tradução fiel em uma linguagem formal. O \emph{Deep Learning} surge como técnica de aprendizagem de representação que baseia-se em níveis de representações encadeadas sucessivamente que transformam uma entrada na sua respectiva saída \cite{Goodfellow-et-al-2016}. Cada camada de representação em uma rede neural se mostra capaz de responder aos fatores de influência em uma entrada. Os algoritmos de aprendizado ainda tornam possível que uma rede neural, através de exemplos, vá assumindo ao longo do treinamento uma configuração capaz de detectar quais são os fatores de influência determinantes para uma saída correta. 
 Esta técnica também remonta à Dartmouth, cujo artigo que propõe a conferência apresenta a questão "como um conjunto de nêurons hipotéticos podem ser arranjados para que possam formar conceitos?" \cite{dartmouth}.
 
-No início, as pesquisas em redes neurais eram inspiradas nos estudos da neurociência da época. O primeiro modelo matemático para a representação de nêurons \cite{mcculloch_pitts} criado em 1943, apesar de simples, serviu como fundamento para a evolução teórica do que viria a ser a rede neural. O próximo marco na linha do tempo das redes neurais é a invenção do nêuron \emph{Perceptron} por Frank Rosenblatt em 1958, no Cornell Aeronautical Laboratory. As tecnologias oriundas da pesquisa em inteligência artificial, apesar de terem surgido há muito, somente apresentaram resultados factíveis nos dias atuais. As IAs simbólicas não lograram sucesso nas tarefas de maior abstração e complexidade, e as redes neurais artificiais não eram capazes de muito devido à limitação de hardware na época. Somente com o hardware atual foram possíveis a execução de redes neurais que produziram resultados de maior expressão.
+No início, as pesquisas em redes neurais eram inspiradas nos estudos da neurociência da época. O primeiro modelo matemático para a representação de nêurons \cite{mcculloch_pitts} criado em 1943, apesar de simples, serviu como fundamento para a evolução teórica do que viria a ser a rede neural. O próximo marco na linha do tempo das redes neurais é a invenção do nêuron \emph{Perceptron} por Frank Rosenblatt em 1958, no Cornell Aeronautical Laboratory.
+
+As tecnologias oriundas da pesquisa em inteligência artificial, apesar de terem surgido há muito, somente apresentaram resultados expressivos nos dias atuais. As IAs simbólicas não lograram sucesso nas tarefas de maior abstração e complexidade, e as redes neurais artificiais não eram capazes de muito devido à limitação do hardware na época. Somente com o hardware atual foram possíveis a execução de redes neurais que produziram resultados de maior expressão.
 
 \subsection{Redes Perceptron}
-\subsection{Redes Neurais Convolucionais (CNNs)}
-\subsection{Transferência de Aprendizado}
-\subsection{Frameworks atuais para o treinamento de Redes Neurais}
+O \emph{nêuron artifical} -- bloco fundamental de uma rede neural artificial -- é um elemento que recebe $n$ entradas que determinam o seu estado final -- \emph{ligado} ou \emph{desligado}, por exemplo. Cada entrada pode influenciar mais ou menos no estado do nêuron. Para tanto, atrelamos à cada entrada um \emph{fator} de importância. O estado final é, portanto, a soma do produto de cada entrada com seu respectivo fator de importância. Sendo assim, podemos definir um nêuron como uma função que recebe $n$ entradas e produz uma soma ponderada destas aplicada a uma função de ativação que determina, a partir da soma ponderada, o estado final do nêuron. Podemos descrever este elemento formalmente como uma função definida por uma tripla $(w, b, g)$ com, respectivamente, um vetor $w$ com os \emph{pesos} para cada entrada; um valor $b$ que representa um \emph{viés} que indica o quão fácil é a ativação do nêuron; e uma função $g$ de ativação que determina o estado final do nêuron a partir da soma ponderada das entradas.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth, height=3.8cm, keepaspectratio=true]{fig/perceptron}
+\end{figure}
+
+\begin{equation}
+(w, b, g) \rightarrow f(x_0, x_1, \dotsc, x_n) = g\left(b + \displaystyle\sum_{i=0}^{n} w_i x_i \right)
+\end{equation}
+
+Desta forma, um nêuron pode tomar uma decisão com base na importância de cada elemento de entrada. Uma \emph{rede neural artificial} é o encadeamento de camadas de vários nêurons, onde cada nêuron de uma camada intermediária $a$ tem como entrada as saídas de todos os nêurons da camada $a - 1$. Configurações desta natureza são chamadas de redes \emph{feed-forward}, e permitem que a rede neural crie novas abstrações da entrada a cada camada. A primeira camada intermediária toma decisões com base nos elementos da entrada; a segunda camada toma decisões com base nas decisões tomadas pela primeira camada; e assim se sucede até o fim da rede.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, height=8cm, keepaspectratio=true]{fig/perceptron_net}
+	\caption{Exemplo de rede de nêurons perceptron \emph{feed-forward}.}
+\end{figure}
+
+O trabalho original de Rosenblatt define como função de ativação para o \emph{perceptron} uma função binária $p(x)$ que produz $0$ ou $1$ caso $x$ seja ou não positivo.
+
+\begin{equation}
+p(x) =
+	\begin{cases}
+		0 & \text{se } x \leq 0 \\
+		1 & \text{se } x > 0
+	\end{cases}
+\end{equation}
+
+No entanto, para maior adequação aos algoritmos de treinamento, outras funções de ativação são comumente utilizadas, como a função \emph{sigmoide} ($\sigma$) ou a unidade linear retificada (\emph{ReLU}).
+
+\begin{equation}
+\sigma(x) = \frac{1}{1 + e^{-x}}
+\end{equation}
+
+\begin{equation}
+ReLU(x) =
+	\begin{cases}
+		0 & \text{se } x \leq 0 \\
+		x & \text{se } x > 0
+	\end{cases}
+\end{equation}
+
+% \pgfplotsset{small}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xlabel=$x$, ylabel=$p(x)$]
+			\addplot[] {x > 0 ? 1 : 0};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Função de ativação do perceptron original.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xlabel=$x$, ylabel=$\sigma(x)$]
+			\addplot[] {1/(1+exp(-x))};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Função sigmoide.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[xlabel=$x$, ylabel=$ReLU(x)$]
+			\addplot[] {x > 0 ? x : 0};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Função ReLU.}
+\end{figure}
+
+\subsubsection{Treinamento das redes neurais artificiais}
+O objetivo do treinamento das redes neurais é o de encontrar automaticamente os pesos e o viés de cada nêuron em cada câmada a fim de minimizar a \emph{função custo}. Uma função custo é uma função que determina o quão capaz uma determinada rede neural está de produzir saídas corretas. Em um treinamento real, é imprescindível o uso de grandes massas de dados devidamente categorizados para realizar o processo de aprendizagem. Cada entrada passará pela rede neural, a \emph{função custo} será computada, e através de algum algoritmo como o \emph{gradiente descendente estocástico} uma pequena variação para cada peso e viés será calculado para o ajuste da rede neural, de forma a aproximar a função \emph{custo} da rede à $0$.
+
+Um exemplo de função custo é um \emph{erro quadrático médio}:
+
+\begin{equation}
+\frac{1}{n} \displaystyle\sum_{i=0}^{n} (y_i - \hat{y}_i)^2,
+\end{equation}
+
+Onde $n$ é a quantidade de entradas utilizadas, $y_i$ é o valor previsto pela rede neural, e $\hat{y}_i$ é o valor correto que a rede deveria ter previsto.
 
 % \nocite{*}
 \printbibliography
