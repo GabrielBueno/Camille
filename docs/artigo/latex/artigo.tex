@@ -18,6 +18,8 @@
 \usepackage{mathtools}
 \usepackage{pgfplots}
 \usepackage{float}
+\usepackage{blindtext}
+\usepackage{enumitem}
 
 %%% Setup
 
@@ -366,6 +368,96 @@ $\partial C/\partial w_{j}^{i} k$ e $\partial C/\partial b_{j}^{i}$, onde $w_{j}
 $w_{j}^{i} k + \Delta w_{j}^{i} k$ e $b_{j}^{i} + \Delta b_{j}^{i}$ aproximem $C$ de 0.
 
 \section{Métodos}
+Neste trabalho, uma rede neural artificial foi criada para integrar um sistema de detecção automática do estilo artístico de uma pintura, batizado de \emph{Camille}. 
+Este sistema foi criado com o propósito de servir de \emph{prova de conceito} para uma possível aplicação de uma tecnologia de inteligência artificial com a área artística. O sistema deve permitir que um usuário escolha um arquivo de imagem qualquer em seu dispositivo, e visualize o gênero artístico detectado pela rede neural. Uma interface exposta em um ambiente Web foi disponibilizada, tornando possível o seu acesso a partir de qualquer navegador de internet.
+O desenvolvimento do sistema, após as fases de pesquisa e criação de base teórica que o suportassem, passou pelas fases de \emph{concepção}; \emph{coleta de dados}; \emph{escolha do modelo}; \emph{treinamento}; \emph{criação das interfaces} e \emph{implantação}. Além do desenvolvimento em si, uma pesquisa quantitativa também foi realizada a fim de traçar a opinião geral da sociedade sobre a necessidade da abordagem da tecnologia no ensino da arte.
+
+% Apesar da sua natureza geral, sem atacar um problema bem definido em específico, o sistema desenvolvido apresenta-se como uma solução a partir da qual se podem derivar outras soluções, as ideias geradas durante o desenvolvimento do presente trabalho serviriam de suporte para a criação de outras aplicações. 
+
+\subsection{Concepção}
+A fase de concepção iniciou-se com a germinação da ideia e a formalização desta utilizando-se da descrição dos requisitos e da modelagem dos casos de uso, a fim de delimitar o escopo do sistema.
+
+\subsubsection{Requisitos}
+Os requisitos funcionais (\emph{RF}) que delimitam o escopo da funcionalidade do sistema e os não-funcionais (\emph{RNF}) que regem a sua operação são os que se encontram abaixo:
+
+\begin{itemize}
+\item (\emph{RF01}) O sistema deve permitir que um usuário envie um arquivo de imagem qualquer para ser categorizado;
+\item (\emph{RF02}) O sistema deve exibir para o usuário a categoria inferida pela rede neural;
+\item (\emph{RNF01}) O acesso às funcionalidades do sistema deve se dar por uma interface em um ambiente Web.
+\end{itemize}
+
+\subsubsection{Casos de uso}
+O sistema somente apresenta um caso de uso, derivado dos requisitos \emph{RF01} e \emph{RF02}:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, height=3.8cm, keepaspectratio=true]{diagrams/usecase/UseCase}
+	\caption{Único caso de uso permitido pelo sistema.}
+\end{figure}
+
+\subsubsection{Arquitetura}
+O sistema será dividido em uma arquitetura \emph{cliente/servidor}. O servidor expõe uma API \emph{RESTful} para o acesso às funcionalidades por ele disponibilizadas para o cumprimento dos casos de uso. É o servidor que conterá e se comunicará com o modelo de rede neural treinado, expondo-a somente através dos \emph{endpoints} da API. Já o cliente, por sua vez, se responsabiliza somente por permitir o acesso do usuário aos casos de uso, servindo como interface para a utilização da API. O cliente cuidará da comunicação com o servidor, transformando os dados recebidos do usuário para o envio na API, e tratando os dados recebidos da API para a exibição pelo usuário.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, height=8cm, keepaspectratio=true]{diagrams/sequence/Seq}
+	\caption{Sequência de interações que constituem o fluxo do caso de uso de categorização de um arquivo de imagem.}
+\end{figure}
+
+\subsection{Coleta de dados}
+Para criarmos um modelo de rede neural capaz de inferir o gênero artístico de uma pintura, devemos treiná-lo utilizando uma base de dados previamente e devidamente categorizados. Para tanto, foi utilizada uma base de imagens \footnote{https://github.com/cs-chan/ArtGAN/tree/master/WikiArt\%20Dataset} retiradas do WikiArt.org \footnote{https://www.wikiart.org/} por \cite{icip2016}. Esta base de dados contém $81446$ imagens distribuídas nas 27 categorias: 
+
+\emph{expressionismo abstrato}; 
+\emph{gestualismo}; 
+\emph{minimalismo}; 
+\emph{color field}; 
+\emph{expressionismo}; 
+\emph{cubismo analítico}; 
+\emph{cubismo}; 
+\emph{cubismo sintético}; 
+\emph{realismo}; 
+\emph{realismo contemporâneo}; 
+\emph{novo realismo}; 
+\emph{pré-renascença}; 
+\emph{alta renascença}; 
+\emph{maneirismo}; 
+\emph{renascimento nórdico}; 
+\emph{art nouveau}; 
+\emph{barroco}; 
+\emph{fauvismo}; 
+\emph{impressionismo}; 
+\emph{pós-impressionismo}; 
+\emph{arte naif}; 
+\emph{pontilhismo}; 
+\emph{pop-art}; 
+\emph{rococó}; 
+\emph{romantismo}; 
+\emph{simbolismo} e
+\emph{ukiyo-e}.
+
+Alguns destes gêneros, porém, são subgêneros de um mesmo movimento, como o cubismo, cubismo analítico e cubismo sintético. Não nos é interessante manter este nível de detalhe, já que a diferença puramente visual --- a rede neural não possui conhecimento de contextos históricos ou regionais, somente enxergando o aspecto puramente visual da obra de arte --- entre estas subcategorias podem ser sutis ou inexistentes. Além disso, as subcategorias podem não estar presentes em um número expressivo na base de dados para que o modelo consiga ser treinado a ponto de detectar essas diferenças. Foi decidido, portanto, aglutinar estas subcategorias sobre somente uma categoria, fazendo com que:
+
+\begin{itemize}
+\item \emph{expressionismo abstrato}, \emph{gestualismo}, \emph{minimalismo} e \emph{color field} passem a responder pela categoria \emph{arte abstrata};
+\item \emph{cubismo analítico}, \emph{cubismo sintético} e \emph{cubismo} passem a responder pela categoria \emph{cubismo};
+\item \emph{realismo}, \emph{realismo contemporâneo} e \emph{novo realismo} passem a responder pela categoria \emph{realismo};
+\item \emph{pré-renascença}, \emph{alta renascença}, \emph{maneirismo} e \emph{renascimento nórico} passem a responder pela categoria \emph{renascença}.
+\end{itemize}
+
+Reduzindo assim o total de categorias para 17.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, height=20cm, keepaspectratio=true]{fig/databalance}
+	\caption{Distribuição das imagens na base de dados por categoria.}
+\end{figure}
+
+\subsection{Escolha do modelo de rede neural}
+\subsection{Treinamento}
+\subsection{Interfaces}
+\subsection{Implantação}
+\subsection{Pesquisa de aceitação}
+
 \section{Resultados e discussão}
 \section{Conclusão}
 

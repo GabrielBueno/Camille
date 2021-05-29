@@ -1,0 +1,3 @@
+@startuml UseCase
+:Usuario: --> (Categorizar imagem)
+@enduml

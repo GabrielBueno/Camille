@@ -1,0 +1,11 @@
+@startuml Seq
+
+actor Usuário
+
+Usuário --> IHC     : Escolhe imagem para ser categorizada
+IHC     --> API     : Envia arquivo para ser categorizado
+API     --> API     : Carrega o arquivo no modelo de rede neural
+API     --> IHC     : Devolve vetor de probabilidades
+IHC     --> IHC     : Transforma vetor de probabilidades para visualização
+IHC     --> Usuário : Exibe a categoria detectada
+@enduml

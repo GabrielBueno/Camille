@@ -1,15 +1,17 @@
-[0] Config.pm:311> INFO - This is Biber 2.16
-[1] Config.pm:314> INFO - Logfile is 'artigo.blg'
-[326] biber-MSWIN32:340> INFO - === 
-[447] Biber.pm:415> INFO - Reading 'artigo.bcf'
-[808] Biber.pm:952> INFO - Found 20 citekeys in bib section 0
-[858] Biber.pm:4340> INFO - Processing section 0
-[896] Biber.pm:4531> INFO - Looking for bibtex format file 'artigo.bib' for section 0
-[1070] bibtex.pm:1689> INFO - LaTeX decoding ...
-[1145] bibtex.pm:1494> INFO - Found BibTeX data source 'artigo.bib'
-[1471] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1472] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1472] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'pt-BR'
-[1473] Biber.pm:4174> INFO - No sort tailoring available for locale 'pt-BR'
-[1533] bbl.pm:654> INFO - Writing 'artigo.bbl' with encoding 'UTF-8'
-[1557] bbl.pm:757> INFO - Output to artigo.bbl
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'artigo.blg'
+[80] biber-MSWIN32:322> INFO - === 
+[100] Biber.pm:415> INFO - Reading 'artigo.bcf'
+[243] Biber.pm:943> INFO - Found 21 citekeys in bib section 0
+[264] Biber.pm:4256> INFO - Processing section 0
+[265] Utils.pm:75> INFO - Globbing data source 'artigo.bib'
+[276] Utils.pm:91> INFO - Globbed data source 'artigo.bib' to artigo.bib
+[291] Biber.pm:4455> INFO - Looking for bibtex format file 'artigo.bib' for section 0
+[302] bibtex.pm:1653> INFO - LaTeX decoding ...
+[346] bibtex.pm:1471> INFO - Found BibTeX data source 'artigo.bib'
+[516] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[516] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[517] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'pt-BR'
+[517] Biber.pm:4090> INFO - No sort tailoring available for locale 'pt-BR'
+[551] bbl.pm:652> INFO - Writing 'artigo.bbl' with encoding 'UTF-8'
+[565] bbl.pm:755> INFO - Output to artigo.bbl
