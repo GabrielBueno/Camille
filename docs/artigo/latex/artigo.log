@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  31 MAY 2021 17:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  31 MAY 2021 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1243,12 +1243,13 @@ File: fig/site_imgcategorized.png Graphic file (type png)
 <use fig/site_imgcategorized.png>
 Package pdftex.def Info: fig/site_imgcategorized.png  used on input line 528.
 (pdftex.def)             Requested size: 455.23724pt x 256.07095pt.
+ [19 <./fig/site_noimg.png> <./fig/site_imgcategorized.png>] [20]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
 39.
  (e:/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [19 <./fig/site_noimg.png> <./fig/site_imgcategorized.png>] [20] [21]
-(./artigo.aux)
+) [21]
+[22] (./artigo.aux)
 Package logreq Info: Writing requests to 'artigo.run.xml'.
 \openout1 = `artigo.run.xml'.
 
@@ -1256,7 +1257,7 @@ Package logreq Info: Writing requests to 'artigo.run.xml'.
 Here is how much of TeX's memory you used:
  38251 strings out of 480745
  879049 string characters out of 5903657
- 1777024 words of memory out of 5000000
+ 1778024 words of memory out of 5000000
  55046 multiletter control sequences out of 15000+600000
  418547 words of font info for 57 fonts, out of 8000000 for 9000
  38 hyphenation exceptions out of 8191
@@ -1281,10 +1282,10 @@ texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><e:/texlive/2021/texmf-dist
 /fonts/type1/public/cm-super/sfti1095.pfb><e:/texlive/2021/texmf-dist/fonts/typ
 e1/public/cm-super/sfti1200.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/
 cm-super/sftt1200.pfb>
-Output written on artigo.pdf (21 pages, 3639644 bytes).
+Output written on artigo.pdf (22 pages, 3639899 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
+ 183 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

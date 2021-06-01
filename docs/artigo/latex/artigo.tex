@@ -167,7 +167,7 @@ O exigente escultor Pigmalião e sua Galatéia; as estátuas de Dédalo; Pandora
 são exemplos de mitos que tem em si a ideia da criação de uma vida artificial. 
 O surgimento das ciências da computação e das máquinas programáveis fizeram ressurgir a chama destes mitos, 
 fazendo-nos nos questionar se um dia estas máquinas se tornariam inteligentes.
-Os trabalhos de ficção contemporâneos --- como as leis da robótica de Asimov, ou os andróides de Yoko Taro --- especulam, utilizando como base o quadro tecnológico de suas respectivas décadas, sobre as máquinas inteligentes e o impacto e implicações que poderiam ser causadas pela sua existência. 
+Os trabalhos de ficção contemporâneos --- como as leis da robótica de Asimov, ou os andróides na obra de Yoko Taro --- especulam, utilizando como base o quadro tecnológico de suas respectivas décadas, sobre as máquinas inteligentes e o impacto e implicações que poderiam ser causadas pela sua existência. 
  \emph{Inteligência}, porém, por si só, é um conceito ambíguo.
 A discussão sobre \emph{máquinas inteligentes}, por consequência, depende de uma definição precisa de inteligência.
 
@@ -472,9 +472,9 @@ Para o treinamento, foi utilizada a bilioteca \emph{fast.ai} \footnote{https://w
 O sistema foi divido em duas interfaces, uma API RESTful que expõe endpoints para encapsular a utilização do modelo treinado, e um site Web para realizar a interação com o usuário e o consumo da API RESTful.
 
 \subsubsection{API RESTful}
-A API RESTful disponibiliza endpoints para obter informações sobre o modelo de rede neural, e para enviar um arquivo de imagem para ser por ele categorizado. Os endpoints disponibilizados são:
+A API RESTful disponibiliza endpoints para obter informações sobre o modelo de rede neural, e para enviar um arquivo de imagem para ser por ele categorizado. O modelo treinado no Jupyter Notebook pelo fast.ai foi exportado para ser utilizado pela API. A sua arquitetura foi pensada para funcionar de forma modular, tornando fácil a troca do modelo para outros. Os endpoints disponibilizados são:
 
-\newpage
+
 \noindent
 \textbf{GET} - /vocab
 
@@ -529,13 +529,13 @@ O sistema proposto somente possui um caso de uso, portanto uma página Web simpl
 	\caption{Imagem categorizada corretamente como sendo do movimento \emph{Ukiyo-e}.}
 \end{figure}
 
-\subsection{Implantação}
 \subsection{Pesquisa de aceitação}
 
 \section{Resultados e discussão}
 \section{Conclusão}
 
 % \nocite{*}
+\newpage
 \printbibliography
 
 \end{document}
