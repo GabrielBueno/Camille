@@ -139,6 +139,15 @@ deveriam ser extendidos para abranger também a arte produzida pelos meios conte
 É evidente que a tecnologia não é uma panaceia para resolver todos os problemas da educação artística, porém, a tecnologia atual, já que é parte
 inseparável do indivíduo, deve, de alguma forma e em algum momento, nem que breve, ser abordada a fim de contextualizá-lo na sociedade em que vive.
 
+% \begin{figure}
+% 	\centering
+% 	\includegraphics[width=5cm, height=3cm]{fig/file_amanda_ghassaei}
+% 	\caption{
+% 		\emph{Marbled Fluid Simulator}, simulação em WebGL criada por Amanda Ghassaei que resolve as equações de Navier-Stokes para fluídos incompressíveis.
+% 		\cite{ghassaei}.
+% 	}
+% \end{figure}
+
 Tendo em vista esta natureza inerentemente tecnológica da arte, em contraponto com a aparente falta de diálogo entre o meio artístico e o campo
 mais recente do desenvolvimento tecnológico --- algo que pode ser observado empiricamente em certos meios --- este trabalho apresenta-se com o objetivo
 de relacionar uma das tecnologias que mais vem recebendo atenção dos pesquisadores e engenheiros --- a das inteligências artificiais, mais especificamente,
@@ -217,7 +226,7 @@ pesquisas em inteligência artificial. \cite{dartmouth}.
 As redes neurais e o uso de linguagem natural pelo computador --- assuntos que permanecem ainda atuais ---, entre outros tópicos de discussão,
 foram alvo de trabalho pelos pesquisadores que participaram da conferência. 
 Durante as primeiras décadas de pesquisa foram concebidos trabalhos importantíssimos para suportar o cenário da IA que temos atualmente.
-\emph{ELIZA} \footnote{http://psych.fullerton.edu/mbirnbaum/psych101/eliza.htm}, 
+\emph{ELIZA}\footnote{http://psych.fullerton.edu/mbirnbaum/psych101/eliza.htm}, 
 uma simulação de um psicoterapeuta rogeriano, desenvolvida por Joseph Weizembaum no MIT Artifical Intelligence Laboratory de 1964 até 1966,
 foi o primeiro chatbot desenvolvido na história, com o objetivo de demonstrar como a comunicação máquina-homem é superfifical \cite{wiezembaum}.
 Outro trabalho pioneiro é o de Daniel G. Bobrow, que na sua tese de PhD em 1964 desenvolve o STUDENT, uma IA escrita em LISP para solucionar problemas
@@ -232,7 +241,7 @@ sobre o mundo por \emph{fatos} e \emph{símbolos} atômicos através dos quais s
 O Cyc, um projeto cuja ambição era o de criar uma
 base de dados com uma quantidade considerável do conhecimento comum da humanidade, através do qual
 novo conhecimento poderia ser deduzido através do seu motor de inferência \cite{cyc}, serviria de exemplo para outros sistemas
-que utilizariam a mesma abordagem de IA. A linguagem Prolog \footnote{https://www.swi-prolog.org/}, 
+que utilizariam a mesma abordagem de IA. A linguagem Prolog\footnote{https://www.swi-prolog.org/}, 
 desenvolvida por Alain Colmerauer conjuntamente com Philippe Roussel em Marselha, 1972, 
 foi uma das primeiras linguagens de programação com paradigma lógico, tendo suas raízes na teoria de lógica de primeira ordem.
 Nesta linguagem, os problemas são modelados por \emph{átomos} e \emph{regras} que estabelecem relações entre os átomos.
@@ -333,7 +342,7 @@ ReLU(x) =
 			\addplot[] {x > 0 ? 1 : 0};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Função de ativação do perceptron original.}
+	\caption{Função de ativação do perceptron de Rosenblatt.}
 \end{figure}
 
 \begin{figure}[H]
@@ -399,7 +408,7 @@ O sistema somente apresenta um caso de uso, derivado dos requisitos \emph{RF01} 
 \end{figure}
 
 \subsubsection{Arquitetura}
-O sistema será dividido em uma arquitetura \emph{cliente/servidor}. O servidor expõe uma API \emph{RESTful} para o acesso às funcionalidades por ele disponibilizadas para o cumprimento dos casos de uso. É o servidor que conterá e se comunicará com o modelo de rede neural treinado, expondo-a somente através dos \emph{endpoints} da API. Já o cliente, por sua vez, se responsabiliza somente por permitir o acesso do usuário aos casos de uso, servindo como interface para a utilização da API. O cliente cuidará da comunicação com o servidor, transformando os dados recebidos do usuário para o envio na API, e tratando os dados recebidos da API para a exibição pelo usuário.
+O sistema será dividido em uma arquitetura \emph{cliente/servidor}. O servidor expõe uma API \emph{RESTful} para o acesso às funcionalidades por ele disponibilizadas para o cumprimento dos casos de uso. É o servidor que conterá e se comunicará com o modelo de rede neural treinado, expondo-a somente através dos \emph{endpoints} da API. Já o cliente, por sua vez, se responsabiliza somente por permitir o acesso do usuário aos casos de uso. O cliente cuidará da comunicação com o servidor, transformando os dados recebidos do usuário para o envio na API, e tratando os dados recebidos da API para a exibição pelo usuário.
 
 \begin{figure}[H]
 	\centering
@@ -408,7 +417,7 @@ O sistema será dividido em uma arquitetura \emph{cliente/servidor}. O servidor 
 \end{figure}
 
 \subsection{Coleta de dados}
-Para criarmos um modelo de rede neural capaz de inferir o gênero artístico de uma pintura, devemos treiná-lo utilizando uma base de dados previamente e devidamente categorizados. Para tanto, foi utilizada uma base de imagens \footnote{https://github.com/cs-chan/ArtGAN/tree/master/WikiArt\%20Dataset} retiradas do WikiArt.org \footnote{https://www.wikiart.org/} por \cite{icip2016}. Esta base de dados contém $81446$ imagens distribuídas nas 27 categorias: 
+Para criarmos um modelo de rede neural capaz de inferir o gênero artístico de uma pintura, devemos treiná-lo utilizando uma base de dados previamente e devidamente categorizados. Para tanto, foi utilizada uma base de imagens\footnote{https://github.com/cs-chan/ArtGAN/tree/master/WikiArt\%20Dataset} retiradas do WikiArt.org\footnote{https://www.wikiart.org/} por \cite{icip2016}. Esta base de dados contém $81446$ (aproximadamente 24,5GB) imagens distribuídas nas 27 categorias: 
 
 \emph{expressionismo abstrato}; 
 \emph{gestualismo}; 
@@ -462,19 +471,19 @@ Reduzindo assim o total de categorias para 17.
 \end{figure}
 
 \subsection{Escolha do modelo de rede neural}
-A arquitetura de rede neural escolhida para atacar o problema de detecção de estilos artísticos foi a \emph{ResNet50}, modelo de rede neural convolucional construído para o reconhecimento de imagens \cite{he2015deep}. Utilizamos um modelo ResNet50 pré-treinado com os dados do \emph{ImageNet} \footnote{https://www.image-net.org/}, uma base de dados que agrega milhares de imagens categorizadas de acordo com os substantivos do \emph{WordNet} \footnote{https://wordnet.princeton.edu, Princeton University}. Ao utilizarmos um modelo já treinado em um determinado conjunto de dados para resolver determinado problema, para treiná-lo em outro conjunto de dados para resolver outro problema, utilizamos o conceito de \emph{transferência de aprendizado}. A tranferência de aprendizado consiste na generalização do que foi aprendido previamente pela rede neural para o aprendizado em outro contexto \cite[p.534]{Goodfellow-et-al-2016}. Portanto,
-a transferência de aprendizado em um modelo treinado no ImageNet faz com que generalizemos características que o modelo já sabe detectar --- faces e objetos, por exemplo ---, para construir generalizações a partir da qual o modelo conseguirá categorizar o gênero artístico da pintura.
+A arquitetura de rede neural escolhida para atacar o problema de detecção de estilos artísticos foi a \emph{ResNet50}, modelo de rede neural convolucional construído para o reconhecimento de imagens \cite{he2015deep}. Utilizamos um modelo ResNet50 pré-treinado com os dados do \emph{ImageNet}\footnote{https://www.image-net.org/}, uma base de dados que agrega milhares de imagens categorizadas de acordo com os substantivos do \emph{WordNet}\footnote{https://wordnet.princeton.edu, Princeton University}. Ao utilizarmos um modelo já treinado para treiná-lo novamente em algum outro conjunto de dados, a fim de resolver outro problema, utilizamos o conceito de \emph{transferência de aprendizado}. A tranferência de aprendizado consiste na generalização do que foi aprendido anteriormente pela rede neural para o aprendizado em outro contexto \cite[p.534]{Goodfellow-et-al-2016}. Portanto,
+a transferência de aprendizado em um modelo treinado no ImageNet faz com que tomemos vantagem das características que o modelo já sabe detectar --- faces e objetos, por exemplo ---, para construir generalizações a partir da qual o modelo poderá categorizar o gênero artístico da pintura.
 
 \subsection{Treinamento}
-Para o treinamento, foi utilizada a bilioteca \emph{fast.ai} \footnote{https://www.fast.ai/}. Esta bilioteca provê APIs para abstrair, de forma mais pragmática, o treinamento de redes neurais no estado da arte. O modelo utilizado foi o \emph{ResNet50} pré-treinado no \emph{ImageNet}. A rotina de treinamento foi realizada em um \emph{Jupyter Notebook} \footnote{https://github.com/GabrielBueno/Camille/blob/master/training/jnb/resnet50.ipynb} em Python. Esta rotina foi executada remotamente em uma máquina virtual hospedada no \emph{Google Compute Engine} --- um dos módulos do Google Cloud. O treinamento foi realizado utilizando 1x GPU NVIDIA Tesla T4 e 4x vCPUs.
+Para o treinamento, foi utilizada a biblioteca \emph{fast.ai}\footnote{https://www.fast.ai/}. Esta bilioteca provê APIs para abstrair, de forma mais pragmática, o treinamento de redes neurais no estado da arte. O modelo utilizado foi o \emph{ResNet50} pré-treinado no \emph{ImageNet}. A rotina de treinamento foi realizada em um \emph{Jupyter Notebook}\footnote{https://github.com/GabrielBueno/Camille/blob/master/training/jnb/resnet50.ipynb} em Python. Esta rotina foi executada remotamente em uma máquina virtual hospedada no \emph{Google Compute Engine} --- um dos módulos do Google Cloud. O treinamento foi realizado utilizando 1x GPU NVIDIA Tesla T4 e 4x vCPUs.
 
 \subsection{Interfaces}
 O sistema foi divido em duas interfaces, uma API RESTful que expõe endpoints para encapsular a utilização do modelo treinado, e um site Web para realizar a interação com o usuário e o consumo da API RESTful.
 
 \subsubsection{API RESTful}
-A API RESTful disponibiliza endpoints para obter informações sobre o modelo de rede neural, e para enviar um arquivo de imagem para ser por ele categorizado. O modelo treinado no Jupyter Notebook pelo fast.ai foi exportado para ser utilizado pela API. A sua arquitetura foi pensada para funcionar de forma modular, tornando fácil a troca do modelo para outros. Os endpoints disponibilizados são:
+A API RESTful disponibiliza endpoints para obter informações sobre o modelo de rede neural, e para enviar um arquivo de imagem para ser por ele categorizado. Os endpoints disponibilizados são:
 
-
+\newpage
 \noindent
 \textbf{GET} - /vocab
 
