@@ -62,9 +62,11 @@
       <file>brazil.lbx</file>
       <file>brazilian-abnt.lbx</file>
       <file>brazil-abnt.lbx</file>
+      <file>english.lbx</file>
+      <file>english-abnt.lbx</file>
     </requires>
   </internal>
-  <external package="biblatex" priority="5" active="1">
+  <external package="biblatex" priority="5" active="0">
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>

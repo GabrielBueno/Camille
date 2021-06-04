@@ -432,48 +432,6 @@
       \verb 1512.03385
       \endverb
     \endentry
-    \entry{hegel}{book}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=657f840dc3818e7a56523e4e2d17a0ca}{%
-           family={Hegel},
-           familyi={H\bibinitperiod},
-           given={Georg\bibnamedelimb Wilhelm\bibnamedelima Friedrich},
-           giveni={G\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim F\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=60e48fadd9f3cb3abeb604ee3012f601}{%
-           family={Osmaston},
-           familyi={O\bibinitperiod},
-           given={Francis\bibnamedelimb Plumbtre\bibnamedelima Beresford},
-           giveni={F\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim B\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Project Gutemberg}%
-      }
-      \strng{namehash}{3ccce559eabcd09503b42754ee3e3130}
-      \strng{fullhash}{3ccce559eabcd09503b42754ee3e3130}
-      \strng{bibnamehash}{3ccce559eabcd09503b42754ee3e3130}
-      \strng{authorbibnamehash}{3ccce559eabcd09503b42754ee3e3130}
-      \strng{authornamehash}{3ccce559eabcd09503b42754ee3e3130}
-      \strng{authorfullhash}{3ccce559eabcd09503b42754ee3e3130}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{day}{11}
-      \field{month}{8}
-      \field{title}{The Philosophy of Fine Art}
-      \field{year}{2017}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://www.gutenberg.org/ebooks/55334
-      \endverb
-      \verb{url}
-      \verb https://www.gutenberg.org/ebooks/55334
-      \endverb
-    \endentry
     \entry{lockhart_lament}{book}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=cc26ab989a48bcad5f6771211ccbdc5c}{%

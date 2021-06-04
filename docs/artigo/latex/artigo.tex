@@ -1,6 +1,6 @@
 \documentclass[12pt, a4paper]{article}
 
-\usepackage[brazilian]{babel}
+\usepackage[english, brazilian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{url}
@@ -23,8 +23,12 @@
 \usepackage{enumitem}
 \usepackage{scrextend}
 \usepackage{tasks}
+\usepackage{titling}
+\usepackage{indentfirst}
 
 %%% Setup
+
+\selectlanguage{brazilian}
 
 %lst
 \lstdefinestyle{lststyle}{
@@ -47,14 +51,29 @@
 \onehalfspacing
 \addbibresource{artigo.bib}
 
+
+
 \author{Gabriel Almeida Bueno}
 \affil{FATEC Zona Sul}
 \title{Tecnologia e Artes, um estudo sobre a tecnologia da informação como meio para compreensão e realização artística}
+\date{}
 
 \begin{document}
 
 \maketitle
 
+\begin{abstract}
+ablublué
+\end{abstract}
+
+\selectlanguage{english}
+\begin{abstract}
+ablublueh
+\end{abstract}
+
+\selectlanguage{brazilian}
+
+\newpage
 \section{Introdução}
 % O que é arte? Qual é a sua importância?
 A arte é parte indissociável da vivência humana, e a tecnologia é parte indissociável da arte. 
@@ -492,7 +511,8 @@ O sistema foi divido em duas interfaces, uma API RESTful que expõe endpoints pa
 \subsubsection{API RESTful}
 A API RESTful disponibiliza endpoints para obter informações sobre o modelo de rede neural, e para enviar um arquivo de imagem para ser por ele categorizado. Os endpoints disponibilizados são:
 
-\bigskip
+% \bigskip
+\newpage
 \noindent
 \textbf{GET} - /vocab
 

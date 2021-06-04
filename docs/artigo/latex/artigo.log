@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  4 JUN 2021 13:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.14)  4 JUN 2021 17:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -37,6 +37,15 @@ File: babel.def 2021/04/26 3.58 Babel common definitions
 )
 \bbl@dirlevel=\count188
 
+(e:/texlive/2021/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language3). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language3). Reported on input line 108.
+)
 (e:/texlive/2021/texmf-dist/tex/generic/babel-portuges/brazilian.ldf
 Language: portuges 2021/02/04 v1.2s Portuguese support from the babel system
 Package babel Info: Hyphen rules for 'brazilian' set to \l@portuguese
@@ -1068,25 +1077,34 @@ Package xtemplate Info: Declaring object type 'tasks' taking 3 argument(s) on
 
 
 (e:/texlive/2021/texmf-dist/tex/latex/tasks/tasks.cfg))
+(e:/texlive/2021/texmf-dist/tex/latex/titling/titling.sty
+Package: titling 2009/09/04 v2.1d maketitle typesetting
+\thanksmarkwidth=\skip88
+\thanksmargin=\skip89
+\droptitle=\skip90
+)
+(e:/texlive/2021/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
  (./artigo.aux)
 \openout1 = `artigo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
 Package biblatex Info: Trying to load language 'brazilian' -> 'brazilian-abnt'.
 ..
 Package biblatex Info: ... file 'brazilian-abnt.lbx' found.
@@ -1137,6 +1155,29 @@ Package biblatex Info: ... file 'brazilian.lbx' found.
 (e:/texlive/2021/texmf-dist/tex/latex/biblatex/lbx/brazilian.lbx
 File: brazilian.lbx 2020/12/31 v3.16 biblatex localization (PK/MW)
 )))))
+Package biblatex Info: Trying to load language 'english' -> 'english-abnt'...
+Package biblatex Info: ... file 'english-abnt.lbx' found.
+
+(e:/texlive/2021/texmf-dist/tex/latex/biblatex-abnt/english-abnt.lbx
+File: english-abnt.lbx 2018-11-17 v3.4 ABNT BibLaTeX citation style
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(e:/texlive/2021/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2020/12/31 v3.16 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(e:/texlive/2021/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2020/12/31 v3.16 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(e:/texlive/2021/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2020/12/31 v3.16 biblatex localization (PK/MW)
+))
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1155,8 +1196,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'artigo.bbl' found.
 
 (./artigo.bbl)
-Package biblatex Info: Reference section=0 on input line 54.
-Package biblatex Info: Reference segment=0 on input line 54.
+Package biblatex Info: Reference section=0 on input line 61.
+Package biblatex Info: Reference segment=0 on input line 61.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1226,119 +1267,139 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 [1
 
 {e:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<fig/hommage_to_paul_klee.jpg, id=13, 1066.98625pt x 1084.05pt>
+<fig/hommage_to_paul_klee.jpg, id=14, 1066.98625pt x 1084.05pt>
 File: fig/hommage_to_paul_klee.jpg Graphic file (type jpg)
 <use fig/hommage_to_paul_klee.jpg>
-Package pdftex.def Info: fig/hommage_to_paul_klee.jpg  used on input line 104.
+Package pdftex.def Info: fig/hommage_to_paul_klee.jpg  used on input line 123.
 (pdftex.def)             Requested size: 196.02177pt x 199.15665pt.
-<fig/gravel_stones.jpg, id=14, 607.26875pt x 1084.05pt>
+<fig/gravel_stones.jpg, id=15, 607.26875pt x 1084.05pt>
 File: fig/gravel_stones.jpg Graphic file (type jpg)
 <use fig/gravel_stones.jpg>
-Package pdftex.def Info: fig/gravel_stones.jpg  used on input line 112.
+Package pdftex.def Info: fig/gravel_stones.jpg  used on input line 131.
 (pdftex.def)             Requested size: 111.56459pt x 199.15665pt.
- [2 <./fig/hommage_to_paul_klee.jpg>] [3 <./fig/gravel_stones.jpg>] [4] [5]
-<fig/eliza.png, id=31, 753.81625pt x 488.82625pt>
+ [2] [3 <./fig/hommage_to_paul_klee.jpg> <./fig/gravel_stones.jpg>] [4] [5]
+<fig/eliza.png, id=32, 753.81625pt x 488.82625pt>
 File: fig/eliza.png Graphic file (type png)
 <use fig/eliza.png>
-Package pdftex.def Info: fig/eliza.png  used on input line 221.
+Package pdftex.def Info: fig/eliza.png  used on input line 240.
 (pdftex.def)             Requested size: 307.13428pt x 199.16696pt.
- [6 <./fig/eliza.png>] [7]
+ [6] [7 <./fig/eliza.png>]
 <fig/ml_venn.jpg, id=45, 616.55344pt x 453.94594pt>
 File: fig/ml_venn.jpg Graphic file (type jpg)
 <use fig/ml_venn.jpg>
-Package pdftex.def Info: fig/ml_venn.jpg  used on input line 283.
+Package pdftex.def Info: fig/ml_venn.jpg  used on input line 302.
 (pdftex.def)             Requested size: 127.46779pt x 93.84915pt.
- [8 <./fig/ml_venn.jpg>]
-<fig/perceptron.png, id=49, 314.17375pt x 215.80624pt>
+ [8 <./fig/ml_venn.jpg>] [9]
+<fig/perceptron.png, id=54, 314.17375pt x 215.80624pt>
 File: fig/perceptron.png Graphic file (type png)
 <use fig/perceptron.png>
-Package pdftex.def Info: fig/perceptron.png  used on input line 304.
+Package pdftex.def Info: fig/perceptron.png  used on input line 323.
 (pdftex.def)             Requested size: 157.40288pt x 108.12018pt.
- [9 <./fig/perceptron.png>]
-<fig/perceptron_net.png, id=61, 641.39626pt x 488.82625pt>
+<fig/perceptron_net.png, id=56, 641.39626pt x 488.82625pt>
 File: fig/perceptron_net.png Graphic file (type png)
 <use fig/perceptron_net.png>
-Package pdftex.def Info: fig/perceptron_net.png  used on input line 315.
+Package pdftex.def Info: fig/perceptron_net.png  used on input line 334.
 (pdftex.def)             Requested size: 298.667pt x 227.62257pt.
- [10 <./fig/perceptron_net.png>] [11] [12]
-<diagrams/usecase/UseCase.png, id=73, 186.6975pt x 197.73875pt>
+ [10 <./fig/perceptron.png>] [11 <./fig/perceptron_net.png>] [12] [13]
+<diagrams/usecase/UseCase.png, id=78, 186.6975pt x 197.73875pt>
 File: diagrams/usecase/UseCase.png Graphic file (type png)
 <use diagrams/usecase/UseCase.png>
-Package pdftex.def Info: diagrams/usecase/UseCase.png  used on input line 411.
+Package pdftex.def Info: diagrams/usecase/UseCase.png  used on input line 430.
 (pdftex.def)             Requested size: 102.08284pt x 108.12001pt.
- [13]
-<diagrams/sequence/Seq.png, id=78, 865.2325pt x 401.5pt>
+<diagrams/sequence/Seq.png, id=79, 865.2325pt x 401.5pt>
 File: diagrams/sequence/Seq.png Graphic file (type png)
 <use diagrams/sequence/Seq.png>
-Package pdftex.def Info: diagrams/sequence/Seq.png  used on input line 420.
+Package pdftex.def Info: diagrams/sequence/Seq.png  used on input line 439.
 (pdftex.def)             Requested size: 455.24405pt x 211.25012pt.
- [14 <./diagrams/usecase/UseCase.png (PNG copy)> <./diagrams/sequence/Seq.png (
-PNG copy)>]
-<fig/databalance.png, id=82, 959.585pt x 577.15625pt>
+ [14 <./diagrams/usecase/UseCase.png (PNG copy)>]
+[15 <./diagrams/sequence/Seq.png (PNG copy)>]
+<fig/databalance.png, id=86, 959.585pt x 577.15625pt>
 File: fig/databalance.png Graphic file (type png)
 <use fig/databalance.png>
-Package pdftex.def Info: fig/databalance.png  used on input line 470.
+Package pdftex.def Info: fig/databalance.png  used on input line 489.
 (pdftex.def)             Requested size: 455.2512pt x 273.81741pt.
- [15]
-<fig/datasample.png, id=86, 513.92pt x 520.94624pt>
+<fig/datasample.png, id=87, 513.92pt x 520.94624pt>
 File: fig/datasample.png Graphic file (type png)
 <use fig/datasample.png>
-Package pdftex.def Info: fig/datasample.png  used on input line 476.
+Package pdftex.def Info: fig/datasample.png  used on input line 495.
 (pdftex.def)             Requested size: 308.76215pt x 312.9835pt.
- [16 <./fig/databalance.png> <./fig/datasample.png>] [17] [18]
-<fig/site_noimg.png, id=98, 1445.4pt x 813.0375pt>
+ [16 <./fig/databalance.png>]
+[17 <./fig/datasample.png>] [18]
+<fig/site_noimg.png, id=99, 1445.4pt x 813.0375pt>
 File: fig/site_noimg.png Graphic file (type png)
 <use fig/site_noimg.png>
-Package pdftex.def Info: fig/site_noimg.png  used on input line 541.
+Package pdftex.def Info: fig/site_noimg.png  used on input line 561.
 (pdftex.def)             Requested size: 455.23724pt x 256.07095pt.
-<fig/site_imgcategorized.png, id=99, 1445.4pt x 813.0375pt>
+ [19]
+<fig/site_imgcategorized.png, id=104, 1445.4pt x 813.0375pt>
 File: fig/site_imgcategorized.png Graphic file (type png)
 <use fig/site_imgcategorized.png>
-Package pdftex.def Info: fig/site_imgcategorized.png  used on input line 547.
+Package pdftex.def Info: fig/site_imgcategorized.png  used on input line 567.
 (pdftex.def)             Requested size: 455.23724pt x 256.07095pt.
- [19 <./fig/site_noimg.png> <./fig/site_imgcategorized.png>]
-<fig/resultsbatch.png, id=106, 513.92pt x 536.0025pt>
+ [20 <./fig/site_noimg.png> <./fig/site_imgcategorized.png>]
+<fig/resultsbatch.png, id=110, 513.92pt x 536.0025pt>
 File: fig/resultsbatch.png Graphic file (type png)
 <use fig/resultsbatch.png>
-Package pdftex.def Info: fig/resultsbatch.png  used on input line 561.
+Package pdftex.def Info: fig/resultsbatch.png  used on input line 581.
 (pdftex.def)             Requested size: 300.0813pt x 312.97542pt.
- [20 <./fig/resultsbatch.png>]
-<fig/confusionmatrix.png, id=111, 712.6625pt x 728.7225pt>
+ [21 <./fig/resultsbatch.png>]
+<fig/confusionmatrix.png, id=115, 712.6625pt x 728.7225pt>
 File: fig/confusionmatrix.png Graphic file (type png)
 <use fig/confusionmatrix.png>
-Package pdftex.def Info: fig/confusionmatrix.png  used on input line 571.
+Package pdftex.def Info: fig/confusionmatrix.png  used on input line 591.
 (pdftex.def)             Requested size: 417.37892pt x 426.78464pt.
- [21]
-Overfull \hbox (13.23871pt too wide) in paragraph at lines 581--581
+ [22]
+Overfull \hbox (13.23871pt too wide) in paragraph at lines 601--601
 []\T1/cmr/m/n/10 https://docs.google.com/forms/d/1p9Dn6x7VEzsXN2m2h5Cs9lI1J0Hwz
 9DXUusuGdnstI4/viewanalytics| 
  []
 
-[22 <./fig/confusionmatrix.png>] [23] [24] [25] [26] [27] [28] [29]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
-39.
+[23 <./fig/confusionmatrix.png>] [24] [25] [26] [27]
 
-(e:/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
+LaTeX Warning: Reference `fig:q3' on page 28 undefined on input line 744.
+
+
+LaTeX Warning: Reference `fig:q5' on page 28 undefined on input line 745.
+
+
+LaTeX Warning: Reference `fig:q7' on page 28 undefined on input line 745.
+
+
+LaTeX Warning: Reference `fig:q9' on page 28 undefined on input line 746.
+
+
+LaTeX Warning: Reference `fig:q10' on page 28 undefined on input line 748.
+
+
+LaTeX Warning: Reference `fig:q8' on page 28 undefined on input line 749.
+
+[28] [29] [30]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
+59.
+ (e:/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [30] [31] (./artigo.aux)
+) [31]
+[32] (./artigo.aux)
 
 LaTeX Warning: There were undefined references.
 
 
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                artigo
-(biblatex)                and rerun LaTeX afterwards.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
 
 Package logreq Info: Writing requests to 'artigo.run.xml'.
 \openout1 = `artigo.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39414 strings out of 480745
- 906850 string characters out of 5903657
- 1795441 words of memory out of 5000000
- 56186 multiletter control sequences out of 15000+600000
- 418547 words of font info for 57 fonts, out of 8000000 for 9000
+ 39531 strings out of 480745
+ 909784 string characters out of 5903657
+ 1812818 words of memory out of 5000000
+ 56282 multiletter control sequences out of 15000+600000
+ 420467 words of font info for 62 fonts, out of 8000000 for 9000
  38 hyphenation exceptions out of 8191
  108i,11n,107p,1885b,3750s stack positions out of 5000i,500n,10000p,200000b,80000s
 {e:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{e:/texl
@@ -1349,22 +1410,23 @@ ype1/public/amsfonts/cm/cmmi8.pfb><e:/texlive/2021/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr12.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr8.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><e:/te
-xlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><e:/texlive/2021
-/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><e:/texlive/2021/texmf-dis
-t/fonts/type1/public/cm-super/sfbx1728.pfb><e:/texlive/2021/texmf-dist/fonts/ty
-pe1/public/cm-super/sfrm0700.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public
-/cm-super/sfrm0800.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/
-sfrm1000.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.p
-fb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><e:/tex
-live/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><e:/texlive/2021/
-texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><e:/texlive/2021/texmf-dist
-/fonts/type1/public/cm-super/sfti1095.pfb><e:/texlive/2021/texmf-dist/fonts/typ
-e1/public/cm-super/sfti1200.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/
-cm-super/sftt1200.pfb>
-Output written on artigo.pdf (31 pages, 4211937 bytes).
+xlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><e:/texlive/2021
+/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><e:/texlive/2021/texmf-dis
+t/fonts/type1/public/cm-super/sfbx1440.pfb><e:/texlive/2021/texmf-dist/fonts/ty
+pe1/public/cm-super/sfbx1728.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public
+/cm-super/sfrm0700.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/
+sfrm0800.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.p
+fb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><e:/tex
+live/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><e:/texlive/2021/
+texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><e:/texlive/2021/texmf-dist
+/fonts/type1/public/cm-super/sfrm2074.pfb><e:/texlive/2021/texmf-dist/fonts/typ
+e1/public/cm-super/sfti1095.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/
+cm-super/sfti1200.pfb><e:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/s
+ftt1200.pfb>
+Output written on artigo.pdf (32 pages, 4227744 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
+ 223 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
