@@ -1,0 +1,696 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+    \usepackage{iftex}
+    \ifPDFTeX
+    	\usepackage[T1]{fontenc}
+    	\usepackage{mathpazo}
+    \else
+    	\usepackage{fontspec}
+    \fi
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{resnet50\_trained}
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{enum} \PY{k+kn}{import} \PY{n}{Enum}
+
+\PY{k+kn}{import} \PY{n+nn}{torch}
+\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+
+\PY{k+kn}{from} \PY{n+nn}{fastai}\PY{n+nn}{.}\PY{n+nn}{basics}     \PY{k+kn}{import} \PY{o}{*}
+\PY{k+kn}{from} \PY{n+nn}{fastai}\PY{n+nn}{.}\PY{n+nn}{vision}\PY{n+nn}{.}\PY{n+nn}{all} \PY{k+kn}{import} \PY{o}{*}
+
+\PY{k+kn}{from} \PY{n+nn}{PIL} \PY{k+kn}{import} \PY{n}{ImageFile}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{ImageFile}\PY{o}{.}\PY{n}{LOAD\PYZus{}TRUNCATED\PYZus{}IMAGES} \PY{o}{=} \PY{k+kc}{True}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{UNDEFINED\PYZus{}LABEL} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{undef\PYZus{}lbl}\PY{l+s+s2}{\PYZdq{}}
+
+\PY{k}{class} \PY{n+nc}{SimpleLabel}\PY{p}{:}
+    \PY{n}{EXPRESSIONISM}         \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Expressionismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{ABSTRACT\PYZus{}ART}          \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Arte abstrata}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{CUBISM}                \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cubismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{REALISM}               \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Realismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{RENAISSANCE}           \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Renascentismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{ART\PYZus{}NOUVEAU}           \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Art Nouveau}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{BAROQUE}               \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Barroco}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{FAUVISM}               \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fauvismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{IMPRESSIONISM}         \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Impressionismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{POST\PYZus{}IMPRESSIONISM}    \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pos Impressionismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{NAIVE\PYZus{}ART\PYZus{}PRIMITIVISM} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Arte Naif}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{PONTILLISM}            \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pontilhismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{POP\PYZus{}ART}               \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pop\PYZhy{}Art}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{ROCOCO}                \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rococo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{ROMANTICISM}           \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Romantismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{SYMBOLISM}             \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Simbolismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{UKIYO\PYZus{}E}               \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ukiyo\PYZhy{}e}\PY{l+s+s2}{\PYZdq{}}
+    
+\PY{k}{class} \PY{n+nc}{AtomicLabel}\PY{p}{:}
+    \PY{n}{ABSTRACT\PYZus{}EXPRESSIONISM}     \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Expressionismo abstrato}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{ACTION\PYZus{}PAINTING}            \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Gestualismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{MINIMALISM}                 \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Minimalismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{COLOR\PYZus{}FIELD\PYZus{}PAINTING}       \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Color Field}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{EXPRESSIONISM}              \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Expressionismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{ANALYTICAL\PYZus{}CUBISM}          \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cubismo analitico}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{CUBISM}                     \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cubismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{SYNTHETIC\PYZus{}CUBISM}           \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cubismo sintetico}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{REALISM}                    \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Realismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{CONTEMPORARY\PYZus{}REALISM}       \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Realismo contemporaneo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{NEW\PYZus{}REALISM}                \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Novo realismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{EARLY\PYZus{}RENAISSANCE}          \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pré\PYZhy{}Renascença}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{HIGH\PYZus{}RENAISSANCE}           \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Alta Renascença}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{MANNERISM\PYZus{}LATE\PYZus{}RENAISSANCE} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Maneirismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{NORTHERN\PYZus{}RENAISSANCE}       \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Renascimento nórdico}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{ART\PYZus{}NOUVEAU\PYZus{}MODERN}         \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Art Nouveau}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{BAROQUE}                    \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Barroco}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{FAUVISM}                    \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fauvismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{IMPRESSIONISM}              \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Impressionismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{POST\PYZus{}IMPRESSIONISM}         \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pos\PYZhy{}Impressionismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{NAIVE\PYZus{}ART\PYZus{}PRIMITIVISM}      \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Arte Naif}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{POINTILLISM}                \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pontilhismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{POP\PYZus{}ART}                    \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pop\PYZhy{}Art}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{ROCOCO}                     \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rococo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{ROMANTICISM}                \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Romantismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{SYMBOLISM}                  \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Simbolismo}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{UKIYO\PYZus{}E}                    \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ukiyo\PYZhy{}e}\PY{l+s+s2}{\PYZdq{}}
+    
+\PY{n}{SIMPLIFIED\PYZus{}LABEL\PYZus{}DICT} \PY{o}{=} \PY{p}{\PYZob{}}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Abstract\PYZus{}Expressionism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}     \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{ABSTRACT\PYZus{}ART}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Action\PYZus{}painting}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}            \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{ABSTRACT\PYZus{}ART}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Minimalism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                 \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{ABSTRACT\PYZus{}ART}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Color\PYZus{}Field\PYZus{}Painting}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}       \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{ABSTRACT\PYZus{}ART}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Expressionism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}              \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{EXPRESSIONISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Analytical\PYZus{}Cubism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}          \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{CUBISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cubism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                     \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{CUBISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Synthetic\PYZus{}Cubism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}           \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{CUBISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Realism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{REALISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Contemporary\PYZus{}Realism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}       \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{REALISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{New\PYZus{}Realism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{REALISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Early\PYZus{}Renaissance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}          \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{RENAISSANCE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{High\PYZus{}Renaissance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}           \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{RENAISSANCE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Mannerism\PYZus{}Late\PYZus{}Renaissance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{RENAISSANCE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Northern\PYZus{}Renaissance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}       \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{RENAISSANCE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Art\PYZus{}Nouveau\PYZus{}Modern}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}         \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{ART\PYZus{}NOUVEAU}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Baroque}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{BAROQUE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fauvism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{FAUVISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Impressionism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}              \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{IMPRESSIONISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Post\PYZus{}Impressionism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}         \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{POST\PYZus{}IMPRESSIONISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Naive\PYZus{}Art\PYZus{}Primitivism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}      \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{NAIVE\PYZus{}ART\PYZus{}PRIMITIVISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pointillism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{PONTILLISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pop\PYZus{}Art}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{POP\PYZus{}ART}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rococo}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                     \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{ROCOCO}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Romanticism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{ROMANTICISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Symbolism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                  \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{SYMBOLISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ukiyo\PYZus{}e}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{SimpleLabel}\PY{o}{.}\PY{n}{UKIYO\PYZus{}E}\PY{p}{,}
+\PY{p}{\PYZcb{}}
+
+\PY{n}{COMPLETE\PYZus{}LABEL\PYZus{}DICT} \PY{o}{=} \PY{p}{\PYZob{}}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Abstract\PYZus{}Expressionism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}     \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{ABSTRACT\PYZus{}EXPRESSIONISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Action\PYZus{}painting}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}            \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{ACTION\PYZus{}PAINTING}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Minimalism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                 \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{MINIMALISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Color\PYZus{}Field\PYZus{}Painting}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}       \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{COLOR\PYZus{}FIELD\PYZus{}PAINTING}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Expressionism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}              \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{EXPRESSIONISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Analytical\PYZus{}Cubism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}          \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{ANALYTICAL\PYZus{}CUBISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Cubism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                     \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{CUBISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Synthetic\PYZus{}Cubism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}           \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{SYNTHETIC\PYZus{}CUBISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Realism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{REALISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Contemporary\PYZus{}Realism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}       \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{CONTEMPORARY\PYZus{}REALISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{New\PYZus{}Realism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{NEW\PYZus{}REALISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Early\PYZus{}Renaissance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}          \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{EARLY\PYZus{}RENAISSANCE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{High\PYZus{}Renaissance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}           \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{HIGH\PYZus{}RENAISSANCE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Mannerism\PYZus{}Late\PYZus{}Renaissance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{MANNERISM\PYZus{}LATE\PYZus{}RENAISSANCE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Northern\PYZus{}Renaissance}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}       \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{NORTHERN\PYZus{}RENAISSANCE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Art\PYZus{}Nouveau\PYZus{}Modern}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}         \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{ART\PYZus{}NOUVEAU\PYZus{}MODERN}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Baroque}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{BAROQUE}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fauvism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{FAUVISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Impressionism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}              \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{IMPRESSIONISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Post\PYZus{}Impressionism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}         \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{POST\PYZus{}IMPRESSIONISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Naive\PYZus{}Art\PYZus{}Primitivism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}      \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{NAIVE\PYZus{}ART\PYZus{}PRIMITIVISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pointillism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{POINTILLISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Pop\PYZus{}Art}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{POP\PYZus{}ART}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Rococo}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                     \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{ROCOCO}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Romanticism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{ROMANTICISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Symbolism}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                  \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{SYMBOLISM}\PY{p}{,}
+    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ukiyo\PYZus{}e}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}                    \PY{n}{AtomicLabel}\PY{o}{.}\PY{n}{UKIYO\PYZus{}E}\PY{p}{,}
+\PY{p}{\PYZcb{}}
+
+\PY{k}{def} \PY{n+nf}{\PYZus{}val\PYZus{}or\PYZus{}undef}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{,} \PY{n}{key}\PY{p}{)}\PY{p}{:}
+    \PY{k}{if} \PY{p}{(}\PY{n}{key} \PY{o+ow}{in} \PY{n+nb}{dict}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb}{dict}\PY{p}{[}\PY{n}{key}\PY{p}{]}
+
+    \PY{k}{return} \PY{n}{UNDEFINED\PYZus{}LABEL}
+
+\PY{k}{def} \PY{n+nf}{label\PYZus{}simple}\PY{p}{(}\PY{n}{parent\PYZus{}dir}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{n}{\PYZus{}val\PYZus{}or\PYZus{}undef}\PY{p}{(}\PY{n}{SIMPLIFIED\PYZus{}LABEL\PYZus{}DICT}\PY{p}{,} \PY{n}{parent\PYZus{}dir}\PY{p}{)}
+
+\PY{k}{def} \PY{n+nf}{label\PYZus{}atomic}\PY{p}{(}\PY{n}{parent\PYZus{}dir}\PY{p}{)}\PY{p}{:}
+    \PY{n}{\PYZus{}val\PYZus{}or\PYZus{}undef}\PY{p}{(}\PY{n}{COMPLETE\PYZus{}LABEL\PYZus{}DICT}\PY{p}{,} \PY{n}{parent\PYZus{}dir}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{DATASET\PYZus{}ROOT} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{/home/buenogabriel1999\PYZus{}gmail\PYZus{}com/wikiart/wikiart}\PY{l+s+s2}{\PYZdq{}}
+\PY{n}{LABEL\PYZus{}FUNC}   \PY{o}{=} \PY{n}{label\PYZus{}simple}
+
+\PY{k}{def} \PY{n+nf}{label\PYZus{}func}\PY{p}{(}\PY{n}{fname}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{n}{LABEL\PYZus{}FUNC}\PY{p}{(}\PY{n}{parent\PYZus{}label}\PY{p}{(}\PY{n}{fname}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{dirs} \PY{o}{=} \PY{p}{[}\PY{n}{path} \PY{k}{for} \PY{n}{path} \PY{o+ow}{in} \PY{n}{os}\PY{o}{.}\PY{n}{scandir}\PY{p}{(}\PY{n}{DATASET\PYZus{}ROOT}\PY{p}{)} \PY{k}{if} \PY{n}{path}\PY{o}{.}\PY{n}{is\PYZus{}dir}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+\PY{n}{imgs} \PY{o}{=} \PY{p}{[}\PY{p}{(}\PY{n}{file}\PY{o}{.}\PY{n}{path}\PY{p}{,} \PY{n}{LABEL\PYZus{}FUNC}\PY{p}{(}\PY{n+nb}{dir}\PY{o}{.}\PY{n}{name}\PY{p}{)}\PY{p}{)} \PY{k}{for} \PY{n+nb}{dir} \PY{o+ow}{in} \PY{n}{dirs} \PY{k}{for} \PY{n}{file} \PY{o+ow}{in} \PY{n}{os}\PY{o}{.}\PY{n}{scandir}\PY{p}{(}\PY{n+nb}{dir}\PY{o}{.}\PY{n}{path}\PY{p}{)}\PY{p}{]}
+
+\PY{n}{imgs\PYZus{}by\PYZus{}label} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+
+\PY{k}{for} \PY{p}{(}\PY{n}{path}\PY{p}{,} \PY{n}{label}\PY{p}{)} \PY{o+ow}{in} \PY{n}{imgs}\PY{p}{:}
+    \PY{k}{if} \PY{p}{(}\PY{n}{label} \PY{o+ow}{not} \PY{o+ow}{in} \PY{n}{imgs\PYZus{}by\PYZus{}label}\PY{p}{)}\PY{p}{:}
+        \PY{n}{imgs\PYZus{}by\PYZus{}label}\PY{p}{[}\PY{n}{label}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+
+    \PY{n}{imgs\PYZus{}by\PYZus{}label}\PY{p}{[}\PY{n}{label}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{(}\PY{n}{path}\PY{p}{,} \PY{n}{label}\PY{p}{)}\PY{p}{)}
+
+    
+\PY{n}{x} \PY{o}{=} \PY{p}{[}\PY{n}{lbl}                     \PY{k}{for} \PY{n}{lbl} \PY{o+ow}{in} \PY{n}{imgs\PYZus{}by\PYZus{}label}\PY{p}{]}
+\PY{n}{y} \PY{o}{=} \PY{p}{[}\PY{n+nb}{len}\PY{p}{(}\PY{n}{imgs\PYZus{}by\PYZus{}label}\PY{p}{[}\PY{n}{lbl}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{lbl} \PY{o+ow}{in} \PY{n}{imgs\PYZus{}by\PYZus{}label}\PY{p}{]}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Total: }\PY{l+s+si}{\PYZob{}}\PY{n+nb}{sum}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+\PY{n}{f}\PY{p}{,} \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+\PY{n}{ax}\PY{o}{.}\PY{n}{barh}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Total: 81446
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_4_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{dblock} \PY{o}{=} \PY{n}{DataBlock}\PY{p}{(}
+    \PY{n}{blocks}     \PY{o}{=} \PY{p}{(}\PY{n}{ImageBlock}\PY{p}{,} \PY{n}{CategoryBlock}\PY{p}{)}\PY{p}{,}
+    \PY{n}{get\PYZus{}items}  \PY{o}{=} \PY{n}{get\PYZus{}image\PYZus{}files}\PY{p}{,}
+    \PY{n}{get\PYZus{}y}      \PY{o}{=} \PY{n}{label\PYZus{}func}\PY{p}{,}
+    \PY{n}{splitter}   \PY{o}{=} \PY{n}{RandomSubsetSplitter}\PY{p}{(}\PY{o}{.}\PY{l+m+mi}{8}\PY{p}{,} \PY{o}{.}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{,}
+    \PY{n}{item\PYZus{}tfms}  \PY{o}{=} \PY{n}{RandomResizedCrop}\PY{p}{(}\PY{l+m+mi}{128}\PY{p}{,} \PY{n}{min\PYZus{}scale}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{35}\PY{p}{)}\PY{p}{,}
+    \PY{n}{batch\PYZus{}tfms} \PY{o}{=} \PY{n}{Normalize}\PY{o}{.}\PY{n}{from\PYZus{}stats}\PY{p}{(}\PY{o}{*}\PY{n}{imagenet\PYZus{}stats}\PY{p}{)}
+\PY{p}{)}
+
+\PY{n}{dloader} \PY{o}{=} \PY{n}{dblock}\PY{o}{.}\PY{n}{dataloaders}\PY{p}{(}\PY{n}{DATASET\PYZus{}ROOT}\PY{p}{,} \PY{n}{bs}\PY{o}{=}\PY{l+m+mi}{32}\PY{p}{,} \PY{n}{num\PYZus{}workers}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{dloader}\PY{o}{.}\PY{n}{show\PYZus{}batch}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_6_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{MODELS\PYZus{}FOLDER} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{/home/buenogabriel1999\PYZus{}gmail\PYZus{}com/models/}\PY{l+s+s2}{\PYZdq{}}
+
+\PY{n}{resnet50\PYZus{}learner} \PY{o}{=} \PY{n}{load\PYZus{}learner}\PY{p}{(}\PY{n}{MODELS\PYZus{}FOLDER} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{resnet50.pkl}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{cpu}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+
+\PY{n}{resnet50\PYZus{}learner}\PY{o}{.}\PY{n}{dls} \PY{o}{=} \PY{n}{dloader}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{resnet50\PYZus{}learner}\PY{o}{.}\PY{n}{validate}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+<IPython.core.display.HTML object>
+    \end{Verbatim}
+
+    
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+(\#2) [2.0453383922576904,0.6632696986198425]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{resnet50\PYZus{}learner}\PY{o}{.}\PY{n}{show\PYZus{}results}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+<IPython.core.display.HTML object>
+    \end{Verbatim}
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_9_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{r50\PYZus{}classif\PYZus{}interpretation} \PY{o}{=} \PY{n}{ClassificationInterpretation}\PY{o}{.}\PY{n}{from\PYZus{}learner}\PY{p}{(}\PY{n}{resnet50\PYZus{}learner}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+<IPython.core.display.HTML object>
+    \end{Verbatim}
+
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{r50\PYZus{}classif\PYZus{}interpretation}\PY{o}{.}\PY{n}{plot\PYZus{}confusion\PYZus{}matrix}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_11_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{r50\PYZus{}classif\PYZus{}interpretation}\PY{o}{.}\PY{n}{plot\PYZus{}top\PYZus{}losses}\PY{p}{(}\PY{l+m+mi}{16}\PY{p}{,} \PY{n}{nrows}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_12_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}

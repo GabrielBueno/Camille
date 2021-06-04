@@ -17,6 +17,7 @@
 \usepackage{wrapfig}
 \usepackage{mathtools}
 \usepackage{pgfplots}
+\usepackage{pgf-pie}
 \usepackage{float}
 \usepackage{blindtext}
 \usepackage{enumitem}
@@ -249,7 +250,7 @@ Nesta linguagem, os problemas são modelados por \emph{átomos} e \emph{regras} 
 O Prolog viu sua aplicação em trabalhos de IA na criação de sistemas especialistas, processamento de linguagem natural, entre outros. 
 Apesar dos esforços, a IA simbólica não demonstrou muito sucesso. Suas dificuldades e empecilhos sugerem que os sistemas de inteligência
 artifical, para se mostrarem eficazes, deveriam ser capazes de por si só adquirir o próprio conhecimento necessário
-para a resolução de um problema \cite{Goodfellow-et-al-2016}.
+para a resolução de um problema \cite[p.2]{Goodfellow-et-al-2016}.
 
 \bigskip
 \begin{lstlisting}[caption={Exemplo do uso da linguagem Prolog para modelar a famosa proposição da mortalidade de Sócrates.}, captionpos=b]
@@ -283,7 +284,7 @@ As técnicas de aprendizado de máquina podem ser utilizadas não só para, a pa
 	}
 \end{wrapfigure}
 
-Ao criar uma representação que modela um problema do mundo real para um algoritmo de aprendizado de máquina --- ou mesmo para modelar o próprio algoritmo de aprendizado da representação --- há de se detectar e separar os \emph{fatores de influência} deste problema. Estes fatores não necessariamente são discretos, mas são quaisquer características que determinam a saída correta para um conjunto de dados em uma determinada representação. Em um nível mais alto, podemos dizer que os fatores de influência são, por exemplo, as características que determinam a essência de algo, o que este algo é --- uma pintura, por exemplo, apresenta cores e formas que fazem com que o observador saiba de imediato que tipo de objeto foi ali representado. Estes fatores de influência muitas vezes são constituídos de ideias cujo significado total depende de abstrações estritamente ligadas à linguagem humana, não sendo possível a sua tradução fiel em uma linguagem formal. O \emph{Deep Learning} surge como técnica de aprendizagem de representação que baseia-se em níveis de representações encadeadas sucessivamente que transformam uma entrada na sua respectiva saída \cite{Goodfellow-et-al-2016}. Cada camada de representação em uma rede neural se mostra capaz de responder aos fatores de influência em uma entrada. Os algoritmos de aprendizado ainda tornam possível que uma rede neural, através de exemplos, vá assumindo ao longo do treinamento uma configuração capaz de detectar quais são os fatores de influência determinantes para uma saída correta. 
+Ao criar uma representação que modela um problema do mundo real para um algoritmo de aprendizado de máquina --- ou mesmo para modelar o próprio algoritmo de aprendizado da representação --- há de se detectar e separar os \emph{fatores de influência} deste problema. Estes fatores não necessariamente são discretos, mas são quaisquer características que determinam a saída correta para um conjunto de dados em uma determinada representação. Em um nível mais alto, podemos dizer que os fatores de influência são, por exemplo, as características que determinam a essência de algo, o que este algo é --- uma pintura, por exemplo, apresenta cores e formas que fazem com que o observador saiba de imediato que tipo de objeto foi ali representado. Estes fatores de influência muitas vezes são constituídos de ideias cujo significado total depende de abstrações estritamente ligadas à linguagem humana, não sendo possível a sua tradução fiel em uma linguagem formal. O \emph{Deep Learning} surge como técnica de aprendizagem de representação que baseia-se em níveis de representações encadeadas sucessivamente que transformam uma entrada na sua respectiva saída; representações expressas em termos de outras representações \cite[p.5]{Goodfellow-et-al-2016}. Cada camada de representação em uma rede neural se mostra capaz de responder aos fatores de influência em uma entrada. Os algoritmos de aprendizado ainda tornam possível que uma rede neural, através de exemplos, vá assumindo ao longo do treinamento uma configuração capaz de detectar quais são os fatores de influência determinantes para uma saída correta. 
 Esta técnica também remonta à Dartmouth, cujo artigo que propõe a conferência apresenta a questão "como um conjunto de nêurons hipotéticos podem ser arranjados para que possam formar conceitos?" \cite{dartmouth}.
 
 No início, as pesquisas em redes neurais eram inspiradas nos estudos da neurociência da época. O primeiro modelo matemático para a representação de nêurons \cite{mcculloch_pitts} criado em 1943, apesar de simples, serviu como fundamento para a evolução teórica do que viria a ser a rede neural. O próximo marco na linha do tempo das redes neurais é a invenção do nêuron \emph{Perceptron} por Frank Rosenblatt em 1958, no Cornell Aeronautical Laboratory.
@@ -478,13 +479,15 @@ a transferência de aprendizado em um modelo treinado no ImageNet faz com que to
 \subsection{Treinamento}
 Para o treinamento, foi utilizada a biblioteca \emph{fast.ai}\footnote{https://www.fast.ai/}. Esta bilioteca provê APIs para abstrair, de forma mais pragmática, o treinamento de redes neurais no estado da arte. O modelo utilizado foi o \emph{ResNet50} pré-treinado no \emph{ImageNet}. A rotina de treinamento foi realizada em um \emph{Jupyter Notebook}\footnote{https://github.com/GabrielBueno/Camille/blob/master/training/jnb/resnet50.ipynb} em Python. Esta rotina foi executada remotamente em uma máquina virtual hospedada no \emph{Google Compute Engine} --- um dos módulos do Google Cloud. O treinamento foi realizado utilizando 1x GPU NVIDIA Tesla T4 e 4x vCPUs.
 
+Uma permutação aleatória do conjunto de dados selecionados foi utilizada para o treinamento. 80\% desta permutação foi utilizada como dados de treinamento de fato, deixando o restante para a validação do modelo. Uma subárea de cada imagem foi aleatoriamente selecionada para ser utilizada no treinamento, ao invés de se utilizar a imagem inteira em si. Desta forma reduz-se as chances de que o modelo se adapte \emph{bem demais} aos dados de treinamento, aprendendo a reconhecer somente as imagens que viu durante o seu aprendizado, demonstrando pouca eficácia em um ambiente de produção.
+
 \subsection{Interfaces}
 O sistema foi divido em duas interfaces, uma API RESTful que expõe endpoints para encapsular a utilização do modelo treinado, e um site Web para realizar a interação com o usuário e o consumo da API RESTful.
 
 \subsubsection{API RESTful}
 A API RESTful disponibiliza endpoints para obter informações sobre o modelo de rede neural, e para enviar um arquivo de imagem para ser por ele categorizado. Os endpoints disponibilizados são:
 
-\newpage
+\bigskip
 \noindent
 \textbf{GET} - /vocab
 
@@ -503,6 +506,7 @@ A API RESTful disponibiliza endpoints para obter informações sobre o modelo de
 }
 \end{lstlisting}
 
+\bigskip
 \noindent
 \textbf{POST} - /r50/p
 
@@ -540,52 +544,186 @@ O sistema proposto somente possui um caso de uso, portanto uma página Web simpl
 \end{figure}
 
 \subsection{Pesquisa de aceitação}
-
-% Um formulário em uma ferramenta online foi criado para entrevistar e coletar as respostas dos entrevistados. As pessoas que participaram da pesquisa foram alcançadas pela propagação deste formulário em redes sociais e nos círculos sociais dos realizadores do projeto. As perguntas realizadas são objetivas, a não ser por uma, opcional, onde o entrevistado pode escrever o que pensa sobre a ideia apresentada. As perguntas foram elaboradas de forma a traçar o interesse geral pela disciplina de educação artística e a importância que se é dado à ela por um indivíduo já na sua idade adulta. Pedimos para que o entrevistado relembre de sua época escolar e da sua então opinião sobre a disciplina; diga a importância atual que a arte tem na sua vida; e opine se a tecnologia ajudaria no ensino de arte.
-
-% A maioria dos entrevistados cursou a disciplina de educação artística nos ensino fundamental e médio, porém nota-se que a preferência por esta matéria está bem distribuída, já que aproximadamente 50% responderam que gostavam das aulas. Nota-se que a maioria das pessoas entrevistadas utiliza as artes de alguma forma no seu dia a dia. Conhecer outras realidades e se colocar no lugar de outras pessoas, alimento para introspecção, ferramenta política de protesto, ou uma simples forma de se distrair da rotina cotidiana foram os objetivos mais citados para o uso pessoal da arte.
-
-% Mais de 90% dos entrevistados acham que a tecnologia pode servir como ferramenta de auxílio à educação artística, fazendo com que os alunos se interessem mais pelos assuntos abordados. Houve quase um consenso sobre a importância da abordagem das artes nas escolas, já que uma pequena minoria não atribui importância alguma à essa disciplina na formação de um indivíduo. Dos entrevistados que dissertaram sua opinião sobre o projeto apresentado, a maioria se mostrou favorável e receptível à ideia. Mais de 90% dos entrevistados concordam que a tecnologia auxiliaria no ensino de artes. Um dos entrevistados, porém, apontou que o uso da tecnologia na sala de aula é irrelevante caso o professor não tenha a habilidade de usá-la de forma eficiente para tornar suas aulas interessantes.
-
-% A maioria das respostas mostra que na amostra de pessoas entrevistadas há um sentimento positivo em relação à ideia apresentada, o que cria um cenário otimista para a implementação do projeto.
-
-% Apesar de a maioria dos entrevistados ter cursado disciplinas de educação artística no ensino fundamental e médio, há uma notória divisão na sua apreciação. Aproximadamente metade dos entrevistados apontaram que não gostavam dessas aulas. O contraponto à essa reação negativa na entrevista pode ser observada na grande quantidade de respostas que apoiam o uso da tecnologia como atrativo nas aulas. A partir da relação entre as respostas destas duas questões podemos inferir que o projeto é sim interessante para servir como auxílio na sala de aula, para tentar manter o interesse do aluno nos assuntos abordados pelo professor.
-
 Durante a realização deste trabalho, foi organizada uma pesquisa com 63 participantes a fim de traçar a opinião geral sobre a necessidade da abordagem da tecnologia na educação artística, de modo a testar a hipótese apresentada neste trabalho. A pesquisa foi realizada de forma \emph{online} através da ferramenta do 
 \emph{Google Forms}
-As perguntas foram pensadas de forma a fazer com que o entrevistado relembre de sua época como discente das disciplinas artísticas obrigatórias nos ensinos fundamental e médio, refletindo sobre qual era o seu sentimento em relação a elas, além de refletir sobre a importância que a arte tem na sua vida atualmente. O formulário então guia o entrevistado para que este reflita sobre se a abordagem da tecnologia ajudaria a acender algum interesse nos alunos para com as aulas de arte. A saber, são elas:
-
-\begin{enumerate}
-\item Qual a sua idade?
-\begin{tasks}(3)
-	\task Menos de 14 anos;
-	\task 14 a 17;
-	\task 18 a 21;
-	\task 22 a 29;
-	\task 30 a 39;
-	\task 40 a 49;
-	\task 50 ou mais.
-\end{tasks}
-
-\item Qual o seu gênero?
-\begin{tasks}(2)
-	\task Feminino;
-	\task Masculino;
-	\task Prefiro não dizer;
-	\task Outro.
-\end{tasks}
-\end{enumerate}
+As perguntas foram pensadas de forma a fazer com que o entrevistado relembre de sua época como discente das disciplinas artísticas obrigatórias nos ensinos fundamental e médio, refletindo sobre qual era o seu sentimento em relação a elas, além de refletir sobre a importância que a arte tem na sua vida atualmente. O formulário então guia o entrevistado para que este reflita sobre se a abordagem da tecnologia ajudaria a acender algum interesse nos alunos para com as aulas de arte.\footnote{O formulário pode ser encontrado em https://forms.gle/qncTGqMYGMoNMmyC6}
 
 \section{Resultados e discussão}
 \subsection{Treinamento da Rede Neural}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, height=11cm, keepaspectratio=true]{fig/resultsbatch}
+	\caption{Amostra de previsões realizadas pelo modelo.}
+\end{figure}
+
+A rotina de treinamento produziu, em aproximadamente 14 horas, um modelo com uma precisão de aproximadamente $66\%$. 
+Os gêneros \emph{impressionismo}, \emph{expressionismo}, \emph{realismo},
+\emph{romantismo}, \emph{arte abstrata} e \emph{art nouveau} foram os mais bem compreendidos por ele, que não logrou excepcional eficácia nos demais gêneros, apesar de apresentar, em alguns casos, alguma capacidade de exibir um comportamento correto. É valido notar, como um exemplo, que o modelo confundiu uma parte considerável das pinturas do \emph{cubismo} com \emph{arte abstrata}. Talvez os padrões geométricos empregados no cubismo foram entendidos pelo modelo como fatores determinantes para uma obra abstrata. Apesar da relativamente boa acurácia para um experimento inicial, o modelo certamente não atingiu o grau de sutileza necessária para detectar com clareza o estilo de uma pintura. É válido também realçar a diferença entre máquinas e humanos neste ponto, já que muitas vezes a categorização de uma obra artística depende muito de fatores não visuais --- históricos ou geográficos, ou até mesmo da própria imaginação do observador. Tentar fazer uma máquina enxergar uma obra de arte e tirar algo disso é ter a esperança infundada de que se é capaz de se transferir uma parte da essência do criador para a criação, de que se é capaz de acender uma centelha de vida no coração do resultado inanimado dos esforços do projetista. Em contrapartida, o sucesso do modelo em detectar obras de \emph{arte abstrata} pode servir de indicativo do seu sucesso em aprender a detectar certos padrões geométricos. Seu sucesso com o \emph{impressionismo}, \emph{expressionismo}, \emph{realismo} e \emph{romantismo} trazem certo otimismo, já que mostra que ele foi capaz de extrair os fatores visuais determinantes de cada estilo. Já o seu fracasso com os demais estilos pode-se, ingenuamente, ser explicado pelo pouco volume de dados disponíveis destes gêneros. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth, height=15cm, keepaspectratio=true]{fig/confusionmatrix}
+	\caption{Matriz de confusão do modelo. Nota-se o maior sucesso na detecção de pinturas pertencentes à arte abstrata e ao impressionismo.}
+\end{figure}
+
 \subsection{Pesquisa de aceitação}
 A partir das 63 respostas ao formulário disponibilizado para a pesquisa
 \footnote{
-	O resultado da pesquisa pode ser acessado diretamente pelo \emph{Google Forms} em:
+	O resultado da pesquisa pode ser acessado diretamente em:
 
 	https://docs.google.com/forms/d/1p9Dn6x7VEzsXN2m2h5Cs9lI1J0Hwz9DXUusuGdnstI4/viewanalytics
 }.
+podemos inferir algumas observações acerca do perfil dos entrevistados, e da opinião geral destes sobre a ideia apresentada durante a pesquisa.
+
+\subsubsection{Perfil geral}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			7.9/40 a 49,
+			27/18 a 21,
+			31.7/30 a 39,
+			33.3/22 a 29
+		}
+	\end{tikzpicture}
+	\caption{Idade dos entrevistados.}
+	\label{fig:q1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			1.6/Prefiro não dizer,
+			1.6/Não-binário,
+			20.6/Feminino,
+			76.2/Masculino
+		}
+	\end{tikzpicture}
+	\caption{Gênero dos entrevistados.}
+	\label{fig:q2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			6.3/Médio completo,
+			46/Superior incompleto,
+			47.6/Superior completo
+		}
+	\end{tikzpicture}
+	\caption{Escolaridade dos entrevistados.}
+	\label{fig:q3}
+\end{figure}
+
+\subsubsection{Educação artística no ensino fundamental}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			1.6/Não cursaram,
+			1.6/Não lembram,
+			96.8/Cursaram
+		}
+	\end{tikzpicture}
+	\caption{Distribuição da oferta de disciplinas de educação artística no ensino fundamental entre os entrevistados.}
+	\label{fig:q4}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			3.2/Não cursaram,
+			39.7/Não gostavam,
+			57.1/Gostavam
+		}
+	\end{tikzpicture}
+	\caption{Sentimento dos entrevistados em relação às aulas oferecidas no ensino fundamental.}
+	\label{fig:q5}
+\end{figure}
+
+\subsubsection{Educação artística no ensino médio}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			3.2/Não lembram,
+			19/Não cursaram,
+			77.8/Cursaram
+		}
+	\end{tikzpicture}
+	\caption{Distribuição da oferta de disciplinas de educação artística no ensino médio entre os entrevistados.}
+	\label{fig:q6}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			19/Não cursaram,
+			28.6/Não gostavam,
+			52.4/Gostavam
+		}
+	\end{tikzpicture}
+	\caption{Sentimento dos entrevistados em relação às aulas oferecidas no ensino médio.}
+	\label{fig:q7}
+\end{figure}
+
+\subsubsection{Importância dada à educação artística}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			3.2/Nem um pouco,
+			30.2/Um pouco,
+			66.7/Essencial
+		}
+	\end{tikzpicture}
+	\caption{Importância atribuída pelos entrevistados à educação artística na formação de um indivíduo.}
+	\label{fig:q8}
+\end{figure}
+
+\subsubsection{Vantagem da integração tecnológica com a educação no geral}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			3.2/Não traria benefício,
+			96.8/Traria benefício
+		}
+	\end{tikzpicture}
+	\caption{Opinião dos entrevistados sobre o benefício da integração da tecnologia no modelo convencional de educação.}
+	\label{fig:q9}
+\end{figure}
+
+\subsubsection{Vantagem da integração tecnológica com a educação artística}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\pie{
+			7.9/Traria interesse,
+			92.1/Não traria interesse
+		}
+	\end{tikzpicture}
+	\caption{Opinião dos entrevistados sobre se a integração da tecnologia com a educação artística fariam com que os alunos se interessasem mais nos assuntos abordados.}
+	\label{fig:q10}
+\end{figure}
+
+\subsubsection{Conclusão da pesquisa}
+O público alcançado pela pesquisa majoritariamente já teve ao menos algum contato com o ensino superior, tendo o completado ou não, como visto na figura \ref{fig:q3}. A maioria cursou a disciplina de educação artística nos ensino fundamental e médio, porém nota-se que a preferência por esta matéria está bem distribuída. A pesquisa também pediu para que o entrevistado indicasse alguns usos que faz das artes no seu dia a dia, e nota-se que a maioria reconhece que as utiliza de alguma forma, como para conhecer outras realidades e se colocar no lugar de outras pessoas; conhecer a si mesmo; protestar politicamente, ou simplesmente se distrair da rotina cotidiana, por exemplo.
+Apesar de a maioria dos entrevistados ter cursado disciplinas de educação artística no ensino fundamental e médio, há uma notória divisão na sua apreciação. Aproximadamente metade dos entrevistados apontaram que não gostavam dessas aulas (como se observa nas figuras \ref{fig:q5} e \ref{fig:q7}).
+O contraponto à essa reação negativa na entrevista pode ser observada na grande quantidade de respostas que apoiam o uso da tecnologia como atrativo nas aulas (figura \ref{fig:q9}).
+Mais de 90\% dos entrevistados acham que a tecnologia pode servir como ferramenta de auxílio à educação artística, 
+fazendo com que os alunos se interessem mais pelos assuntos abordados (figura \ref{fig:q10}). 
+Houve quase um consenso sobre a importância da abordagem das artes nas escolas, já que uma pequena minoria não atribui importância alguma à essa disciplina na formação de um indivíduo (figura \ref{fig:q8}). A pesquisa, além das perguntas objetivas, também ofereceu um espaço para que o entrevistado dissertasse sua opinião sobre o tema apresentado durante o formulário. Dos entrevistados que decidiram dissertar sua opinião a maioria se mostrou favorável e receptível à ideia. Um destes, porém, apontou que o uso da tecnologia na sala de aula é irrelevante caso o professor não tenha a habilidade de usá-la de forma eficiente para tornar suas aulas interessantes.
+
+A maioria das respostas positivas ao uso da tecnologia nas salas de aula mostra que, na amostra de pessoas entrevistadas, há um sentimento positivo em relação à ideia apresentada, o que cria um cenário otimista e apoia a validação da hipótese sugerida neste trabalho.
 
 \section{Conclusão}
 
