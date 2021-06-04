@@ -60,29 +60,32 @@
 A arte é parte indissociável da vivência humana, e a tecnologia é parte indissociável da arte. 
 Sendo uma das atividades mais antigas exercidas pelo ser-humano, podemos enxergar características estéticas e manifestações artísticas realizadas pelos vários povos e culturas antigas até a contemporaneidade, seja por meio do artesanato, arquitetura, pintura ou poesia.
 O belo sempre é benquisto por qualquer indivíduo que seja, independente do seu meio social ou seus gostos pessoais.
-Na Poética, ao definir a arte da poesia, Aristóteles \cite[p.42]{aristotle_poetics} afirma que 
+Na Poética, ao definir a arte da poesia, Aristóteles afirma que:
 
 \begin{displayquote}
 as coisas que observamos ao natural e nos fazem pena agradam-nos quando as vemos representadas em imagens muito perfeitas.
+\cite[p.42]{aristotle_poetics}
 \end{displayquote}
 
 Cada registro artístico, porém, representa não só algo que é sensivelmente belo, mas constitui uma expressão do indivíduo que o fez, carregando em si
 também o espírito da época em que foi realizado, do meio em que o artista estava inserido. 
-A arte mostra-se, portanto, de valor inestimável como registro da expressão humana, Da Vinci \cite{davinci_thoughtsonart} diria que:
+A arte mostra-se, portanto, de valor inestimável como registro da expressão humana, Da Vinci diria que:
 
 \begin{displayquote}
 Os frutos da pintura podem ser compreendidos por todas as populações do universo pois seus resultados
 são sujeitos ao poder da visão [...] não necessitando de intérpretes para as várias línguas.
+\cite{davinci_thoughtsonart} 
 \end{displayquote}
 
-Identidades religiosas e nacionais também fazem uso da estética, já que historicamente podemos observar que, nas palavras de Hegel \cite{hegel}:
+% Identidades religiosas e nacionais também fazem uso da estética, já que historicamente podemos observar que, nas palavras de Hegel:
 
-\begin{displayquote}
-é nos trabalhos de arte que nações tem depositado as mais ricas intuições e ideias que possuem; e não 
-infrequentemente as belas artes fornecem uma chave para a interpretação da sabedoria e religião dos povos.
-\end{displayquote}
+% \begin{displayquote}
+% é nos trabalhos de arte que nações tem depositado as mais ricas intuições e ideias que possuem; e não 
+% infrequentemente as belas artes fornecem uma chave para a interpretação da sabedoria e religião dos povos.
+%  \cite{hegel}
+% \end{displayquote}
 
-Já o ato de realizar arte, por outro lado, é estritamente ligado à tecnologia.
+Já o ato de realizar arte, em si, é estritamente ligado à tecnologia.
 As ferramentas criadas pelo homem a fim de subjugar os obstáculos impostos
 pelo meio ambiente à sua sobrevivência, foram e sempre serão usadas pelo artista como meio de expressão e para o fazer artístico \cite{gouzouasis}.
 A evolução da tecnologia interfere diretamente nas manifestações artísticas, o que podemos notar pela simples observação da arte ao longo da história: das pinturas que passaram das paredes das cavernas para o óleo em tela, até
@@ -121,16 +124,18 @@ O algoritmo é a principal ferramenta do artista computacional, através do qual
 Vemos que a tecnologia contemporânea já é tão significativa que nos deu novos meios para o fazer artístico, trazendo consigo, além disso, reflexões acerca do próprio ato de fazer arte, já que a ideia de arte feita "pelo computador" não é aceita de bom grado pelo crítico
 mais conservador.
 Ora, não há de se negar que o matemático, cientista ou engenheiro mais romântico, apesar de não necessariamente chamar de arte, indubitavelmente enxerga alguma forma de beleza na atividade que exerce e nos frutos de seu trabalho. 
-Na sua apologia, Hardy \cite{hardy_apology} escreve:
+Na sua apologia, Hardy escreve:
 
 \begin{displayquote}
 Um matemático, como um pintor ou poeta, é um criador de padrões. Se os padrões daquele são mais permanentes do que os destes, é porque eles são feitos com ideias.
+\cite{hardy_apology}
 \end{displayquote}
 
-Ao lamentar a forma como a matemática é ensinada para as crianças em nível escolar (sua lamentação poderia muito bem ser transposta para o próprio ensino de arte), Lockhart \cite{lockhart_lament} expressa que:
+Ao lamentar a forma como a matemática é ensinada para as crianças em nível escolar (sua lamentação poderia muito bem ser transposta para o próprio ensino de arte), Lockhart expressa que:
 
 \begin{displayquote}
 Nenhuma sociedade jamais reduziria uma forma tão bela e significativa de arte para algo tão insignificante e trivial. Nenhuma cultura poderia ser tão cruel com suas crianças a ponto de privá-las de um meio tão satisfatório e natural de expressão humana.
+\cite{lockhart_lament}
 \end{displayquote}
 
 A sociedade cada vez mais vê-se de todo tomada pela digitalização. Se o homem se torna digital, sua expressão em forma de 
@@ -419,6 +424,7 @@ O sistema será dividido em uma arquitetura \emph{cliente/servidor}. O servidor 
 \subsection{Coleta de dados}
 Para criarmos um modelo de rede neural capaz de inferir o gênero artístico de uma pintura, devemos treiná-lo utilizando uma base de dados previamente e devidamente categorizados. Para tanto, foi utilizada uma base de imagens\footnote{https://github.com/cs-chan/ArtGAN/tree/master/WikiArt\%20Dataset} retiradas do WikiArt.org\footnote{https://www.wikiart.org/} por \cite{icip2016}. Esta base de dados contém $81446$ (aproximadamente 24,5GB) imagens distribuídas nas 27 categorias: 
 
+\bigskip
 \emph{expressionismo abstrato}; 
 \emph{gestualismo}; 
 \emph{minimalismo}; 
@@ -446,6 +452,7 @@ Para criarmos um modelo de rede neural capaz de inferir o gênero artístico de 
 \emph{romantismo}; 
 \emph{simbolismo} e
 \emph{ukiyo-e}.
+\bigskip
 
 Alguns destes gêneros, porém, são subgêneros de um mesmo movimento, como o cubismo, cubismo analítico e cubismo sintético. Não nos é interessante manter este nível de detalhe, já que a diferença puramente visual --- a rede neural não possui conhecimento de contextos históricos ou regionais, somente enxergando o aspecto puramente visual da obra de arte --- entre estas subcategorias podem ser sutis ou inexistentes. Além disso, as subcategorias podem não estar presentes em um número expressivo na base de dados para que o modelo consiga ser treinado a ponto de detectar essas diferenças. Foi decidido, portanto, aglutinar estas subcategorias sobre somente uma categoria, fazendo com que:
 
@@ -543,7 +550,7 @@ O sistema proposto somente possui um caso de uso, portanto uma página Web simpl
 
 \subsection{Pesquisa de aceitação}
 Durante a realização deste trabalho, foi organizada uma pesquisa com 63 participantes a fim de traçar a opinião geral sobre a necessidade da abordagem da tecnologia na educação artística, de modo a testar a hipótese apresentada neste trabalho. A pesquisa foi realizada de forma \emph{online} através da ferramenta do 
-\emph{Google Forms}
+\emph{Google Forms}.
 As perguntas foram pensadas de forma a fazer com que o entrevistado relembre de sua época como discente das disciplinas artísticas obrigatórias nos ensinos fundamental e médio, refletindo sobre qual era o seu sentimento em relação a elas, além de refletir sobre a importância que a arte tem na sua vida atualmente. O formulário então guia o entrevistado para que este reflita sobre se a abordagem da tecnologia ajudaria a acender algum interesse nos alunos para com as aulas de arte.\footnote{O formulário pode ser encontrado em https://forms.gle/qncTGqMYGMoNMmyC6}
 
 \section{Resultados e discussão}
@@ -723,7 +730,9 @@ Houve quase um consenso sobre a importância da abordagem das artes nas escolas,
 
 A maioria das respostas positivas ao uso da tecnologia nas salas de aula mostra que, na amostra de pessoas entrevistadas, há um sentimento positivo em relação à ideia apresentada, o que cria um cenário otimista e apoia a validação da hipótese sugerida neste trabalho.
 
+\newpage
 \section{Conclusão}
+O presente trabalho teve em sua essência o objetivo de apresentar a relação intrínseca entre tecnologia e a arte, e a necessidade da criação e exposição de uma relação mais forte entre as tecnologias atuais e o meio artístico, tanto como forma de realização artística quanto como forma de compreensão da relação homem/máquina vigente e futura, e de como o indivíduo insere-se em uma sociedade cada vez mais tecnológica. O avanço tecnológico cria novos meios de comunicação e relação entre seres humanos. O meio de \emph{expressão} do homem contemporâneo transfere-se, portanto, majoritariamente para os meios criados pelas tecnologias contemporâneas. A pesquisa realizada demonstra que a maioria dos entrevistados acha que é necessário integrar a tecnologia à educação de crianças e adolescentes. Um indivíduo capaz de observar criticamente o quadro social em que se encontra deve ser capaz de entender quais as implicações que as tecnologias que sustentam a sua sociedade tem sobre ele e seus semelhantes. Como exemplo do uso de uma tecnologia recente aplicada ao meio artístico, este trabalho apresentou a criação de uma rede neural artificial capaz de tentar detectar o estilo artístico de uma pintura. O resultado obteve um desempenho considerável dentro de suas limitações, trazendo reflexões acerca da natureza de uma obra artística em si, e a tarefa essencialmente humana que é o de compreendê-la. Em trabalhos futuros, o modelo pode evoluir para ser capaz de detectar os autores das obras, ou até mesmo o \emph{sentimento} expressado por uma pintura. Uma \emph{rede generativa adversarial} poderia ser treinada com base nestes modelos de detecção, sendo capaz não de inferir características de uma obra, mas sim de \emph{produzir} por si só uma obra a partir de características pré-especificadas. 
 
 % \nocite{*}
 \newpage
