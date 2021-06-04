@@ -321,22 +321,6 @@ p(x) =
 	\end{cases}
 \end{equation}
 
-No entanto, para maior adequação aos algoritmos de treinamento, outras funções de ativação são comumente utilizadas, como a função \emph{sigmoide} ($\sigma$) ou a unidade linear retificada (\emph{ReLU}).
-
-\begin{equation}
-\sigma(x) = \frac{1}{1 + e^{-x}}
-\end{equation}
-
-\begin{equation}
-ReLU(x) =
-	\begin{cases}
-		0 & \text{se } x \leq 0 \\
-		x & \text{se } x > 0
-	\end{cases}
-\end{equation}
-
-% \pgfplotsset{small}
-
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
@@ -347,6 +331,12 @@ ReLU(x) =
 	\caption{Função de ativação do perceptron de Rosenblatt.}
 \end{figure}
 
+No entanto, para maior adequação aos algoritmos de treinamento, outras funções de ativação são comumente utilizadas, como a função \emph{sigmoide} ($\sigma$) ou a unidade linear retificada (\emph{ReLU}).
+
+\begin{equation}
+\sigma(x) = \frac{1}{1 + e^{-x}}
+\end{equation}
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
@@ -356,6 +346,14 @@ ReLU(x) =
 	\end{tikzpicture}
 	\caption{Função sigmoide.}
 \end{figure}
+
+\begin{equation}
+ReLU(x) =
+	\begin{cases}
+		0 & \text{se } x \leq 0 \\
+		x & \text{se } x > 0
+	\end{cases}
+\end{equation}
 
 \begin{figure}[H]
 	\centering
