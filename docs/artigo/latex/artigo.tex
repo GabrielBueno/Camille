@@ -25,10 +25,18 @@
 \usepackage{tasks}
 \usepackage{titling}
 \usepackage{indentfirst}
+% \usepackage{helvet}
 
 %%% Setup
 
-\selectlanguage{brazilian}
+% Fonte
+% \renewcommand{\familydefault}{\sfdefault}
+
+% Abstract
+\renewenvironment{abstract}
+  {\small\quotation
+  {\bfseries\noindent{\small\abstractname}\par\nobreak\smallskip}}
+  {\endquotation}
 
 %lst
 \lstdefinestyle{lststyle}{
@@ -47,30 +55,63 @@
 %pgfplots
 \pgfplotsset{compat = newest}
 
+%%% Titling
+% \pretitle{\begin{center}\small}
+% \posttitle{\end{center}}
+
 %%% Documento
 \onehalfspacing
 \addbibresource{artigo.bib}
 
+\thanksmarkseries{arabic}
 
+\title{\textbf{Tecnologia e Artes}, um estudo sobre a tecnologia da informação como meio para compreensão e realização artística \protect\footnote{Trabalho apresentado como pré-requisito para a disciplina de Trabalho de Conclusão de Curso, ao 6º Semestre noturno do curso de Análise e Desenvolvimento de Sistemas, realizado na Faculdade de Tecnologia da Zona Sul, de fevereiro à junho de 2021.}}
 
-\author{Gabriel Almeida Bueno}
-\affil{FATEC Zona Sul}
-\title{Tecnologia e Artes, um estudo sobre a tecnologia da informação como meio para compreensão e realização artística}
+\author{
+Gabriel Almeida Bueno
+\thanks{Aluno do 6º semestre noturno do curso de Análise e Desenvolvimento de Sistemas, Fatec – Zona Sul, e-mail: gabriel.bueno13@fatec.sp.gov.br}
+%
+\and
+%
+Rebecca Bignardi Arambasic Rebelo da Silva
+\thanks{Orientadora do trabalho. Professora Mestre do Curso de Análise e Desenvolvimento de Sistemas da Fatec Zona Sul, e-mail: rebecca.silva3@fatec.sp.gov.br}
+}
+
+\affil{Faculdade de Tecnologia da Zona Sul, São Paulo, SP}
 \date{}
 
 \begin{document}
 
 \maketitle
 
+% Resumo
+% \noindent
+% \textbf{Resumo}
+
+% \noindent
+
+\newpage
 \begin{abstract}
-ablublué
+\noindent
+As artes constituem um precioso valor de expressão de um indivíduo dentro do meio em que vive. O meio de realização artística sempre acompanha a tecnologia contemporânea a sua era. As tecnologias recentes no meio computacional, porém, veem uso somente pragmático, como ferramenta para alcançar algum objetivo prático e imediato. Negligencia-se o valor artístico que poderia advir do uso de uma tecnologia contemporânea. Tais técnicas do homem contemporâneo à quarta revolução industrial devem ser abordadas durante a formação de um indivíduo, não só como meios para um fim, mas também deve-se discorrer sobre como essas tecnologias sustentam a sociedade deste indivíduo, e quais as implicações que sua existência tem sobre ele e seus semelhantes. O presente trabalho tenta, portanto, aliar uma tecnologia recente como a inteligência artificial com o meio artístico, apresentando como prova de conceito a criação de uma rede neural artificial capaz de detectar o movimento estético de uma pintura. Uma pesquisa também foi conduzida para traçar a opinião geral sobre a necessidade da abordagem da tecnologia no ensino artístico.
+
+\noindent
+\textbf{Palavras chave}: arte; arte e tecnologia; tecnologia da informação; inteligência artificial; rede neural artificial.
 \end{abstract}
 
 \selectlanguage{english}
 \begin{abstract}
-ablublueh
-\end{abstract}
+\noindent
+Artistic manifestation gives a powerful mean for an individual to express himself in the community where he sees himself into. 
+The process of art making always evolve side by side with the technology available in its time.
+The recent computational technologies, however, are mainly used pragmatically to solve immediate problems.
+The artistic value that could be produced by contemporary technologies like programmable computers are, by many, neglected.
+Those techniques employed by the 4th industrial revolution men should be brought up during the formation of an individual, not only as a mean to an end, but to build the necessary comprehension of it that he needs to understand the society he lives in and his place inside it, and how the implications this technologies have on himself and on the people next to him.
+The work here elaborated tries to pair a recent technology as the artificial intelligences with the arts, presenting, as a proof of concept, the creation of an artificial neural network capable of detecting the aesthetical movement of a painting. A research was done to track the public opinion of the needs of bringing the recent technologies inside the arts education as a mean to help the students to see more value in those classes.
 
+\noindent
+\textbf{Keywords}: art; art and technology; information technology; artificial intelligence; artifical neural network.
+\end{abstract}
 \selectlanguage{brazilian}
 
 \newpage
