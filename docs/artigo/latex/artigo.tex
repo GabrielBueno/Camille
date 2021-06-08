@@ -365,7 +365,7 @@ O \emph{nêuron artifical} --- bloco fundamental de uma rede neural artificial -
 \end{figure}
 
 \begin{equation}
-(w, b, g) \rightarrow f(x_0, x_1, \dotsc, x_n) = g\left(b + \displaystyle\sum_{i=0}^{n} w_i x_i \right)
+(w, b, g) \rightarrow f(x_0, x_1, ..., x_n) = g\left(b + \displaystyle\sum_{i=0}^{n} w_i x_i \right)
 \end{equation}
 
 Desta forma, um nêuron pode tomar uma decisão com base na importância de cada elemento de entrada. Uma \emph{rede neural artificial} é o encadeamento de camadas de vários nêurons, onde cada nêuron de uma camada intermediária $a$ tem como entrada as saídas de todos os nêurons da camada $a - 1$. Configurações desta natureza são chamadas de redes \emph{feed-forward}, e permitem que a rede neural crie novas abstrações da entrada a cada camada. A primeira camada intermediária toma decisões com base nos elementos da entrada; a segunda camada toma decisões com base nas decisões tomadas pela primeira camada; e assim se sucede até o fim da rede.

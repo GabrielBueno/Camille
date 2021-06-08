@@ -1,0 +1,202 @@
+\documentclass{article}
+
+\usepackage[english, brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[backend=biber,style=abnt]{biblatex}
+\usepackage[autostyle]{csquotes}
+\usepackage{authblk}
+\usepackage[a4paper, left=3cm, right=2cm, top=3cm, bottom=2cm]{geometry}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{mathtools}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\usepackage{float}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{scrextend}
+\usepackage{tasks}
+\usepackage{titling}
+\usepackage{indentfirst}
+
+\pagestyle{empty}
+\begin{document}
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[xlabel=$x$, ylabel=$p(x)$]
+				\addplot[] {x > 0 ? 1 : 0};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Função de ativação do perceptron de Rosenblatt.}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[xlabel=$x$, ylabel=$\sigma(x)$]
+				\addplot[] {1/(1+exp(-x))};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Função sigmoide.}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[xlabel=$x$, ylabel=$ReLU(x)$]
+				\addplot[] {x > 0 ? x : 0};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Função ReLU.}
+		\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				7.9/40 a 49,
+				27/18 a 21,
+				31.7/30 a 39,
+				33.3/22 a 29
+			}
+		\end{tikzpicture}
+		\caption{Idade dos entrevistados.}
+		\label{fig:q1}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				1.6/Prefiro não dizer,
+				1.6/Não-binário,
+				20.6/Feminino,
+				76.2/Masculino
+			}
+		\end{tikzpicture}
+		\caption{Gênero dos entrevistados.}
+		\label{fig:q2}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				6.3/Médio completo,
+				46/Superior incompleto,
+				47.6/Superior completo
+			}
+		\end{tikzpicture}
+		\caption{Escolaridade dos entrevistados.}
+		\label{fig:q3}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				1.6/Não cursaram,
+				1.6/Não lembram,
+				96.8/Cursaram
+			}
+		\end{tikzpicture}
+		\caption{Distribuição da oferta de disciplinas de educação artística no ensino fundamental entre os entrevistados.}
+		\label{fig:q4}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				3.2/Não cursaram,
+				39.7/Não gostavam,
+				57.1/Gostavam
+			}
+		\end{tikzpicture}
+		\caption{Sentimento dos entrevistados em relação às aulas oferecidas no ensino fundamental.}
+		\label{fig:q5}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				3.2/Não lembram,
+				19/Não cursaram,
+				77.8/Cursaram
+			}
+		\end{tikzpicture}
+		\caption{Distribuição da oferta de disciplinas de educação artística no ensino médio entre os entrevistados.}
+		\label{fig:q6}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				19/Não cursaram,
+				28.6/Não gostavam,
+				52.4/Gostavam
+			}
+		\end{tikzpicture}
+		\caption{Sentimento dos entrevistados em relação às aulas oferecidas no ensino médio.}
+		\label{fig:q7}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				3.2/Nem um pouco,
+				30.2/Um pouco,
+				66.7/Essencial
+			}
+		\end{tikzpicture}
+		\caption{Importância atribuída pelos entrevistados à educação artística na formação de um indivíduo.}
+		\label{fig:q8}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				3.2/Não traria benefício,
+				96.8/Traria benefício
+			}
+		\end{tikzpicture}
+		\caption{Opinião dos entrevistados sobre o benefício da integração da tecnologia no modelo convencional de educação.}
+		\label{fig:q9}
+	\end{figure}
+
+	\newpage
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\pie{
+				7.9/Traria interesse,
+				92.1/Não traria interesse
+			}
+		\end{tikzpicture}
+		\caption{Opinião dos entrevistados sobre se a integração da tecnologia com a educação artística fariam com que os alunos se interessasem mais nos assuntos abordados.}
+		\label{fig:q10}
+	\end{figure}
+\end{document}
